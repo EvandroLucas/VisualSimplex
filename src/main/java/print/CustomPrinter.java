@@ -4,18 +4,38 @@ import numbers.Value;
 
 public class CustomPrinter {
 
+    private String desc = "";
+    private String state = "";
+
     private int[] minCols;
 
     private int numDecimals = 1;
     private int numSeparators = 0;
 
-    private int pivotalColumn = 2;
-    private int pivotalLine = 2;
+    private int pivotalColumn = -2;
+    private int pivotalLine = -2;
     private int currentLine = 0;
     private int currentCol = 0;
 
+    //adding a self-destructed description
+    public void setDesc(String desc){
+        this.desc = desc;
+    }
+    public String getDesc(){
+        return this.desc;
+    }
+    public void setState(String state){
+        this.state = state;
+    }
+    public String getState(){
+        String stateToReturn = this.state;
+        this.state = "";
+        return stateToReturn;
+    }
+
     // Para imprimir no terminal, inteiros estão de bom tamanho
-    public void printTableau(Value[][] A, Value[] c, Value[] b, Value z){
+    // Simplesmente copiamos e passamos para inteiros
+    public void printTableau(Value[][] A, Value[] c, Value[] b, Value z, boolean[] basis){
 
         int[][] newA = new int[A.length][A[0].length];
         int[] newc = new int[c.length];
@@ -34,10 +54,14 @@ public class CustomPrinter {
             newb[i] = b[i].intValue();
         }
 
-        printTableau(newA,newc,newb,newz);
+        printTableau(newA,newc,newb,newz,basis);
     }
 
-    public void printTableau(int[][] A, int[] c, int[] b, int z){
+    public void printTableau(int[][] A, int[] c, int[] b, int z, boolean[] basis){
+        System.out.println("===========================================================================");
+
+        if(!desc.equals("")) System.out.println("Desc: " + getDesc());
+        if(!state.equals("")) System.out.println("State: " + getState());
 
         numSeparators++; //incrementa-se para cada matriz passada como parâmetro
         minCols = new int[A[0].length+1];
@@ -60,10 +84,9 @@ public class CustomPrinter {
             minCols[k] = smallestSpacing(thisColumn);
         }
 
-        System.out.println("\nImprimindo Tableau:\n");
-        printArray(c,0);
+        printArray(c,-1);
         printSeparator();
-        printElem(z, 0, A[0].length);
+        printElem(z, -1, A[0].length);
         printHorizontalLine(minCols);
         for (int i = 0; i < A.length; i++){
             printArray(A[i],i);
@@ -71,7 +94,8 @@ public class CustomPrinter {
             printElem(b[i], i, A[0].length);
             System.out.println();
         }
-
+        printBasisArray(basis);
+        System.out.println("===========================================================================");
     }
 
     private int smallestSpacing(int[] array){
@@ -121,21 +145,40 @@ public class CustomPrinter {
         String toPrint;
             if(elem >= 0) {
                 format = " %."+ precision +"f";
-                //System.out.printf(format, elem);
-                toPrint = String.format(format,elem);
-                if((currentCol == pivotalColumn) && (currentLine != pivotalLine))
-                    ColorPrint.printGreenBack(String.format(format,elem));
-                if((currentLine == pivotalLine) && (currentCol != pivotalColumn))
-                    ColorPrint.printGreenBack(String.format(format,elem));
-                if((currentLine == pivotalLine) && (currentCol == pivotalColumn))
-                    ColorPrint.printBlueBack(String.format(format,elem));
-                if((currentLine != pivotalLine) && (currentCol != pivotalColumn))
-                    ColorPrint.printBlack(String.format(format,elem));
             }
             else {
-                format = "%."+ precision +"f";
-                System.out.printf(format, elem);
+                format = "%." + precision + "f";
             }
+            //System.out.printf(format, elem);
+            toPrint = String.format(format,elem);
+            if((currentCol == pivotalColumn) && (currentLine != pivotalLine))
+                ColorPrint.printGreenBack(toPrint);
+            if((currentLine == pivotalLine) && (currentCol != pivotalColumn))
+                ColorPrint.printGreenBack(toPrint);
+            if((currentLine == pivotalLine) && (currentCol == pivotalColumn))
+                ColorPrint.printBlueBack(toPrint);
+            if((currentLine != pivotalLine) && (currentCol != pivotalColumn))
+                ColorPrint.printBlack(toPrint);
+
+
+    }
+
+    private void printBasisElem(boolean basis){
+        printSpacesColumn(0.0,currentCol);
+        String format = " %."+ this.numDecimals +"f";
+        String sizeStr;
+        sizeStr = String.format(format,0.0);
+        String toPrint;
+        if(basis){
+            toPrint = "^";
+        }
+        else {
+            toPrint = " ";
+        }
+        for(int i = 0; i< sizeStr.length()-1; i++){
+            System.out.print(" ");
+        }
+        ColorPrint.printBlue(toPrint);
     }
 
     private void printArray(int [] array){
@@ -147,6 +190,13 @@ public class CustomPrinter {
             currentCol = j;
             printElem(array[j]);
         }
+    }
+    private void printBasisArray(boolean [] array){
+        for(int j = 0; j < array.length;j++){
+            currentCol = j;
+            printBasisElem(array[j]);
+        }
+        System.out.println();
     }
     private void printHorizontalLine(int[] minCols){
         System.out.print("\n");
@@ -178,11 +228,12 @@ public class CustomPrinter {
         numDecimals = i;
     }
 
-    private void setPivotalLine(int index){
+    public void setPivotalRow(int index){
         pivotalLine = index;
     }
-    private void setPivotalColumn(int index){
+    public void setPivotalColumn(int index){
         pivotalColumn = index;
     }
+
 
 }

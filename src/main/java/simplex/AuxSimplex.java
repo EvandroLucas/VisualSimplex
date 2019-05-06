@@ -13,4 +13,14 @@ public class AuxSimplex extends Simplex{
     public void run() {
 
     }
+
+    @Override
+    protected void updatePivotRow() {
+
+    }
+
+    @Override
+    protected void updatePivotColumn() {
+
+    }
 }

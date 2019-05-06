@@ -1,5 +1,7 @@
 package numbers;
 
+import logging.Logger;
+
 public class Value{
 
     private Double value;
@@ -13,7 +15,6 @@ public class Value{
     public Value(Value value){
         this.value = value.doubleValue();
     }
-
 
     public void assign (Integer value){
         assign(new Value(value));
@@ -75,6 +76,10 @@ public class Value{
     }
 
     public Value div(Value value) {
+        if(value.isZero()){
+            Logger.println("error","Division by zero!!!!");
+            System.exit(1);
+        }
         return new Value(this.value/value.doubleValue());
     }
 
@@ -99,5 +104,35 @@ public class Value{
 
     public boolean isNegative(){
         return (this.value < 0);
+    }
+
+    public boolean isSmallerThan(Value v){
+        return (this.doubleValue() < v.doubleValue());
+    }
+    public boolean isGreaterThan(Value v){
+        return (this.doubleValue() > v.doubleValue());
+    }
+    public boolean isEqualTo(Value v){
+        return (this.doubleValue().equals(v.doubleValue()));
+    }
+    public boolean isEqualTo(Integer v){
+        return isEqualTo(new Value(v));
+    }
+    public boolean isEqualTo(Double v){
+        return isEqualTo(new Value(v));
+    }
+    public boolean isNotEqualTo(Value v){
+        return (!this.doubleValue().equals(v.doubleValue()));
+    }
+    public boolean isNotEqualTo(Integer v){
+        return isNotEqualTo(new Value(v));
+    }
+    public boolean isNotEqualTo(Double v){
+        return isNotEqualTo(new Value(v));
+    }
+
+    @Override
+    public String toString(){
+        return "" + this.doubleValue();
     }
 }

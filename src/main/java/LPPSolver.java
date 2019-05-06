@@ -1,3 +1,4 @@
+import logging.Logger;
 import numbers.Value;
 import simplex.*;
 
@@ -18,7 +19,7 @@ public class LPPSolver {
 
 
     public void readFromFile(File file) {
-
+        Logger.println("info","Reading data from file...");
         try {
             Scanner scanner = new Scanner(file);
             constraintNum = scanner.nextInt();
@@ -42,16 +43,12 @@ public class LPPSolver {
                 for (int j = 0; j < tableau[i].length; j++) {
                     //Preenche z, que não será usado agora
                     if (i == 0 && j == tableau[i].length - 1) {
-                        //tableau[i][j] = 0;
                         tableau[i][j].assign(0);
                     }
                     else {
-                        //tableau[i][j] = scanner.nextInt();
                         tableau[i][j].assign(scanner.nextInt());
                         //Membros do vetor c vão para o vetor c
                         if(i==0){
-                            //tableau[i][j] = tableau[i][j] * (-1);
-                            //c[j] = tableau[i][j];
                             tableau[i][j].mult(-1);
                             c[j].assign(tableau[i][j]);
                         }
@@ -73,92 +70,88 @@ public class LPPSolver {
 
     public void runSimplex(){
 
-        Simplex simplex = null;
-        //Checamos a dual:
+        Simplex simplex;
+        Logger.println("info","Checking simplex type");
         if (canRunDual()){
-            System.out.println("Vai dual!");
+            Logger.println("info","Will run the dual simplex method");
              simplex = new DualSimplex(tableau);
         }
         else if (canRunPrimal()){
-            System.out.println("Vai primal!");
+            Logger.println("info","Will run the primal simplex method");
             simplex = new PrimalSimplex(tableau);
         }
         else if (canRunAux()){
-            System.out.println("Vai aux!");
+            Logger.println("info","Will run the auxiliar simplex method");
             simplex = new AuxSimplex(tableau);
         }
-
+        else {
+            Logger.println("severe","Simplex denied");
+            simplex = null;
+            System.exit(1);
+        }
+        Logger.println("info","Ready to run");
         simplex.run();
-
-
     }
 
-    public boolean canRunDual(){
+    private boolean canRunDual(){
         for(int i=0; i< c.length; i++){
-            if(c[i].isNegative()){
-                // Não pode dual, tem negativo em c
+            if(c[i].isPositive()){
+                // Não pode dual, tem negativo em -c
                 toRunAsDual = false;
                 return false;
             }
         }
-
-        //se chegou aqui, nao tem negativo em c
+        //se chegou aqui, nao tem negativo em -c
         //agora checamos para ver se b tem negativo
         //tem que ter, caso contrario fazemos auxiliar
         for(int i=0; i< b.length; i++){
             if(b[i].isNegative()){
-                //Pode fazer dual, nao tem negativo em c, mas tem negativo em b
+                //Pode fazer dual, nao tem negativo em -c, mas tem negativo em b
                 toRunAsDual = true;
                 return true;
             }
         }
-
-        //se chegou aqui, nao tem negativo nem em c nem em b
+        //se chegou aqui, nao tem negativo nem em -c nem em b
         //nesse caso, temos que fazer o auxiliar
         // ou seja, nao pode dual, ja que nao tem negativo em nenhum dos dois
         return false;
     }
 
-    public boolean canRunPrimal(){
+    private boolean canRunPrimal(){
 
-        boolean hasNegative = false;
+        boolean hasPositive = false;
 
-        //se tiver negativo em c, podemos fazer o primal
+        //se tiver negativo em -c, podemos fazer o primal
         for(int i=0; i < c.length; i++){
-            if(c[i].isNegative()){
-                hasNegative = true;
+            if(c[i].isPositive()){
+                hasPositive = true;
                 break;
             }
         }
-        if(!hasNegative) {
-            //Nao pode primal, nao tem negativo em c
+        if(!hasPositive) {
+            //Nao pode primal, nao tem negativo em -c
             return false;
         }
-        //se chegou aqui,tem negativo em c
+        //se chegou aqui,tem negativo em -c
         //agora temos que chegar se tem algum negativo em b
         //se tiver, temos que fazer auxiliar
         for(int i=0; i< b.length; i++){
             if(b[i].isNegative()){
-                //Nao pode primal, tem negativo em c, mas tambem tem em b
+                //Nao pode primal, tem negativo em -c, mas tambem tem em b
                 return false;
             }
         }
-        //se chegou aqui, tem negativo em c mas nao tem em b
+        //se chegou aqui, tem negativo em -c mas nao tem em b
         //faremos primal
-        //Pode fazer primal, tem negativo em c, mas nao tem em b
+        //Pode fazer primal, tem negativo em -c, mas nao tem em b
 
         return true;
     }
 
-    public boolean canRunAux(){
+    private boolean canRunAux(){
         //sempre podemos fazer se recebermos uma PL na forma padrão
-        return true;
+        return false;
     }
 
-
-
-    public void printConsoleResult(){
-
-    }
 
 }

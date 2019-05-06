@@ -14,5 +14,15 @@ public class DualSimplex extends Simplex{
 
     }
 
+    @Override
+    protected void updatePivotRow() {
+
+    }
+
+    @Override
+    protected void updatePivotColumn() {
+
+    }
+
 
 }
