@@ -1,13 +1,15 @@
 package simplex;
 
+import numbers.Value;
+
 public class PrimalSimplex extends Simplex{
 
 
-    public PrimalSimplex(int[][] tableauInput) {
+    public PrimalSimplex(Value[][] tableauInput) {
         super(tableauInput);
     }
 
-    @Override
+
     public void run(){
 
     }

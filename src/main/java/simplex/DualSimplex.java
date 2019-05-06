@@ -1,13 +1,15 @@
 package simplex;
 
+import numbers.Value;
+
 public class DualSimplex extends Simplex{
 
 
-    public DualSimplex(int[][] tableauInput) {
+    public DualSimplex(Value[][] tableauInput) {
         super(tableauInput);
     }
 
-    @Override
+
     public void run(){
 
     }

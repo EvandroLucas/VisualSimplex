@@ -44,43 +44,45 @@ public class ColorPrint {
 
     }
 
-
+    public static void printBlack(String str){
+        System.out.print(str);
+    }
     public static void printRed(String str){
-        System.out.println(ANSI_RED + str + ANSI_RESET);
+        System.out.print(ANSI_RED + str + ANSI_RESET);
     }
     public static void printYellow(String str){
-        System.out.println(ANSI_YELLOW + str + ANSI_RESET);
+        System.out.print(ANSI_YELLOW + str + ANSI_RESET);
     }
     public static void printGreen(String str){
-        System.out.println(ANSI_GREEN + str + ANSI_RESET);
+        System.out.print(ANSI_GREEN + str + ANSI_RESET);
     }
     public static void printCyan(String str){
-        System.out.println(ANSI_CYAN + str + ANSI_RESET);
+        System.out.print(ANSI_CYAN + str + ANSI_RESET);
     }
     public static void printBlue(String str){
-        System.out.println(ANSI_BLUE + str + ANSI_RESET);
+        System.out.print(ANSI_BLUE + str + ANSI_RESET);
     }
     public static void printPurple(String str){
-        System.out.println(ANSI_PURPLE + str + ANSI_RESET);
+        System.out.print(ANSI_PURPLE + str + ANSI_RESET);
     }
 
     public static void printRedBack(String str){
-        System.out.println(ANSI_RED_BACKGROUND + str + ANSI_RESET);
+        System.out.print(ANSI_RED_BACKGROUND + str + ANSI_RESET);
     }
     public static void printYellowBack(String str){
-        System.out.println(ANSI_YELLOW_BACKGROUND + str + ANSI_RESET);
+        System.out.print(ANSI_YELLOW_BACKGROUND + str + ANSI_RESET);
     }
     public static void printGreenBack(String str){
-        System.out.println(ANSI_GREEN_BACKGROUND + str + ANSI_RESET);
+        System.out.print(ANSI_GREEN_BACKGROUND + str + ANSI_RESET);
     }
     public static void printCyanBack(String str){
-        System.out.println(ANSI_CYAN_BACKGROUND + str + ANSI_RESET);
+        System.out.print(ANSI_CYAN_BACKGROUND + str + ANSI_RESET);
     }
     public static void printBlueBack(String str){
-        System.out.println(ANSI_BLUE_BACKGROUND + str + ANSI_RESET);
+        System.out.print(ANSI_BLUE_BACKGROUND + str + ANSI_RESET);
     }
     public static void printPurpleBack(String str){
-        System.out.println(ANSI_PURPLE_BACKGROUND + str + ANSI_RESET);
+        System.out.print(ANSI_PURPLE_BACKGROUND + str + ANSI_RESET);
     }
     public static void printWhiteBack(String str){
         System.out.println(ANSI_WHITE_BACKGROUND + ANSI_BLACK + str + ANSI_RESET);

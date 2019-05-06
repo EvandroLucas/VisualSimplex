@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         ColorPrint.printYellowBack("COMEÇOU!");
-        String fileName = "input/input4.txt";
+        String fileName = "input/input1.txt";
         System.out.println("Lendo: " + fileName);
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());

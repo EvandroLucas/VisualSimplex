@@ -1,3 +1,4 @@
+import numbers.Value;
 import simplex.*;
 
 import java.io.File;
@@ -9,9 +10,9 @@ public class LPPSolver {
 
     private int constraintNum = 0;
     private int variableNum = 0;
-    private int[][] tableau;
-    private int[] c;
-    private int[] b;
+    private Value[][] tableau;
+    private Value[] c;
+    private Value[] b;
     boolean toRunAsDual = false;
     boolean toRunAsPrimal= false;
 
@@ -22,26 +23,41 @@ public class LPPSolver {
             Scanner scanner = new Scanner(file);
             constraintNum = scanner.nextInt();
             variableNum = scanner.nextInt();
-            tableau = new int[constraintNum + 1][variableNum + 1];
-            c = new int[variableNum];
-            b = new int[constraintNum];
+            tableau = new Value[constraintNum + 1][variableNum + 1];
+                for(int i =0; i < tableau.length; i++){
+                    for(int j =0; j < tableau[i].length; j++){
+                        tableau[i][j] = new Value(0);
+                    }
+                }
+            c = new Value[variableNum];
+                for(int i =0; i < c.length; i++){
+                    c[i] = new Value(0);
+                }
+            b = new Value[constraintNum];
+                for(int i =0; i < b.length; i++){
+                    b[i] = new Value(0);
+                }
 
             for (int i = 0; i < tableau.length; i++) {
                 for (int j = 0; j < tableau[i].length; j++) {
                     //Preenche z, que não será usado agora
                     if (i == 0 && j == tableau[i].length - 1) {
-                        tableau[i][j] = 0;
+                        //tableau[i][j] = 0;
+                        tableau[i][j].assign(0);
                     }
                     else {
-                        tableau[i][j] = scanner.nextInt();
+                        //tableau[i][j] = scanner.nextInt();
+                        tableau[i][j].assign(scanner.nextInt());
                         //Membros do vetor c vão para o vetor c
                         if(i==0){
-                            tableau[i][j] = tableau[i][j] * (-1);
-                            c[j] = tableau[i][j];
+                            //tableau[i][j] = tableau[i][j] * (-1);
+                            //c[j] = tableau[i][j];
+                            tableau[i][j].mult(-1);
+                            c[j].assign(tableau[i][j]);
                         }
                         //Membros do vetor b vão para o vetor b
                         else if(j==variableNum && i!=0){
-                            b[i-1] = tableau[i][j];
+                            b[i-1].assign(tableau[i][j]);
                         }
                     }
                 }
@@ -52,9 +68,7 @@ public class LPPSolver {
             fnf.printStackTrace();
             System.exit(1);
         }
-
-        c = tableau[0];
-
+        c = tableau[0].clone();
     }
 
     public void runSimplex(){
@@ -81,7 +95,7 @@ public class LPPSolver {
 
     public boolean canRunDual(){
         for(int i=0; i< c.length; i++){
-            if(c[i] < 0){
+            if(c[i].isNegative()){
                 // Não pode dual, tem negativo em c
                 toRunAsDual = false;
                 return false;
@@ -92,7 +106,7 @@ public class LPPSolver {
         //agora checamos para ver se b tem negativo
         //tem que ter, caso contrario fazemos auxiliar
         for(int i=0; i< b.length; i++){
-            if(b[i] < 0){
+            if(b[i].isNegative()){
                 //Pode fazer dual, nao tem negativo em c, mas tem negativo em b
                 toRunAsDual = true;
                 return true;
@@ -111,7 +125,7 @@ public class LPPSolver {
 
         //se tiver negativo em c, podemos fazer o primal
         for(int i=0; i < c.length; i++){
-            if(c[i] < 0){
+            if(c[i].isNegative()){
                 hasNegative = true;
                 break;
             }
@@ -124,7 +138,7 @@ public class LPPSolver {
         //agora temos que chegar se tem algum negativo em b
         //se tiver, temos que fazer auxiliar
         for(int i=0; i< b.length; i++){
-            if(b[i] < 0){
+            if(b[i].isNegative()){
                 //Nao pode primal, tem negativo em c, mas tambem tem em b
                 return false;
             }
