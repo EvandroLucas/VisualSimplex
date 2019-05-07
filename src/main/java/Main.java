@@ -8,8 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ColorPrint.printYellowBack("COMEÇOU!");
-        String fileName = "input/input2.txt";
+        //String fileName = "input/dual/inputDualOtima.txt";
+        String fileName = "input/aux/inputAuxOpt.txt";
+        //String fileName = "input/input1.txt";
         Logger.println("info","Loading file : " + fileName);
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());

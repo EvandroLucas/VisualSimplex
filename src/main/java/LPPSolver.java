@@ -150,7 +150,8 @@ public class LPPSolver {
 
     private boolean canRunAux(){
         //sempre podemos fazer se recebermos uma PL na forma padrão
-        return false;
+
+        return true;
     }
 
 

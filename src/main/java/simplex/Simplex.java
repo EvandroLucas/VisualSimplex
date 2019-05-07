@@ -20,15 +20,28 @@ public abstract class Simplex {
     protected Value[][] relax;
     protected Value[][] Reg;
 
+    protected boolean isOptimal = false;
+    protected boolean isUnbounded = false;
+    protected boolean isInfeasible = false;
+
     protected int pivotRowIndex;
     protected int pivotColumnIndex;
+
+    protected int constraintNum = 0;
+    protected int variableNum = 0;
+
+    protected boolean done = false;
 
     protected CustomPrinter printer = new CustomPrinter();
 
     public Simplex (Value[][] tableauInput){
 
+
         int numVar = tableauInput[0].length -1;
         int numCons = tableauInput.length -1;
+
+        this.variableNum = numVar;
+        this.constraintNum =numCons;
 
         c = new Value[numVar];
         b = new Value[numCons];
@@ -99,6 +112,14 @@ public abstract class Simplex {
 
 
     protected void pivot(){
+        printer.setDesc("Before pivoting");
+        printer.printTableau(A,c,b,z,basis);
+        pivot(this.pivotRowIndex,this.pivotColumnIndex,this.A,this.basis);
+        printer.setDesc("After pivoting");
+        printer.printTableau(A,c,b,z,basis);
+    }
+
+    protected void pivot(int pivotRowIndex, int pivotColumnIndex, Value[][] A, boolean[] basis){
         Logger.println("info","Pivoting!");
 
         Value pivot = new Value(0); //guarda o pivot
@@ -113,32 +134,37 @@ public abstract class Simplex {
         }
         basis[pivotColumnIndex] = true;
 
+        //For the pivotal line
         for (int j = 0; j < A[pivotRowIndex].length; j++){
-            A[pivotRowIndex][j].assign(A[pivotRowIndex][j].div(pivot)); //divide a linha pivotal inteira pelo pivot
+            A[pivotRowIndex][j].assign(A[pivotRowIndex][j].div(pivot));
         }
+        b[pivotRowIndex].assign(b[pivotRowIndex].div(pivot));
         if(A[pivotRowIndex][pivotColumnIndex].isNotEqualTo(1) ){ //erro!
             Logger.println("severe","Erro no pivoteamento!");
             System.exit(1);
         }
+        //No for the rest
         for (int i = 0; i < A.length; i++){ // fazemos a conta com todos os elementos da matriz
-            mult = A[i][pivotColumnIndex];
+            mult.assign(A[i][pivotColumnIndex]);
+            System.out.println("Mult is " + mult);
             if (i != pivotRowIndex){ //ignoramos a linha pivotal, ela ja foi
                 //Para a matriz A e concatenada
                 for (int j = 0; j < A[i].length; j++){
+                    //System.out.print("" + A[i][j] + "is now "+ A[i][j] + " - " + A[pivotRowIndex][j] + "* " + mult + " = ");
                     A[i][j].assign(A[i][j].sub(A[pivotRowIndex][j].mult(mult)));
+                    //System.out.println(" " + A[i][j]);
                 }
                 //Para o vetor b
                 b[i].assign(b[i].sub(b[pivotRowIndex].mult(mult)));
                 //Para a primeira linha do tableau
             }
             if(i==0){
-                mult = c[pivotColumnIndex];
+                mult.assign(c[pivotColumnIndex]);
                 //Para z
                 z.assign(z.sub(b[pivotRowIndex].mult(mult)));
-                //z.assign(z.sub(mult));
                 //Para o vetor c
                 for (int j = 0; j < c.length; j++){
-                    mult = c[pivotColumnIndex];
+                    //mult = c[pivotColumnIndex];
                     c[j].assign(c[j].sub(A[pivotRowIndex][j].mult(mult)));
                 }
             }
@@ -178,6 +204,14 @@ public abstract class Simplex {
             c[j+a.length] = new Value(b[j]);
         }
         return c;
+    }
+
+    protected void printThisTableau(){
+        printer.printTableau(A,c,b,z,basis);
+    }
+
+    public Value getZ(){
+        return this.z;
     }
 
 

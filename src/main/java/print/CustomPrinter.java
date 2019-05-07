@@ -156,7 +156,7 @@ public class CustomPrinter {
             if((currentLine == pivotalLine) && (currentCol != pivotalColumn))
                 ColorPrint.printGreenBack(toPrint);
             if((currentLine == pivotalLine) && (currentCol == pivotalColumn))
-                ColorPrint.printBlueBack(toPrint);
+                ColorPrint.printCyanBack(toPrint);
             if((currentLine != pivotalLine) && (currentCol != pivotalColumn))
                 ColorPrint.printBlack(toPrint);
 

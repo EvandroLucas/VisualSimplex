@@ -3,13 +3,13 @@ package simplex;
 import logging.Logger;
 import numbers.Fraction;
 import numbers.Value;
-import org.omg.PortableInterceptor.LOCATION_FORWARD;
+import print.ColorPrint;
 
 import java.time.LocalDate;
 
 public class PrimalSimplex extends Simplex{
 
-    private boolean done = false;
+
     public PrimalSimplex(Value[][] tableauInput) {
         super(tableauInput);
         //Inverting the signs for c vector
@@ -20,45 +20,33 @@ public class PrimalSimplex extends Simplex{
 
 
     @Override
-    public void run(){
-        Logger.println("info","Running primal simplex");
-        boolean fim = false;
-        int aux = 0;
-        pivotRowIndex = 0;
-        int limitCount = 10;
-        int counter = 0;
+    public void run() {
+        Logger.println("info", "Running primal simplex");
 
-        while (!done){
-            if(counter < limitCount) {
-                counter++;
-            }
-            else {
-                Logger.println("severe", "Limit exceeded!");
-                System.exit(1);
-            }
 
+        while (!done) {
             updatePivotColumn();
-            if(done){
+            if (done) {
                 //nesse caso, o simplex  eh  viavel e limitado
-                Logger.println("info","Simplex pronto");
+                Logger.println("info", "Simplex pronto");
+                isOptimal = true;
                 return;
             }
             updatePivotRow();
-            if(pivotRowIndex < 0){
+            if (done) {
                 //um valor negativo retornado indica que nao foi encontrada
                 //nesse caso, o simplex  eh  ilimitado
-                Logger.println("warning","Simplex Ilimitado: nao foi encontrada nenhuma ratio positiva");
+                Logger.println("warning", "Simplex Ilimitado: nao foi encontrada nenhuma ratio positiva");
                 done = true;
+                isUnbounded = true;
                 return;
             }
-            Logger.println("debug","Linha pivotal = " + pivotRowIndex );
-            Logger.println("debug","Elemento = " + A[pivotRowIndex][pivotColumnIndex] );
-            printer.setDesc("Before pivoting");
-            printer.printTableau(A,c,b,z,basis);
+
             pivot();
-            printer.setDesc("After pivoting");
-            printer.printTableau(A,c,b,z,basis);
+
         }
+        isOptimal = true;
+        return;
     }
 
     @Override
@@ -99,6 +87,7 @@ public class PrimalSimplex extends Simplex{
         }
         if(!foundPositive){
             Logger.print("warning" , "Is unlimited");
+            done = true;
             System.exit(1);
         }
         Logger.println("debug","Pivot row updated to: " + pivotRowIndex);
@@ -117,6 +106,7 @@ public class PrimalSimplex extends Simplex{
         Logger.println("debug","Pivot column updated to: " + pivotColumnIndex + " with c[pc] = " + c[pivotColumnIndex]);
         printer.setPivotalColumn(pivotColumnIndex);
     }
+
 
 
 }
