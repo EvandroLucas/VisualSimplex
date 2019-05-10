@@ -8,12 +8,15 @@ public class Value{
 
     public Value(Integer value){
         this.value = new Double(value);
+        //this.value = Double.parseDouble(String.format("%.7f", this.value));
     }
     public Value(Double value){
         this.value = value;
+        //this.value = Double.parseDouble(String.format("%.7f", this.value));
     }
     public Value(Value value){
         this.value = value.doubleValue();
+        //this.value = Double.parseDouble(String.format("%.7f", this.value));
     }
 
     public void assign (Integer value){
@@ -26,8 +29,12 @@ public class Value{
 
     public void assign (Value value){
         this.value =  value.doubleValue();
+        this.value = Double.parseDouble(String.format("%.7f", this.value));
     }
 
+    public void round(){
+        this.value = Double.parseDouble(String.format("%.5f", this.value));
+    }
 
     public Value add(Integer value) {
         return add(new Value(value));

@@ -1,3 +1,5 @@
+package app;
+
 import logging.Logger;
 import numbers.Value;
 import simplex.*;
@@ -46,7 +48,7 @@ public class LPPSolver {
                         tableau[i][j].assign(0);
                     }
                     else {
-                        tableau[i][j].assign(scanner.nextInt());
+                        tableau[i][j].assign( scanner.nextDouble() );
                         //Membros do vetor c vão para o vetor c
                         if(i==0){
                             tableau[i][j].mult(-1);
@@ -150,7 +152,6 @@ public class LPPSolver {
 
     private boolean canRunAux(){
         //sempre podemos fazer se recebermos uma PL na forma padrão
-
         return true;
     }
 

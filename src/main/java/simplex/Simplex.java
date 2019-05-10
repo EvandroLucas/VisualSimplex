@@ -5,27 +5,14 @@ import logging.Logger;
 import numbers.Value;
 import print.CustomPrinter;
 
-import java.time.LocalTime;
 
 public abstract class Simplex {
 
-    protected Value[] c;
-    protected Value z;
-    protected Value[] b;
-    protected Value[] certOtim;
-    protected Value[] certIlim;
-    protected Value[] certInv;
-    protected boolean[] basis;
-    protected Value[][] A;
-    protected Value[][] relax;
-    protected Value[][] Reg;
+    protected Tableau tableau;
 
     protected boolean isOptimal = false;
     protected boolean isUnbounded = false;
     protected boolean isInfeasible = false;
-
-    protected int pivotRowIndex;
-    protected int pivotColumnIndex;
 
     protected int constraintNum = 0;
     protected int variableNum = 0;
@@ -36,90 +23,47 @@ public abstract class Simplex {
 
     public Simplex (Value[][] tableauInput){
 
-
-        int numVar = tableauInput[0].length -1;
-        int numCons = tableauInput.length -1;
-
-        this.variableNum = numVar;
-        this.constraintNum =numCons;
-
-        c = new Value[numVar];
-        b = new Value[numCons];
-            for(int i =0; i < b.length; i++){
-                b[i] = new Value(0);
-            }
-        certOtim = new Value[numVar];
-        certIlim = new Value[numVar];
-        certInv  = new Value[numVar];
-
-        for(int i =0; i < numVar; i++){
-            c[i] = new Value(0);
-            certOtim[i] = new Value(0);
-            certIlim[i] = new Value(0);
-            certInv[i]  = new Value(0);
-        }
-        //Received matrix
-        A  = new Value[numCons][numVar];
-        for(int i =0; i < A.length; i++){
-            for(int j =0; j < A[i].length; j++){
-                A[i][j] = new Value(0);
-            }
-        }
-        //Identity matrix to concatenate into new one
-        //and corresponding C array
-        relax  = new Value[A.length][A.length];
-        Value[] zeroArray = new Value[relax.length];
-        for(int i =0; i < relax.length; i++){
-            zeroArray[i] = new Value(0);
-            for(int j =0; j < relax[i].length; j++){
-                if(i==j) relax[i][j] = new Value(1);
-                else relax[i][j] = new Value(0);
-            }
-        }
-
-        //monta o tableau
-        for (int i = 0; i < tableauInput.length; i++){
-            for(int j = 0; j < tableauInput[i].length;j++){
-                if(i == 0 && j < numVar){
-                    c[j].assign(tableauInput[i][j]);
-                }
-                if(i > 0 && j < numVar ){
-                    A[i-1][j].assign(tableauInput[i][j]);
-                }
-                if(i < numCons && j==numVar){
-                    b[i].assign(tableauInput[i+1][j]);
-                }
-            }
-        }
-        A = concatenateTwoMatrixesSideBySide(A,relax);
-        c = concatenateTwoArraysSideBySide(c,zeroArray);
-
-        //Simple basis checking, would be different if relax had different format
-        basis = new boolean[A[0].length];
-        for(int i = 0; i < basis.length;i++){
-            basis[i] = i >= A.length;
-        }
-
-        //TODO: trocar referencia
-        z = new Value(0);
+        constraintNum = tableauInput.length-1;
+        variableNum = tableauInput[0].length-1;
+        tableau = new Tableau(tableauInput,true);
         printer.setState("Setup");
         printer.setDesc("Received simplex to solve");
-        printer.printTableau(A,c,b,z,basis);
+        printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
 
+    }
+
+    public Simplex (Tableau tableau){
+        constraintNum = tableau.A.length;
+        variableNum = tableau.A[0].length;
+        this.tableau = tableau;
+        printer.setState("Setup");
+        printer.setDesc("Received simplex to solve");
+        printer.printTableau(this.tableau .A,this.tableau .c,this.tableau .b,this.tableau .z,this.tableau .basis);
     }
 
     public abstract void run();
 
 
     protected void pivot(){
-        printer.setDesc("Before pivoting");
-        printer.printTableau(A,c,b,z,basis);
-        pivot(this.pivotRowIndex,this.pivotColumnIndex,this.A,this.basis);
-        printer.setDesc("After pivoting");
-        printer.printTableau(A,c,b,z,basis);
+        //printer.setDesc("Before pivoting");
+        //printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
+        pivot(this.tableau);
+        //printer.setDesc("After pivoting");
+        //printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
     }
 
-    protected void pivot(int pivotRowIndex, int pivotColumnIndex, Value[][] A, boolean[] basis){
+    protected void pivot(Tableau tableau){
+
+        printer.setDesc("Before pivoting");
+        printer.printTableau(tableau);
+
+
+        int pivotRowIndex = tableau.pivotRowIndex;
+        int pivotColumnIndex = tableau.pivotColumnIndex;
+
+        Value[][] A = tableau.A;
+        boolean[] basis = tableau.basis;
+
         Logger.println("info","Pivoting!");
 
         Value pivot = new Value(0); //guarda o pivot
@@ -138,37 +82,42 @@ public abstract class Simplex {
         for (int j = 0; j < A[pivotRowIndex].length; j++){
             A[pivotRowIndex][j].assign(A[pivotRowIndex][j].div(pivot));
         }
-        b[pivotRowIndex].assign(b[pivotRowIndex].div(pivot));
+        tableau.b[pivotRowIndex].assign(tableau.b[pivotRowIndex].div(pivot));
         if(A[pivotRowIndex][pivotColumnIndex].isNotEqualTo(1) ){ //erro!
             Logger.println("severe","Erro no pivoteamento!");
             System.exit(1);
         }
         //No for the rest
-        for (int i = 0; i < A.length; i++){ // fazemos a conta com todos os elementos da matriz
-            mult.assign(A[i][pivotColumnIndex]);
+        for (int i = 0; i < tableau.A.length; i++){ // fazemos a conta com todos os elementos da matriz
+            mult.assign(tableau.A[i][pivotColumnIndex]);
             System.out.println("Mult is " + mult);
             if (i != pivotRowIndex){ //ignoramos a linha pivotal, ela ja foi
                 //Para a matriz A e concatenada
-                for (int j = 0; j < A[i].length; j++){
+                for (int j = 0; j < tableau.A[i].length; j++){
                     //System.out.print("" + A[i][j] + "is now "+ A[i][j] + " - " + A[pivotRowIndex][j] + "* " + mult + " = ");
-                    A[i][j].assign(A[i][j].sub(A[pivotRowIndex][j].mult(mult)));
+                    tableau.A[i][j].assign(tableau.A[i][j].sub(tableau.A[pivotRowIndex][j].mult(mult)));
                     //System.out.println(" " + A[i][j]);
                 }
                 //Para o vetor b
-                b[i].assign(b[i].sub(b[pivotRowIndex].mult(mult)));
+                tableau.b[i].assign(tableau.b[i].sub(tableau.b[pivotRowIndex].mult(mult)));
                 //Para a primeira linha do tableau
             }
             if(i==0){
-                mult.assign(c[pivotColumnIndex]);
+                mult.assign(tableau.c[pivotColumnIndex]);
                 //Para z
-                z.assign(z.sub(b[pivotRowIndex].mult(mult)));
+                tableau.z.assign(tableau.z.sub(tableau.b[pivotRowIndex].mult(mult)));
                 //Para o vetor c
-                for (int j = 0; j < c.length; j++){
+                for (int j = 0; j < tableau.c.length; j++){
                     //mult = c[pivotColumnIndex];
-                    c[j].assign(c[j].sub(A[pivotRowIndex][j].mult(mult)));
+                    tableau.c[j].assign(tableau.c[j].sub(tableau.A[pivotRowIndex][j].mult(mult)));
                 }
             }
         }
+
+        printer.setDesc("After pivoting");
+        printer.printTableau(tableau);
+
+
         Logger.println("info","Done pivoting!");
         //Logger.println("severe","Erro no pivoteamento!");
         //System.exit(1);
@@ -206,16 +155,16 @@ public abstract class Simplex {
         return c;
     }
 
-    protected void printThisTableau(){
-        printer.printTableau(A,c,b,z,basis);
+    protected void printThisTableau(Tableau thisTableau){
+        printer.printTableau(thisTableau);
     }
-
-    public Value getZ(){
-        return this.z;
+    protected void printThisTableau(){
+        printer.printTableau(this.tableau);
     }
 
 
     protected abstract void updatePivotRow();
     protected abstract void updatePivotColumn();
+
 
 }

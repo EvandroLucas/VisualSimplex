@@ -1,6 +1,7 @@
 package print;
 
 import numbers.Value;
+import simplex.Tableau;
 
 public class CustomPrinter {
 
@@ -33,31 +34,36 @@ public class CustomPrinter {
         return stateToReturn;
     }
 
+    public void printTableau(Tableau tableau){
+        setPivotalRow(tableau.pivotRowIndex);
+        setPivotalColumn(tableau.pivotColumnIndex);
+        printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
+    }
     // Para imprimir no terminal, inteiros estão de bom tamanho
     // Simplesmente copiamos e passamos para inteiros
     public void printTableau(Value[][] A, Value[] c, Value[] b, Value z, boolean[] basis){
 
-        int[][] newA = new int[A.length][A[0].length];
-        int[] newc = new int[c.length];
-        int[] newb = new int[b.length];
-        int newz = z.intValue();
+        double[][] newA = new double[A.length][A[0].length];
+        double[] newc = new double[c.length];
+        double[] newb = new double[b.length];
+        double newz = z.doubleValue();
 
         for(int i = 0; i < A.length; i++){
             for(int j = 0; j < A[i].length; j++){
-                newA[i][j] = A[i][j].intValue();
+                newA[i][j] = A[i][j].doubleValue();
             }
         }
         for(int i = 0; i < c.length; i++){
-            newc[i] = c[i].intValue();
+            newc[i] = c[i].doubleValue();
         }
         for(int i = 0; i < b.length; i++){
-            newb[i] = b[i].intValue();
+            newb[i] = b[i].doubleValue();
         }
 
         printTableau(newA,newc,newb,newz,basis);
     }
 
-    public void printTableau(int[][] A, int[] c, int[] b, int z, boolean[] basis){
+    public void printTableau(double[][] A, double[] c, double[] b, double z, boolean[] basis){
         System.out.println("===========================================================================");
 
         if(!desc.equals("")) System.out.println("Desc: " + getDesc());
@@ -65,7 +71,7 @@ public class CustomPrinter {
 
         numSeparators++; //incrementa-se para cada matriz passada como parâmetro
         minCols = new int[A[0].length+1];
-        int[] thisColumn = new int[A.length+1];
+        double[] thisColumn = new double[A.length+1];
 
         for (int k = 0; k < minCols.length; k++){
 
@@ -86,19 +92,25 @@ public class CustomPrinter {
 
         printArray(c,-1);
         printSeparator();
+        int saveNumDecimals = this.numDecimals;
+        this.numDecimals = 7;
         printElem(z, -1, A[0].length);
+        this.numDecimals = saveNumDecimals;
         printHorizontalLine(minCols);
         for (int i = 0; i < A.length; i++){
             printArray(A[i],i);
             printSeparator();
+            saveNumDecimals = this.numDecimals;
+            this.numDecimals = 7;
             printElem(b[i], i, A[0].length);
+            this.numDecimals = saveNumDecimals;
             System.out.println();
         }
         printBasisArray(basis);
         System.out.println("===========================================================================");
     }
 
-    private int smallestSpacing(int[] array){
+    private int smallestSpacing(double[] array){
         int minSpacing = 2;
         boolean hasNegative = false;
         for(int i = 0; i < array.length;i++){
@@ -116,7 +128,7 @@ public class CustomPrinter {
         return spacing((double) num);
     }
     private int spacing(double num){
-        double i = num;
+        double i = Double.parseDouble(String.format("%.4f", num));
         if (i == 0)
             return 1;
         if(i < 0)
@@ -128,6 +140,7 @@ public class CustomPrinter {
     private void printSpacesColumn(double elem,int col){
         for(int i =0; i< minCols[col] - spacing(elem);i++){
             System.out.print(" ");
+            //ColorPrint.printBlueBack(" ");
         }
     }
 
@@ -150,15 +163,26 @@ public class CustomPrinter {
                 format = "%." + precision + "f";
             }
             //System.out.printf(format, elem);
-            toPrint = String.format(format,elem);
+            if (elem != 0){
+                toPrint = String.format(format,elem);
+            }
+            else {
+                toPrint = String.format(format,0.0);
+            }
             if((currentCol == pivotalColumn) && (currentLine != pivotalLine))
                 ColorPrint.printGreenBack(toPrint);
             if((currentLine == pivotalLine) && (currentCol != pivotalColumn))
                 ColorPrint.printGreenBack(toPrint);
             if((currentLine == pivotalLine) && (currentCol == pivotalColumn))
                 ColorPrint.printCyanBack(toPrint);
-            if((currentLine != pivotalLine) && (currentCol != pivotalColumn))
-                ColorPrint.printBlack(toPrint);
+            if((currentLine != pivotalLine) && (currentCol != pivotalColumn)) {
+                if (elem != 0){
+                    ColorPrint.printBlack(toPrint);
+                }
+                else {
+                    ColorPrint.printRed(toPrint);
+                }
+            }
 
 
     }
@@ -173,7 +197,7 @@ public class CustomPrinter {
             toPrint = "^";
         }
         else {
-            toPrint = " ";
+            toPrint = "-";
         }
         for(int i = 0; i< sizeStr.length()-1; i++){
             System.out.print(" ");
@@ -181,10 +205,10 @@ public class CustomPrinter {
         ColorPrint.printBlue(toPrint);
     }
 
-    private void printArray(int [] array){
+    private void printArray(double [] array){
         printArray(array,-1);
     }
-    private void printArray(int [] array, int line){
+    private void printArray(double [] array, int line){
         currentLine = line;
         for(int j = 0; j < array.length;j++){
             currentCol = j;
