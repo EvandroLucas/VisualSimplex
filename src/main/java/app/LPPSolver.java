@@ -7,6 +7,7 @@ import simplex.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class LPPSolver {
@@ -23,7 +24,7 @@ public class LPPSolver {
     public void readFromFile(File file) {
         Logger.println("info","Reading data from file...");
         try {
-            Scanner scanner = new Scanner(file);
+            Scanner scanner = new Scanner(file).useLocale(Locale.US);;
             constraintNum = scanner.nextInt();
             variableNum = scanner.nextInt();
             tableau = new Value[constraintNum + 1][variableNum + 1];

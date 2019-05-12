@@ -11,6 +11,7 @@ public class PrimalSimplex extends Simplex{
     public PrimalSimplex(Tableau tableauInput) {
         this(tableauInput,true);
     }
+
     public PrimalSimplex(Tableau tableauInput, boolean invertC) {
         super(tableauInput);
         //Inverting the signs for c vector
@@ -22,6 +23,7 @@ public class PrimalSimplex extends Simplex{
         printer.setDesc("Primal simplex to solve");
         printThisTableau();
     }
+
     public PrimalSimplex(Value[][] tableauInput) {
         super(tableauInput);
         //Inverting the signs for c vector
@@ -45,6 +47,7 @@ public class PrimalSimplex extends Simplex{
                 Logger.println("info", "Simplex done");
                 isOptimal = true;
                 tableau.round();
+                printOptStatus(tableau);
                 return;
             }
             updatePivotRow();
@@ -55,6 +58,7 @@ public class PrimalSimplex extends Simplex{
                 done = true;
                 isUnbounded = true;
                 tableau.round();
+                printUnbStatus(tableau);
                 return;
             }
 
@@ -62,6 +66,9 @@ public class PrimalSimplex extends Simplex{
         }
         isOptimal = true;
         tableau.round();
+
+        printOptStatus(tableau);
+
         return;
     }
 
@@ -103,9 +110,9 @@ public class PrimalSimplex extends Simplex{
             }
         }
         if(!foundPositive){
-            Logger.println("warning" , "Is unbounded");
+            tableau.problematicColumnIndex = tableau.pivotColumnIndex;
+            //Logger.println("warning" , "Is unbounded");
             done = true;
-            System.exit(1);
         }
         Logger.println("debug","Pivot row updated to: " + tableau.pivotRowIndex);
         printer.setPivotalRow(tableau.pivotRowIndex);
@@ -117,13 +124,17 @@ public class PrimalSimplex extends Simplex{
         for(int i=0;i<tableau.c.length;i++)
             if(tableau.c[i].isSmallerThan(tableau.c[tableau.pivotColumnIndex]))
                 tableau.pivotColumnIndex = i;
+
         if(!tableau.c[tableau.pivotColumnIndex].isNegative()){
+            tableau.pivotColumnIndex = -2;
+            tableau.pivotRowIndex = -2;
             this.done = true;
         }
-        Logger.println("debug","Pivot column updated to: " + tableau.pivotColumnIndex + " with c[pc] = " + tableau.c[tableau.pivotColumnIndex]);
-        printer.setPivotalColumn(tableau.pivotColumnIndex);
+        else {
+            Logger.println("debug", "Pivot column updated to: " + tableau.pivotColumnIndex + " with c[pc] = " + tableau.c[tableau.pivotColumnIndex]);
+            printer.setPivotalColumn(tableau.pivotColumnIndex);
+        }
     }
-
 
 
 }

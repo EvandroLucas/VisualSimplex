@@ -21,7 +21,7 @@ public abstract class Simplex {
 
     protected CustomPrinter printer = new CustomPrinter();
 
-    public Simplex (Value[][] tableauInput){
+    protected Simplex (Value[][] tableauInput){
 
         constraintNum = tableauInput.length-1;
         variableNum = tableauInput[0].length-1;
@@ -32,7 +32,7 @@ public abstract class Simplex {
 
     }
 
-    public Simplex (Tableau tableau){
+    protected Simplex (Tableau tableau){
         constraintNum = tableau.A.length;
         variableNum = tableau.A[0].length;
         this.tableau = tableau;
@@ -124,36 +124,6 @@ public abstract class Simplex {
 
     }
 
-    protected Value[][] concatenateTwoMatrixesSideBySide(Value[][] A,Value[][] B){
-        Value[][] C = new Value[A.length][A[0].length+B[0].length];
-        for(int i=0;i<C.length;i++){
-            for (int j = 0; j < C[0].length;j++){
-                C[i][j] = new Value(0);
-            }
-        }
-        for(int i=0;i<C.length;i++){
-            for (int j = 0; j < A[0].length;j++){
-                C[i][j] = new Value(A[i][j]) ;
-            }
-            for (int j = 0; j < B[0].length;j++){
-                C[i][j+A[0].length] = new Value(B[i][j]);
-            }
-        }
-        return C;
-    }
-    protected Value[] concatenateTwoArraysSideBySide(Value[] a,Value[] b){
-        Value[] c = new Value[a.length+b.length];
-        for (int i = 0; i < c.length;i++){
-            c[i] = new Value(0);
-        }
-        for (int j = 0; j < a.length;j++){
-            c[j] = new Value(a[j]) ;
-        }
-        for (int j = 0; j < b.length;j++){
-            c[j+a.length] = new Value(b[j]);
-        }
-        return c;
-    }
 
     protected void printThisTableau(Tableau thisTableau){
         printer.printTableau(thisTableau);
@@ -166,5 +136,64 @@ public abstract class Simplex {
     protected abstract void updatePivotRow();
     protected abstract void updatePivotColumn();
 
+    protected void printOptStatus(Tableau tableau){
+        printer.setDesc("Certificate of optimalitty");
+        generateCertOpt(tableau);
+        printer.printCert(tableau.certOpt);
+        printer.setDesc("Solution");
+        generateSolution(tableau);
+        printer.printCert(tableau.solution);
+    }
+
+    protected void printUnbStatus(Tableau tableau){
+        printer.setDesc("Certificate of unboundness");
+        generateCertUnb(tableau);
+        printer.printCert(tableau.certUnb);
+        printer.setDesc("Solution");
+        generateSolution(tableau);
+        printer.printCert(tableau.solution);
+    }
+
+    protected void printInfStatus(Tableau tableau){
+        printer.setDesc("Certificate of infeasability");
+        generateCertInf(tableau);
+        printer.printCert(tableau.certInf);
+    }
+
+    protected void generateSolution(Tableau tableau){
+        //preenche o vetor solucao
+        for(int k=0; k<tableau.solution.length; k++){
+            if(tableau.basis[k]){
+                for(int i=0;i<tableau.b.length;i++){
+                    if( tableau.A[i][k].isEqualTo(1)){
+                        tableau.solution[k] = tableau.b[i];
+                    }
+                }
+            }
+        }
+    }
+    protected void generateCertOpt(Tableau tableau){
+        for(int j = 0; j < tableau.certOpt.length; j++){
+            tableau.certOpt[j].assign(tableau.c[j+tableau.numVar]);
+        }
+    }
+    protected void generateCertUnb(Tableau tableau){
+        for(int j=0;j < tableau.certUnb.length;j++){
+            if(tableau.basis[j]){
+                for(int i=0;i<tableau.A.length;i++){
+                    if(tableau.A[i][j].isEqualTo(1)){
+                        tableau.certUnb[j] = tableau.A[i][tableau.problematicColumnIndex].mult(-1);
+                    }
+                }
+            }
+        }
+        tableau.certUnb[tableau.problematicColumnIndex].assign(1);
+    }
+
+    protected void generateCertInf(Tableau tableau){
+        for(int j = 0; j < tableau.certInf.length ; j++){
+            tableau.certInf[j].assign(tableau.c[j+tableau.numVar]);
+        }
+    }
 
 }

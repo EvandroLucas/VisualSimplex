@@ -7,16 +7,12 @@ public class Value{
     private Double value;
 
     public Value(Integer value){
-        this.value = new Double(value);
-        //this.value = Double.parseDouble(String.format("%.7f", this.value));
-    }
+        this.value = new Double(value); }
     public Value(Double value){
         this.value = value;
-        //this.value = Double.parseDouble(String.format("%.7f", this.value));
     }
     public Value(Value value){
         this.value = value.doubleValue();
-        //this.value = Double.parseDouble(String.format("%.7f", this.value));
     }
 
     public void assign (Integer value){
@@ -29,11 +25,37 @@ public class Value{
 
     public void assign (Value value){
         this.value =  value.doubleValue();
-        this.value = Double.parseDouble(String.format("%.7f", this.value));
+        this.value = Double.parseDouble(String.format("%.14f", this.value).replaceAll(",","."));
+        if((this.value < 0.000000009) && (this.value > -0.000000009)){
+            this.value = 0.0000;
+        }
+        this.value = this.value + 0.0;
     }
 
     public void round(){
-        this.value = Double.parseDouble(String.format("%.5f", this.value));
+        this.value = Double.parseDouble(String.format("%.6f", this.value).replaceAll(",","."));
+
+        if(this.value > 0) {
+            if (Math.ceil(this.value) - this.value  < 0.000009) {
+                this.value = Math.ceil(this.value);
+            }
+            if( this.value - Math.floor(this.value) < 0.000001){
+                this.value = Math.floor(this.value);
+            }
+        }
+        else {
+            if ( -1*(Math.ceil(this.value) + this.value) < -0.000001) {
+                this.value = Math.ceil(this.value);
+            }
+            if( -1*(this.value + Math.floor(this.value)) < -0.000001){
+                this.value = Math.floor(this.value);
+            }
+        }
+        if((this.value < 0.0009) && (this.value > -0.000009)){
+            this.value = 0.0000;
+        }
+        this.value = this.value + 0.0;
+
     }
 
     public Value add(Integer value) {

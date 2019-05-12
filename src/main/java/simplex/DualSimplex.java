@@ -31,13 +31,15 @@ public class DualSimplex extends Simplex{
                 Logger.println("info","Simplex pronto");
                 isOptimal = true;
                 tableau.round();
+                printOptStatus(tableau);
                 return;
             }
             updatePivotColumn();
             if(done){
-                Logger.println("warning","Simplex Ilimitado: nao foi encontrada nenhuma ratio negativa");
+                Logger.println("warning","Simplex Unbitado: nao foi encontrada nenhuma ratio negativa");
                 isUnbounded = true;
                 tableau.round();
+                printUnbStatus(tableau);
                 return;
             }
 
@@ -46,6 +48,7 @@ public class DualSimplex extends Simplex{
         }
         isOptimal = true;
         tableau.round();
+        printOptStatus(tableau);
         return;
     }
 
@@ -106,9 +109,13 @@ public class DualSimplex extends Simplex{
                 tableau.pivotRowIndex = i;
         if(tableau.b[tableau.pivotRowIndex].isPositive()){
             this.done = true;
+            tableau.pivotColumnIndex = -2;
+            tableau.pivotRowIndex = -2;
         }
-        Logger.println("debug","Pivot row updated to: " + tableau.pivotRowIndex + " with b[pr] = " + tableau.b[tableau.pivotRowIndex]);
-        printer.setPivotalRow(tableau.pivotRowIndex);
+        else {
+            Logger.println("debug", "Pivot row updated to: " + tableau.pivotRowIndex + " with b[pr] = " + tableau.b[tableau.pivotRowIndex]);
+            printer.setPivotalRow(tableau.pivotRowIndex);
+        }
     }
 
 

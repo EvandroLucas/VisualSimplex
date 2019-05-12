@@ -50,14 +50,14 @@ public class CustomPrinter {
 
         for(int i = 0; i < A.length; i++){
             for(int j = 0; j < A[i].length; j++){
-                newA[i][j] = A[i][j].doubleValue();
+                newA[i][j] = Double.parseDouble( String.format("%.1f", A[i][j].doubleValue()).replaceAll(",",".") );
             }
         }
         for(int i = 0; i < c.length; i++){
-            newc[i] = c[i].doubleValue();
+            newc[i] = Double.parseDouble( String.format("%.1f", c[i].doubleValue()).replaceAll(",","."));
         }
         for(int i = 0; i < b.length; i++){
-            newb[i] = b[i].doubleValue();
+            newb[i] = Double.parseDouble( String.format("%.4f", b[i].doubleValue()).replaceAll(",","."));
         }
 
         printTableau(newA,newc,newb,newz,basis);
@@ -93,7 +93,7 @@ public class CustomPrinter {
         printArray(c,-1);
         printSeparator();
         int saveNumDecimals = this.numDecimals;
-        this.numDecimals = 7;
+        this.numDecimals = 4;
         printElem(z, -1, A[0].length);
         this.numDecimals = saveNumDecimals;
         printHorizontalLine(minCols);
@@ -101,13 +101,29 @@ public class CustomPrinter {
             printArray(A[i],i);
             printSeparator();
             saveNumDecimals = this.numDecimals;
-            this.numDecimals = 7;
+            this.numDecimals = 4;
             printElem(b[i], i, A[0].length);
             this.numDecimals = saveNumDecimals;
             System.out.println();
         }
         printBasisArray(basis);
         System.out.println("===========================================================================");
+    }
+
+    public void printCert(Value[] cert){
+        double[] toPrint = new double[cert.length];
+        for(int i = 0; i < cert.length;i++){
+            toPrint[i] = cert[i].doubleValue();
+        }
+        printCert(toPrint);
+    }
+
+    public void printCert(double[] cert){
+        System.out.println("===========================================================================");
+        if(!desc.equals("")) System.out.println("Desc: " + getDesc());
+        if(!state.equals("")) System.out.println("State: " + getState());
+        printArray(cert,-1);
+        System.out.println("\n===========================================================================");
     }
 
     private int smallestSpacing(double[] array){
@@ -128,11 +144,13 @@ public class CustomPrinter {
         return spacing((double) num);
     }
     private int spacing(double num){
-        double i = Double.parseDouble(String.format("%.4f", num));
+        double i = Double.parseDouble((String.format("%.4f", num).replaceAll(",",".")));
         if (i == 0)
             return 1;
         if(i < 0)
             i = (-1)*i;
+        if(i < 1)
+            i = 1;
 
         return (int) Math.log10(i) + 1;
     }

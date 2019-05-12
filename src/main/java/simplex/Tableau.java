@@ -4,21 +4,24 @@ import numbers.Value;
 
 public class Tableau {
 
-    private int numVar  = 0;
-    private int numCons = 0;
+    public int numVar  = 0;
+    public int numCons = 0;
 
     public Value[] c;
     public Value z;
     public Value[] b;
-    public Value[] certOtim;
-    public Value[] certIlim;
-    public Value[] certInv;
+    public Value[] solution;
+    public Value[] certOpt;
+    public Value[] certUnb;
+    public Value[] certInf;
     public boolean[] basis;
     public Value[][] A;
     public Value[][] relax;
 
     public int pivotRowIndex;
     public int pivotColumnIndex;
+    public int problematicColumnIndex;
+
 
     public Tableau(int numVar, int numCons){
 
@@ -28,18 +31,23 @@ public class Tableau {
 
         c = new Value[numVar];
         b = new Value[numCons];
-        for(int i =0; i < b.length; i++){
-            b[i] = new Value(0);
-        }
-        certOtim = new Value[numVar];
-        certIlim = new Value[numVar];
-        certInv  = new Value[numVar];
+
+        certOpt = new Value[numCons];
+        certUnb = new Value[numVar+numCons];
+        certInf  = new Value[numCons];
+        solution = new Value[numVar];
 
         for(int i =0; i < numVar; i++){
             c[i] = new Value(0);
-            certOtim[i] = new Value(0);
-            certIlim[i] = new Value(0);
-            certInv[i]  = new Value(0);
+            solution[i] = new Value(0);
+        }
+        for(int i =0; i < numCons; i++){
+            b[i] = new Value(0);
+            certOpt[i] = new Value(0);
+            certInf[i]  = new Value(0);
+        }
+        for(int i =0; i < numCons+numVar; i++){
+            certUnb[i] = new Value(0);
         }
         //Received matrix
         A  = new Value[numCons][numVar];
@@ -96,8 +104,47 @@ public class Tableau {
             c = concatenateTwoArraysSideBySide(c, zeroArray);
             //Simple basis checking, would be different if relax had different format
             basis = new boolean[A[0].length];
+
+
+            for(int j = 0; j < A[0].length; j++){
+                boolean collumIsBasis = true;
+                boolean onlyOneOne = false;
+                for(int i =0; i < A.length; i++){
+                   if(A[i][j].isEqualTo(1)){
+                       if(!onlyOneOne){
+                           onlyOneOne = true;
+                       }
+                       else {
+                           collumIsBasis = false;
+                       }
+                   }
+                   else if(!A[i][j].isEqualTo(0)){
+                       collumIsBasis = false;
+                   }
+                }
+                //for c
+                    if(c[j].isEqualTo(1)){
+                        if(!onlyOneOne){
+                            onlyOneOne = true;
+                        }
+                        else {
+                            collumIsBasis = false;
+                        }
+                    }
+                    else if(!c[j].isEqualTo(0)){
+                        collumIsBasis = false;
+                    }
+
+                basis[j] = collumIsBasis;
+            }
+
             for (int i = 0; i < basis.length; i++) {
-                basis[i] = i >= numVar;
+                if(!basis[i]) {
+                    basis[i] = i >= numVar;
+                }
+                else {
+                    basis[i] = true;
+                }
             }
         }
     }
@@ -105,6 +152,8 @@ public class Tableau {
     public Tableau (Tableau tableauInput, boolean generateBasis, boolean aux){
 
         this( tableauInput.A[0].length, tableauInput.A.length);
+        this.numVar = tableauInput.numVar;
+        this.numCons = tableauInput.numCons;
 
         //monta o tableau
         for (int i = 0; i < tableauInput.A.length; i++){
@@ -121,13 +170,13 @@ public class Tableau {
             for(int i =0; i < relax.length; i++) {
                 zeroArray[i] = new Value(0);
             }
+            //Simple basis checking, would be different if relax had different format
+            basis = new boolean[A[0].length + relax.length];
+            for (int i = 0; i < basis.length; i++) {
+                basis[i] = i >= A[0].length;
+            }
             A = concatenateTwoMatrixesSideBySide(A, relax);
             c = concatenateTwoArraysSideBySide(c, zeroArray);
-            //Simple basis checking, would be different if relax had different format
-            basis = new boolean[A[0].length];
-            for (int i = 0; i < basis.length; i++) {
-                basis[i] = i >= numVar;
-            }
         }
 
         if(!aux) {
@@ -186,9 +235,11 @@ public class Tableau {
         }
         for(int i =0; i < numVar; i++){
             c[i].round();
-            certOtim[i].round();
-            certIlim[i].round();
-            certInv[i].round();
+            certUnb[i].round();
+        }
+        for(int i =0; i < numCons; i++){
+            certOpt[i].round();
+            certInf[i].round();
         }
         //Received matrix
         for(int i =0; i < A.length; i++){

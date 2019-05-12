@@ -1,15 +1,19 @@
 package simplex;
 
 import logging.Logger;
+import numbers.Fraction;
 import numbers.Value;
+import print.ColorPrint;
 
 public class AuxSimplex extends Simplex{
 
-    PrimalSimplex auxPrimal;
     Tableau tableauAux;
 
     public AuxSimplex(Value[][] tableauInput) {
         super(tableauInput);
+        for (Value value : tableau.c) {
+            value.assign(value.mult(-1));
+        }
     }
 
 
@@ -42,7 +46,7 @@ public class AuxSimplex extends Simplex{
 
         Logger.println("debug","Solving the aux using the primal");
         //passa-se o tableau pivoteado para o simplex
-        auxPrimal = new PrimalSimplex(tableauAux,false);
+        PrimalSimplex auxPrimal = new PrimalSimplex(tableauAux,false);
         auxPrimal.run();
         auxPrimal.printer.setDesc("Solved Aux");
         auxPrimal.printThisTableau();
@@ -52,20 +56,29 @@ public class AuxSimplex extends Simplex{
         //se o tableau auxiliar tiver um valor objetivo negativo,
         //a PL original eh inviavel
         if(tableauAux.z.isNegative()){
-            Logger.println("severe","Simplex inviavel");
+            Logger.println("severe","Simplex is infeasible");
+            System.out.println("Numvar = " + tableau.numVar);
             isInfeasible = true;
+            printInfStatus(tableauAux);
             return;
         }
 
         Logger.println("debug","Pivoting found basis");
-        //pivotAuxBasis();
+        pivotAuxBasis();
 
-        //fprintf(registra,"\nMatriz original depois de ter sua base pivoteada");
+        printer.setDesc("Original lpp with aux-pivoted-basis");
+        printThisTableau(tableau);
 
-        //fprintf(registra,"\nPassaremos essa matriz original modificada ao simplex primal");
-        //agora podemos resolver o simplex primal:
-        //result = simplexPrimal();
+        Logger.println("debug","Running primal simplex after founding valid basis");
 
+        tableau.pivotColumnIndex = -2;
+        tableau.pivotRowIndex = -2;
+        PrimalSimplex finalPrimal = new PrimalSimplex(tableau,false);
+        finalPrimal.run();
+
+        tableau.round();
+        printer.setDesc("Final result: ");
+        printThisTableau(tableau);
 
     }
 
@@ -127,52 +140,50 @@ public class AuxSimplex extends Simplex{
 
 
     private void pivotAuxBasis(){
-       /* int i = 0;
-        int l = 0;
-        int salvaLinha = 0;
-        boolean achouPivotValido = true;
+
 
         Logger.println("debug","Pivoting aux basis");
 
-        for(int j=0; j < auxPrimal.tableau.A.length;j++){
-            achouPivotValido = false;
-            if(auxPrimal.tableau.basis[j]){
-                for(i=0;i<auxPrimal.tableau.A.length; i++){
-                    if(auxPrimal.tableau.A[i][j].isEqualTo(1)){
-                        salvaLinha = i;
-                        if(!auxPrimal.tableau.A[i][j].isZero()){
-                            achouPivotValido = true;
-                            printer.setPivotalColumn(i);
-                            printer.setPivotalRow(j);
-                            printer.setDesc("Before pivoting");
-                            printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,auxPrimal.tableau.basis);
-                            pivot(i,j,A,auxPrimal.tableau.basis);
-                            printer.setDesc("After pivoting");
-                            printer.printTableau(tableau.A,tableau.c,b,z,auxPrimal.basis);
+        for(int j =0; j < tableau.basis.length; j++){
+            tableau.basis[j] = tableauAux.basis[j];
+        }
+
+        boolean foundPivot = false;
+        int saveLine = 0;
+        for(int j=0; j < tableau.A[0].length;j++){
+            if(tableau.basis[j]){
+                foundPivot = false;
+                tableau.pivotColumnIndex = j;
+                for(int i = 0; i < tableau.A.length; i++){
+                    if(tableauAux.A[i][j].isEqualTo(1)){
+                        saveLine = i;
+                        if(tableau.A[i][j].isZero()){
+                            foundPivot = false;
                         }
-                        break;
-                    }
-                }
-                if(!achouPivotValido){
-                    //se nao achou um pivot valido,
-                    //somamos essa linha por outra
-                    i = salvaLinha;
-                    for(int k=0;k<tableau.A.length;k++){
-                        if(!tableau.A[k][j].isZero()){
-                            for(l=0;l<tableau.A[0].length;l++){
-                                tableau.A[salvaLinha][l].assign( tableau.A[salvaLinha][l].add(tableau.A[k][l]));
-                            }
-                            tableau.b[salvaLinha].assign(tableau.b[salvaLinha].add(tableau.b[k]));
+                        else{
+                            tableau.pivotRowIndex = i;
+                            foundPivot = true;
                             break;
                         }
                     }
-                    Logger.println("debug","Added one line to pivot");
-                    pivot(salvaLinha,j,tableau.A,auxPrimal.tableau.basis);
                 }
+                if(!foundPivot){
+                    ColorPrint.printRedBack("CORRIGINDO MERDA");
+                    for(int i=1;i<tableau.A.length;i++){
+                        if(!tableau.A[i][j].isZero()){
+                            for(int k=0;k<tableau.A[0].length;k++){
+                                tableau.A[saveLine][k].assign( tableau.A[saveLine][k].add(tableau.A[i][k]));
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                pivot(tableau);
             }
         }
 
-        */
+        
     }
 
 
