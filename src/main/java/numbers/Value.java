@@ -7,7 +7,8 @@ public class Value{
     private Double value;
 
     public Value(Integer value){
-        this.value = new Double(value); }
+        this.value = (double) value;
+    }
     public Value(Double value){
         this.value = value;
     }
@@ -162,6 +163,10 @@ public class Value{
 
     @Override
     public String toString(){
-        return "" + this.doubleValue();
+        Double valueToPrint = Double.parseDouble(String.format("%.4f", this.value).replaceAll(",","."));
+        if(valueToPrint == (double) this.intValue())
+            return "" + this.intValue();
+        else
+            return "" + valueToPrint;
     }
 }

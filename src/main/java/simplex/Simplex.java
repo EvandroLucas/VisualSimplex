@@ -8,11 +8,11 @@ import print.CustomPrinter;
 
 public abstract class Simplex {
 
-    protected Tableau tableau;
+    public Tableau tableau;
 
-    protected boolean isOptimal = false;
-    protected boolean isUnbounded = false;
-    protected boolean isInfeasible = false;
+    public boolean isOptimal = false;
+    public boolean isUnbounded = false;
+    public boolean isInfeasible = false;
 
     protected int constraintNum = 0;
     protected int variableNum = 0;
@@ -52,7 +52,7 @@ public abstract class Simplex {
         //printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
     }
 
-    protected void pivot(Tableau tableau){
+    protected void pivot(Tableau tableau, boolean conserveBasis){
 
         printer.setDesc("Before pivoting");
         printer.printTableau(tableau);
@@ -62,21 +62,33 @@ public abstract class Simplex {
         int pivotColumnIndex = tableau.pivotColumnIndex;
 
         Value[][] A = tableau.A;
-        boolean[] basis = tableau.basis;
+        boolean[] basis;
+
+        if(conserveBasis){
+            basis = new boolean[tableau.basis.length];
+            for(int i = 0; i < basis.length; i++){
+                basis[i] = tableau.basis[i];
+            }
+        }else {
+            basis = tableau.basis;
+        }
+
 
         Logger.println("info","Pivoting!");
 
         Value pivot = new Value(0); //guarda o pivot
         Value mult = new Value(0);  //multiplicador
 
+
         //updating basis
         pivot.assign(A[pivotRowIndex][pivotColumnIndex]);
-        for(int j=0;j<A[pivotRowIndex].length;j++){
-            if((A[pivotRowIndex][j].isEqualTo(1)) && (basis[j])){
+        for (int j = 0; j < A[pivotRowIndex].length; j++) {
+            if ((A[pivotRowIndex][j].isEqualTo(1)) && (basis[j])) {
                 basis[j] = false;
             }
         }
         basis[pivotColumnIndex] = true;
+
 
         //For the pivotal line
         for (int j = 0; j < A[pivotRowIndex].length; j++){
@@ -124,7 +136,9 @@ public abstract class Simplex {
 
     }
 
-
+    protected void pivot(Tableau tableau){
+        pivot(tableau,false);
+    }
     protected void printThisTableau(Tableau thisTableau){
         printer.printTableau(thisTableau);
     }

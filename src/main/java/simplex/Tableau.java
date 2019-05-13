@@ -33,7 +33,7 @@ public class Tableau {
         b = new Value[numCons];
 
         certOpt = new Value[numCons];
-        certUnb = new Value[numVar+numCons];
+        certUnb = new Value[numVar];
         certInf  = new Value[numCons];
         solution = new Value[numVar];
 
@@ -46,7 +46,7 @@ public class Tableau {
             certOpt[i] = new Value(0);
             certInf[i]  = new Value(0);
         }
-        for(int i =0; i < numCons+numVar; i++){
+        for(int i =0; i < numVar; i++){
             certUnb[i] = new Value(0);
         }
         //Received matrix

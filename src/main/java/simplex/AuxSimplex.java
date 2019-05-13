@@ -57,9 +57,9 @@ public class AuxSimplex extends Simplex{
         //a PL original eh inviavel
         if(tableauAux.z.isNegative()){
             Logger.println("severe","Simplex is infeasible");
-            System.out.println("Numvar = " + tableau.numVar);
             isInfeasible = true;
             printInfStatus(tableauAux);
+            tableau.certInf = tableauAux.certInf;
             return;
         }
 
@@ -79,6 +79,9 @@ public class AuxSimplex extends Simplex{
         tableau.round();
         printer.setDesc("Final result: ");
         printThisTableau(tableau);
+        isInfeasible = finalPrimal.isInfeasible;
+        isUnbounded = finalPrimal.isUnbounded;
+        isOptimal = finalPrimal.isOptimal;
 
     }
 
@@ -141,7 +144,6 @@ public class AuxSimplex extends Simplex{
 
     private void pivotAuxBasis(){
 
-
         Logger.println("debug","Pivoting aux basis");
 
         for(int j =0; j < tableau.basis.length; j++){
@@ -157,18 +159,14 @@ public class AuxSimplex extends Simplex{
                 for(int i = 0; i < tableau.A.length; i++){
                     if(tableauAux.A[i][j].isEqualTo(1)){
                         saveLine = i;
-                        if(tableau.A[i][j].isZero()){
-                            foundPivot = false;
-                        }
-                        else{
+                        if(!tableau.A[i][j].isZero()){
                             tableau.pivotRowIndex = i;
                             foundPivot = true;
-                            break;
+                            //break;
                         }
                     }
                 }
                 if(!foundPivot){
-                    ColorPrint.printRedBack("CORRIGINDO MERDA");
                     for(int i=1;i<tableau.A.length;i++){
                         if(!tableau.A[i][j].isZero()){
                             for(int k=0;k<tableau.A[0].length;k++){
@@ -179,7 +177,8 @@ public class AuxSimplex extends Simplex{
                     }
                 }
 
-                pivot(tableau);
+                pivot(tableau,true);
+
             }
         }
 

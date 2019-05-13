@@ -6,6 +6,7 @@ import simplex.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
@@ -19,6 +20,7 @@ public class LPPSolver {
     private Value[] b;
     boolean toRunAsDual = false;
     boolean toRunAsPrimal= false;
+    public Simplex simplex;
 
 
     public void readFromFile(File file) {
@@ -71,9 +73,62 @@ public class LPPSolver {
         c = tableau[0].clone();
     }
 
+    public void writeToFile(File file){
+        Logger.println("info","Writing data from file...");
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            String simplexStatus = "error";
+
+            if(simplex.isUnbounded){
+                simplexStatus = "ilimitada";
+            }
+            if(simplex.isInfeasible){
+                simplexStatus = "inviavel";
+            }
+            if(simplex.isOptimal){
+                simplexStatus = "otima";
+            }
+            fileWriter.write(simplexStatus + "\n");
+
+            if(simplex.isUnbounded){
+                for(Value value : simplex.tableau.solution){
+                    fileWriter.write(value.toString() + " ");
+                }
+                fileWriter.write("\n");
+                for(Value value : simplex.tableau.certUnb){
+                    fileWriter.write(value.toString() + " ");
+                }
+            }
+            else if(simplex.isInfeasible){
+                for(Value value : simplex.tableau.certInf){
+                    fileWriter.write(value.toString() + " ");
+                }
+            }
+            else{ //simplex.isOptimal
+                fileWriter.write(simplex.tableau.z.toString() + "\n");
+                for(Value value : simplex.tableau.solution){
+                    fileWriter.write(value.toString() + " ");
+                }
+                fileWriter.write("\n");
+                for(Value value : simplex.tableau.certOpt){
+                    fileWriter.write(value.toString() + " ");
+                }
+            }
+
+
+
+
+            fileWriter.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+    }
+
     public void runSimplex(){
 
-        Simplex simplex;
         Logger.println("info","Checking simplex type");
         if (canRunDual()){
             Logger.println("info","Will run the dual simplex method");

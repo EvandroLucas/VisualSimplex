@@ -66,9 +66,7 @@ public class PrimalSimplex extends Simplex{
         }
         isOptimal = true;
         tableau.round();
-
         printOptStatus(tableau);
-
         return;
     }
 

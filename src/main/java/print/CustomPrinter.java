@@ -1,5 +1,6 @@
 package print;
 
+import logging.Logger;
 import numbers.Value;
 import simplex.Tableau;
 
@@ -43,6 +44,8 @@ public class CustomPrinter {
     // Simplesmente copiamos e passamos para inteiros
     public void printTableau(Value[][] A, Value[] c, Value[] b, Value z, boolean[] basis){
 
+        if(Logger.printLevel > 3) return;
+
         double[][] newA = new double[A.length][A[0].length];
         double[] newc = new double[c.length];
         double[] newb = new double[b.length];
@@ -64,6 +67,7 @@ public class CustomPrinter {
     }
 
     public void printTableau(double[][] A, double[] c, double[] b, double z, boolean[] basis){
+        if(Logger.printLevel > 3) return;
         System.out.println("===========================================================================");
 
         if(!desc.equals("")) System.out.println("Desc: " + getDesc());
@@ -111,6 +115,7 @@ public class CustomPrinter {
     }
 
     public void printCert(Value[] cert){
+        if(Logger.printLevel > 3) return;
         double[] toPrint = new double[cert.length];
         for(int i = 0; i < cert.length;i++){
             toPrint[i] = cert[i].doubleValue();
@@ -119,12 +124,16 @@ public class CustomPrinter {
     }
 
     public void printCert(double[] cert){
+        pivotalColumn = -2;
+        pivotalLine = -2;
+        if(Logger.printLevel > 3) return;
         System.out.println("===========================================================================");
         if(!desc.equals("")) System.out.println("Desc: " + getDesc());
         if(!state.equals("")) System.out.println("State: " + getState());
         printArray(cert,-1);
         System.out.println("\n===========================================================================");
     }
+
 
     private int smallestSpacing(double[] array){
         int minSpacing = 2;
