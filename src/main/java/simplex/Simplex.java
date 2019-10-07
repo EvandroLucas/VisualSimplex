@@ -196,7 +196,7 @@ public abstract class Simplex {
             if(tableau.basis[j]){
                 for(int i=0;i<tableau.A.length;i++){
                     if(tableau.A[i][j].isEqualTo(1)){
-                        tableau.certUnb[j] = tableau.A[i][tableau.problematicColumnIndex].mult(-1);
+                        tableau.certUnb[j].assign(tableau.A[i][tableau.problematicColumnIndex].mult(-1));
                     }
                 }
             }
