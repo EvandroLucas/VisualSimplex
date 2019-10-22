@@ -10,7 +10,7 @@ public class Logger {
 
     private String level;
     private String message;
-    public static final int printLevel = 2;
+    public static final int printLevel = 1;
     private static String newLineControl = "";
 
 

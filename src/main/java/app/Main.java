@@ -13,7 +13,6 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            //input15 é problema
             String inputFileName;
             String outputFileName;
 
@@ -21,7 +20,8 @@ public class Main {
             File outputFile;
 
             if(args.length == 0 ) {
-                inputFileName = "input/input11.txt";
+                inputFileName = "input/input.txt";
+                //inputFileName = "input/dual/inputDualOtima.txt";
                 Logger.println("info", "Loading file : " + inputFileName);
                 ClassLoader classLoader = ClassLoader.getSystemClassLoader();
                 inputFile = new File(classLoader.getResource(inputFileName).getFile());

@@ -22,17 +22,9 @@ public class AuxSimplex extends Simplex{
 
         Logger.println("info","Running aux simplex");
 
-
-        int i = 0;
-        int j = 0;
-        int result = 0;
-
-        //aloca o tableau auxiliar
-
-
         Logger.println("debug","Fixing negatives in b");
         fixReceivedTableauSigns(tableau);
-        printer.setDesc("All positive b entryes (lines multiplied by -1)");
+        printer.setDesc("All positive b entries (lines multiplied by -1)");
         printThisTableau(tableau);
 
 
@@ -50,8 +42,6 @@ public class AuxSimplex extends Simplex{
         auxPrimal.run();
         auxPrimal.printer.setDesc("Solved Aux");
         auxPrimal.printThisTableau();
-
-
 
         //se o tableau auxiliar tiver um valor objetivo negativo,
         //a PL original eh inviavel
@@ -111,7 +101,7 @@ public class AuxSimplex extends Simplex{
         }
     }
 
-    protected Tableau createAuxTableau(Tableau tableau){
+    private Tableau createAuxTableau(Tableau tableau){
 
         //aloca o tableua auxiliar
         //linhas: linhas de A + c
@@ -119,7 +109,9 @@ public class AuxSimplex extends Simplex{
 
         tableauAux = new Tableau(tableau,true,true);
 
-        printer.setDesc("Before Pivoting: ");
+        printer.setDesc("Auxiliar aux tableau: ");
+        tableauAux.pivotRowIndex = -2;
+        tableauAux.pivotColumnIndex = -2;
         printThisTableau(tableauAux);
 
         Logger.println("info", "Pivoting aux tableau");
@@ -146,9 +138,7 @@ public class AuxSimplex extends Simplex{
 
         Logger.println("debug","Pivoting aux basis");
 
-        for(int j =0; j < tableau.basis.length; j++){
-            tableau.basis[j] = tableauAux.basis[j];
-        }
+        System.arraycopy(tableauAux.basis, 0, tableau.basis, 0, tableau.basis.length);
 
         boolean foundPivot = false;
         int saveLine = 0;
@@ -162,7 +152,6 @@ public class AuxSimplex extends Simplex{
                         if(!tableau.A[i][j].isZero()){
                             tableau.pivotRowIndex = i;
                             foundPivot = true;
-                            //break;
                         }
                     }
                 }
@@ -178,7 +167,6 @@ public class AuxSimplex extends Simplex{
                 }
 
                 pivot(tableau,true);
-
             }
         }
 

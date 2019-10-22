@@ -81,15 +81,16 @@ public class PrimalSimplex extends Simplex{
 
         for(int i=0;i<tableau.A.length;i++){
             ratio.num.assign(tableau.b[i]);
-            //ratio.den.assign(A[tableau.pivotColumnIndex][i]);
             ratio.den.assign(tableau.A[i][tableau.pivotColumnIndex]);
             Logger.println("debug","Lendo num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
+
             if((ratio.num.isZero()) && (ratio.den.isPositive())){ //regra de bland
                 Logger.println("debug","   - Achou por regra de bland");
                 tableau.pivotRowIndex = i;
             }
             if( (ratio.den.isPositive()) && (ratio.num.isPositive()) ){ //se o denominador e o numerador forem positivos, testamos
                 ratio.val = ratio.num.div(ratio.den);
+                ratio.val.round();
                 Logger.println("debug" , ", valor = " + ratio.val.doubleValue() );
                 //como convencao, a primeira ratio valida sera a minima
                 //para o resto, a menor ratio positiva eh o que queremos
@@ -100,6 +101,7 @@ public class PrimalSimplex extends Simplex{
                             ", valor = "+ ratio.val.doubleValue());
                     tableau.pivotRowIndex = i;
                     ratioMin.val.assign(ratio.val);
+                    ratioMin.val.round();
                     ratioMin.num.assign(ratio.num);
                     ratioMin.den .assign(ratio.den);
                     if(!first) first = true;
@@ -109,7 +111,6 @@ public class PrimalSimplex extends Simplex{
         }
         if(!foundPositive){
             tableau.problematicColumnIndex = tableau.pivotColumnIndex;
-            //Logger.println("warning" , "Is unbounded");
             done = true;
         }
         Logger.println("debug","Pivot row updated to: " + tableau.pivotRowIndex);

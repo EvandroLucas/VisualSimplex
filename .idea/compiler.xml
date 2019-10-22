@@ -9,7 +9,7 @@
         <module name="simplex" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="simplex" target="8" />
     </bytecodeTargetLevel>
   </component>

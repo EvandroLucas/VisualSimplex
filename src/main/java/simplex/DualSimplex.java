@@ -21,14 +21,14 @@ public class DualSimplex extends Simplex{
     public void run(){
         Logger.println("info","Running dual simplex");
 
-        printer.setDesc("Before anything");
+        printer.setDesc("Before anything, we invert the signs on C");
         printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
 
         while (!done){
             updatePivotRow();
             if(done){
                 //nesse caso, o simplex  eh  viavel e limitado
-                Logger.println("info","Simplex pronto");
+                Logger.println("info","Simplex ready");
                 isOptimal = true;
                 tableau.round();
                 printOptStatus(tableau);
@@ -36,7 +36,7 @@ public class DualSimplex extends Simplex{
             }
             updatePivotColumn();
             if(done){
-                Logger.println("warning","Simplex Unbitado: nao foi encontrada nenhuma ratio negativa");
+                Logger.println("warning","Simplex Unbounded: no negative ratio was found");
                 isUnbounded = true;
                 tableau.round();
                 printUnbStatus(tableau);
@@ -64,24 +64,26 @@ public class DualSimplex extends Simplex{
         for(int i=0;i<tableau.A[0].length;i++){
             ratio.num.assign(tableau.c[i]);
             ratio.den.assign(tableau.A[tableau.pivotRowIndex][i]);
-            Logger.println("debug","Lendo num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
+            Logger.println("debug","Reading num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
 
             if((ratio.num.isZero()) && (ratio.den.isNegative())){ //regra de bland
-                Logger.println("debug","   - Achou por regra de bland");
+                Logger.println("debug","   - Decided by Bland's rule");
                 tableau.pivotColumnIndex = i;
             }
             if( (ratio.den.isNegative()) && (ratio.num.isPositive()) ){ //se o denominador e o numerador forem positivos, testamos
                 ratio.val = ratio.num.div(ratio.den);
-                Logger.println("debug" , ", valor = " + ratio.val.doubleValue() );
+                ratio.val.round();
+                Logger.println("debug" , ", value = " + ratio.val.doubleValue() );
                 //como convencao, a primeira ratio valida sera a minima
                 //para o resto, a maior ratio negativa eh o que queremos
                 if((ratio.val.isGreaterThan(ratioMin.val)) || (!first)){
-                    Logger.println("debug" , "- Achou maior razao negativa na coluna ("+i+"): " +
+                    Logger.println("debug" , "- Found the greatest negative ratio on column ("+i+"): " +
                             "num = "+ratio.num.doubleValue() +
                             ", den= "+ ratio.den.doubleValue() +
                             ", valor = "+ ratio.val.doubleValue());
                     tableau.pivotColumnIndex = i;
                     ratioMin.val.assign(ratio.val);
+                    ratioMin.val.round();
                     ratioMin.num.assign(ratio.num);
                     ratioMin.den .assign(ratio.den);
                     if(!first) first = true;
@@ -92,7 +94,6 @@ public class DualSimplex extends Simplex{
         if(!foundNegative){
             Logger.println("warning" , "Is unbounded");
             done = true;
-            System.exit(1);
         }
         else {
             printer.setPivotalColumn(tableau.pivotColumnIndex);

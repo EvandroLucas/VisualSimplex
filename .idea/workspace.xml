@@ -2,26 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b503985-273d-4336-912c-000f944e2656" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LPPSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/numbers/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/numbers/Value.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/print/CustomPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/print/CustomPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logging/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logging/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/RunnableSimplex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LPPSolver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/numbers/Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/numbers/Value.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/print/CustomPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/print/CustomPrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/simplex.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logging/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logging/Logger.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/simplex/AuxSimplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simplex/AuxSimplex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/simplex/DualSimplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simplex/DualSimplex.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/simplex/PrimalSimplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simplex/PrimalSimplex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/simplex/RunnableSimplex.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/simplex/Simplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simplex/Simplex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/out/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/out/results.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,18 +35,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="163" selection-start-line="163" selection-end-line="163" />
+            <state relative-caret-position="1862">
+              <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#pivot#0;class#Simplex#0" />
-                <element signature="method#pivot#1;class#Simplex#0" />
-                <element signature="method#concatenateTwoMatrixesSideBySide#0;class#Simplex#0" />
-                <element signature="method#concatenateTwoArraysSideBySide#0;class#Simplex#0" />
-                <element signature="e#5463#5464#0" expanded="true" />
-                <element signature="e#5512#5513#0" expanded="true" />
-                <element signature="e#5570#5571#0" expanded="true" />
-                <element signature="e#5619#5620#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,62 +48,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="117" column="77" selection-start-line="117" selection-start-column="77" selection-end-line="117" selection-end-column="77" />
+            <state relative-caret-position="1140">
+              <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#readFromFile#0;class#LPPSolver#0" />
-                <element signature="method#runSimplex#0;class#LPPSolver#0" />
+                <element signature="method#writeToFile#0;class#LPPSolver#0" />
+                <element signature="method#canRunPrimal#0;class#LPPSolver#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/print/CustomPrinter.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="141" column="12" lean-forward="true" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
+            <state relative-caret-position="304">
+              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/input/input.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="37">
+              <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#504#505#0" expanded="true" />
-                <element signature="e#536#537#0" expanded="true" />
-                <element signature="method#printTableau#1;class#CustomPrinter#0" />
-                <element signature="e#3625#3626#0" expanded="true" />
-                <element signature="e#3669#3670#0" expanded="true" />
-                <element signature="method#printElem#2;class#CustomPrinter#0" />
-                <element signature="method#printBasisElem#0;class#CustomPrinter#0" />
-                <element signature="e#6153#6154#0" expanded="true" />
-                <element signature="e#6189#6190#0" expanded="true" />
-                <element signature="method#printArray#1;class#CustomPrinter#0" />
-                <element signature="method#printBasisArray#0;class#CustomPrinter#0" />
-                <element signature="method#printHorizontalLine#0;class#CustomPrinter#0" />
-                <element signature="e#7352#7353#0" expanded="true" />
-                <element signature="e#7390#7391#0" expanded="true" />
-                <element signature="e#7431#7432#0" expanded="true" />
-                <element signature="e#7462#7463#0" expanded="true" />
-                <element signature="e#7505#7506#0" expanded="true" />
-                <element signature="e#7540#7541#0" expanded="true" />
-                <element signature="e#7585#7586#0" expanded="true" />
-                <element signature="e#7622#7623#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-              <folding>
-                <element signature="method#assign#2;class#Value#0" />
-                <element signature="e#897#898#0" expanded="true" />
-                <element signature="e#979#980#0" expanded="true" />
-                <element signature="e#1799#1800#0" expanded="true" />
-                <element signature="e#1843#1844#0" expanded="true" />
-                <element signature="e#1879#1880#0" expanded="true" />
-                <element signature="e#1912#1913#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,31 +93,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Tableau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="181" column="21" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="21" />
+            <state relative-caret-position="1330">
+              <caret line="192" column="13" selection-start-line="192" selection-start-column="13" selection-end-line="192" selection-end-column="13" />
               <folding>
                 <element signature="method#Tableau#0;class#Tableau#0" />
                 <element signature="method#Tableau#1;class#Tableau#0" />
-                <element signature="e#1905#2340#1" />
-                <element signature="method#Tableau#2;class#Tableau#0" />
                 <element signature="method#concatenateTwoMatrixesSideBySide#0;class#Tableau#0" />
                 <element signature="method#concatenateTwoArraysSideBySide#0;class#Tableau#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#184#185#0" expanded="true" />
-                <element signature="e#219#220#0" expanded="true" />
-                <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
-                <element signature="method#createAuxTableau#0;class#AuxSimplex#0" />
               </folding>
             </state>
           </provider>
@@ -155,34 +108,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
-              <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+            <state relative-caret-position="646">
+              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#202#203#0" expanded="true" />
+                <element signature="e#222#223#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+            <state relative-caret-position="1805">
+              <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/input/aux/inputAuxOpt.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="114">
+              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -201,7 +164,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Imprimindo</find>
       <find>linhaPivotal</find>
       <find>colunaPivotal</find>
       <find>ratioMin</find>
@@ -229,6 +191,9 @@
       <find>Logger.print(</find>
       <find>minCols</find>
       <find>getZ</find>
+      <find>Solved a</find>
+      <find>Mult is</find>
+      <find>Before an</find>
     </findStrings>
     <replaceStrings>
       <replace>pivotRowIndex</replace>
@@ -257,7 +222,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/numbers/Fraction.java" />
         <option value="$PROJECT_DIR$/src/main/java/simplex/BlankSimplex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logging/Logger.java" />
         <option value="$PROJECT_DIR$/src/main/resources/input/input1.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/input/dual/inputDualOtima2.txt" />
         <option value="$PROJECT_DIR$/src/main/java/LPPSolver.java" />
@@ -273,23 +237,26 @@
         <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnfTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/print/CustomPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/numbers/Value.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" />
         <option value="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logging/Logger.java" />
         <option value="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" />
+        <option value="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/input/input.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1599" />
-    <option name="y" value="-5" />
-    <option name="width" value="1682" />
-    <option name="height" value="1001" />
+    <option name="x" value="960" />
+    <option name="y" value="24" />
+    <option name="width" value="960" />
+    <option name="height" value="1007" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -299,36 +266,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -336,23 +302,15 @@
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="numbers" type="462c0819:PsiDirectoryNode" />
+              <item name="logging" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="print" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -360,7 +318,7 @@
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -368,65 +326,57 @@
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="dual" type="462c0819:PsiDirectoryNode" />
+              <item name="aux" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="primal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex2" type="462c0819:PsiDirectoryNode" />
+              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557527527005" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571272900581" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/input/primal/opt" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/input/primal/unb" />
       <recent name="$PROJECT_DIR$/src/main/resources/input" />
+      <recent name="$PROJECT_DIR$/src/main/resources/input/primal/unb" />
       <recent name="$PROJECT_DIR$/src/main/resources/input/primal/opt" />
       <recent name="$PROJECT_DIR$/src/main/resources/input/primal" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/input/primal/opt" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -442,6 +392,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="AuxOptTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.aux.AuxOptTest" />
+      <module name="simplex" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.aux.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DualOptTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.dual.DualOptTest" />
       <module name="simplex" />
@@ -491,6 +454,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AuxOptTest" />
         <item itemvalue="Application.DualOptTest" />
         <item itemvalue="Application.PrimalOptTest" />
         <item itemvalue="Application.PrimalUnbTest" />
@@ -511,17 +475,18 @@
       <workItem from="1557186725414" duration="9184000" />
       <workItem from="1557508220385" duration="7711000" />
       <workItem from="1557515991381" duration="11352000" />
+      <workItem from="1571265561070" duration="7800000" />
+      <workItem from="1571699885833" duration="30000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49007000" />
+    <option name="totallyTimeSpent" value="56837000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1599" y="-5" width="1682" height="1001" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1" y="-11" width="1922" height="1043" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.888412" visible="true" weight="0.17747858" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.888412" visible="true" weight="0.18162394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -530,15 +495,15 @@
       <window_info id="Favorites" order="6" sideWeight="0.11158799" side_tool="true" weight="0.2374541" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.6116959" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13099416" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989011" weight="0.637486" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.28304094" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50109893" side_tool="true" weight="0.6120092" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.28170595" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="right" id="Maven" order="0" />
@@ -601,27 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/aux/inputAuxOpt.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="29" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/input/primal/opt/input1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -671,24 +615,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/RunnableSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##1;class#Logger#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/RunnableSimplex.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/test/dual/DualUnbTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -710,27 +637,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="46" lean-forward="true" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/input/input4.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,9 +654,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/print/CustomPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2373">
+          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#printTableau#1;class#CustomPrinter#0" />
+            <element signature="method#printElem#2;class#CustomPrinter#0" />
+            <element signature="method#printBasisElem#0;class#CustomPrinter#0" />
+            <element signature="method#printArray#1;class#CustomPrinter#0" />
+            <element signature="method#printBasisArray#0;class#CustomPrinter#0" />
+            <element signature="method#printHorizontalLine#0;class#CustomPrinter#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="method#assign#2;class#Value#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
+        <state relative-caret-position="399">
           <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -754,130 +700,142 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="initializer##1;class#Logger#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1862">
+          <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#pivot#0;class#Simplex#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="117" column="77" selection-start-line="117" selection-start-column="77" selection-end-line="117" selection-end-column="77" />
+        <state relative-caret-position="1140">
+          <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#readFromFile#0;class#LPPSolver#0" />
-            <element signature="method#runSimplex#0;class#LPPSolver#0" />
+            <element signature="method#writeToFile#0;class#LPPSolver#0" />
+            <element signature="method#canRunPrimal#0;class#LPPSolver#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/print/CustomPrinter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="141" column="12" lean-forward="true" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
-            <element signature="method#printTableau#1;class#CustomPrinter#0" />
-            <element signature="e#3625#3626#0" expanded="true" />
-            <element signature="e#3669#3670#0" expanded="true" />
-            <element signature="method#printElem#2;class#CustomPrinter#0" />
-            <element signature="method#printBasisElem#0;class#CustomPrinter#0" />
-            <element signature="e#6153#6154#0" expanded="true" />
-            <element signature="e#6189#6190#0" expanded="true" />
-            <element signature="method#printArray#1;class#CustomPrinter#0" />
-            <element signature="method#printBasisArray#0;class#CustomPrinter#0" />
-            <element signature="method#printHorizontalLine#0;class#CustomPrinter#0" />
-            <element signature="e#7352#7353#0" expanded="true" />
-            <element signature="e#7390#7391#0" expanded="true" />
-            <element signature="e#7431#7432#0" expanded="true" />
-            <element signature="e#7462#7463#0" expanded="true" />
-            <element signature="e#7505#7506#0" expanded="true" />
-            <element signature="e#7540#7541#0" expanded="true" />
-            <element signature="e#7585#7586#0" expanded="true" />
-            <element signature="e#7622#7623#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="method#assign#2;class#Value#0" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#979#980#0" expanded="true" />
-            <element signature="e#1799#1800#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1879#1880#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Tableau.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="181" column="21" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="21" />
+        <state relative-caret-position="1330">
+          <caret line="192" column="13" selection-start-line="192" selection-start-column="13" selection-end-line="192" selection-end-column="13" />
           <folding>
             <element signature="method#Tableau#0;class#Tableau#0" />
             <element signature="method#Tableau#1;class#Tableau#0" />
-            <element signature="e#1905#2340#1" />
-            <element signature="method#Tableau#2;class#Tableau#0" />
             <element signature="method#concatenateTwoMatrixesSideBySide#0;class#Tableau#0" />
             <element signature="method#concatenateTwoArraysSideBySide#0;class#Tableau#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+        <state relative-caret-position="646">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#202#203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="163" selection-start-line="163" selection-end-line="163" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#pivot#0;class#Simplex#0" />
-            <element signature="method#pivot#1;class#Simplex#0" />
-            <element signature="method#concatenateTwoMatrixesSideBySide#0;class#Simplex#0" />
-            <element signature="method#concatenateTwoArraysSideBySide#0;class#Simplex#0" />
-            <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5512#5513#0" expanded="true" />
-            <element signature="e#5570#5571#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
+            <element signature="e#222#223#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+        <state relative-caret-position="1805">
+          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#184#185#0" expanded="true" />
-            <element signature="e#219#220#0" expanded="true" />
             <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
-            <element signature="method#createAuxTableau#0;class#AuxSimplex#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/input/aux/inputAuxOpt.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -922,7 +880,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
