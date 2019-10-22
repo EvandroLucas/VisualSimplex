@@ -84,11 +84,55 @@ public class ColorPrint {
     public static void printPurpleBack(String str){
         System.out.print(ANSI_PURPLE_BACKGROUND + str + ANSI_RESET);
     }
-    public static void printWhiteBack(String str){
-        System.out.println(ANSI_WHITE_BACKGROUND + ANSI_BLACK + str + ANSI_RESET);
+    public static void printWhiteBack(String str){ System.out.println(ANSI_WHITE_BACKGROUND + ANSI_BLACK + str + ANSI_RESET); }
+    public static void printBlackBack(String str){ System.out.println(ANSI_BLACK_BACKGROUND + ANSI_WHITE + str + ANSI_RESET); }
+
+
+    public static String black(String str){
+        return (str);
     }
-    public static void printBlackBack(String str){
-        System.out.println(ANSI_BLACK_BACKGROUND + ANSI_WHITE + str + ANSI_RESET);
+    public static String red(String str){
+        return (ANSI_RED + str + ANSI_RESET);
+    }
+    public static String yellow(String str){
+        return (ANSI_YELLOW + str + ANSI_RESET);
+    }
+    public static String green(String str){
+        return (ANSI_GREEN + str + ANSI_RESET);
+    }
+    public static String cyan(String str){
+        return (ANSI_CYAN + str + ANSI_RESET);
+    }
+    public static String blue(String str){
+        return (ANSI_BLUE + str + ANSI_RESET);
+    }
+    public static String purple(String str){
+        return (ANSI_PURPLE + str + ANSI_RESET);
+    }
+
+    public static String redBack(String str){
+        return (ANSI_RED_BACKGROUND + str + ANSI_RESET);
+    }
+    public static String yellowBack(String str){
+        return (ANSI_YELLOW_BACKGROUND + str + ANSI_RESET);
+    }
+    public static String greenBack(String str){
+        return (ANSI_GREEN_BACKGROUND + str + ANSI_RESET);
+    }
+    public static String cyanBack(String str){
+        return (ANSI_CYAN_BACKGROUND + str + ANSI_RESET);
+    }
+    public static String blueBack(String str){
+        return (ANSI_BLUE_BACKGROUND + str + ANSI_RESET);
+    }
+    public static String purpleBack(String str){
+        return (ANSI_PURPLE_BACKGROUND + str + ANSI_RESET);
+    }
+    public static String whiteBack(String str){
+        return (ANSI_WHITE_BACKGROUND + ANSI_BLACK + str + ANSI_RESET);
+    }
+    public static String blackBack(String str){
+        return (ANSI_BLACK_BACKGROUND + ANSI_WHITE + str + ANSI_RESET);
     }
 
 

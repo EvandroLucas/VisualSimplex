@@ -32,17 +32,7 @@ public class LPP {
         this.objVar = objVar;
     }
 
-    // This will remove any redundancy between variable restrictions
-    public void simplify(){
-        for(){
 
-        }
-    }
-
-    public RestrictionMatch matchCondition(VariableRestriction generalRestriction, VariableRestriction varRt){
-        // Devemos montar Maps constantes dentro do enum, e usar a a tabela para comparar
-        // É feio mas pelo menos é O(1)
-    }
 
 
 

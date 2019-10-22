@@ -103,7 +103,7 @@ public class LPPReader {
                     for(String str : strValues){
                         RestrictionType rtt = RestrictionType.fromString(matcher.group(2));
                         Value rightSide = new Value(Double.parseDouble(matcher.group(3)));
-                        VariableRestriction vrt = new VariableRestriction(str,rightSide,rtt,solution);
+                        VariableRestriction vrt = new VariableRestriction(str,rightSide,rtt);
                         vrts.add(vrt);
                         System.out.println(vrt);
                     }
@@ -123,7 +123,7 @@ public class LPPReader {
                     strValues = matcher.group(1).split(",");
                     for(String str : strValues){
                         RestrictionType rtt = RestrictionType.fromString(matcher.group(2));
-                        VariableRestriction vrt = new VariableRestriction(str,new Value(0),rtt,solution);
+                        VariableRestriction vrt = new VariableRestriction(str,new Value(0),rtt);
                         System.out.println(vrt);
                     }
                     line = scanner.nextLine();

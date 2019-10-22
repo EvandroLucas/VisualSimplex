@@ -3,18 +3,34 @@ package lpp;
 import numbers.Value;
 import print.ColorPrint;
 
+/*
+* This class encapsules the symbolic representation of a Variable Restriction
+* For example, if we have:
+*       y <= 0
+*
+* Our values would be:
+*   leftside = "y"
+*   right = 0
+*   rtt = RestrictionType.LessOrEqualThan
+*   broadRestriction = true , since y is a vector given that
+*       no integer is concatenated to it (e.g y0 would be a variable of y)
+* */
+
+
 public class VariableRestriction {
 
     private String leftSide;
     private Value right;
     private RestrictionType rtt;
-    private String groupId;
+    private boolean broadRestriction = false;
 
-    public VariableRestriction(String leftSide, Value right, RestrictionType rtt, String groupId) {
+    public VariableRestriction(String leftSide, Value right, RestrictionType rtt) {
         this.leftSide = leftSide;
         this.right = right;
         this.rtt = rtt;
-        this.groupId = groupId;
+        if(!leftSide.matches(".*\\d.*")){
+            broadRestriction = true;
+        }
 
     }
 
@@ -30,9 +46,17 @@ public class VariableRestriction {
         return rtt;
     }
 
-    public String getGroupId() {
-        return groupId;
+    public boolean isBroad() {
+        return broadRestriction;
     }
+
+    public boolean belongsTo(VariableRestriction broadVar){
+        if(broadVar.isBroad()){
+            return broadVar.leftSide.contains(leftSide);
+        }
+        return false;
+    }
+
 
     @Override
     public String toString() {
