@@ -46,7 +46,7 @@ public class LPPReader {
             matcher = pattern.matcher(line);
             matcher.find();
             String[] strValues = matcher.group(1).split(",");
-            Integer numVar = strValues.length;
+            int numVar = strValues.length;
             Value[] obj = new Value[numVar];
             System.out.print(ColorPrint.cyan("("));
             for(int i =0; i< numVar; i++){
