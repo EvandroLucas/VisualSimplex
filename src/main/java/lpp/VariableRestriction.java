@@ -34,6 +34,16 @@ public class VariableRestriction {
 
     }
 
+    public VariableRestriction(VariableRestriction vrt) {
+        this.leftSide = vrt.leftSide;
+        this.right = new Value(vrt.right);
+        this.rtt = vrt.rtt;
+        if(!leftSide.matches(".*\\d.*")){
+            broadRestriction = true;
+        }
+
+    }
+
     public String getLeftSide() {
         return leftSide;
     }
@@ -63,10 +73,11 @@ public class VariableRestriction {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(ColorPrint.red(leftSide));
+        if(broadRestriction)
+            stringBuilder.append(ColorPrint.yellow("*"));
         stringBuilder.append(" ").append(ColorPrint.purple(rtt.toString()));
         if(!(rtt.equals(RestrictionType.MustBeBinary) || rtt.equals(RestrictionType.MustBeInteger)))
             stringBuilder.append(ColorPrint.blue(right.toString()));
-
         return stringBuilder.toString();
     }
 }

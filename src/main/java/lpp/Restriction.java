@@ -3,55 +3,94 @@ package lpp;
 import numbers.Value;
 import print.ColorPrint;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
 public class Restriction {
 
-    private Value[] leftSide;
-    private Value right;
-    private RestrictionType rtt;
-    private String id;
+    public ArrayList<Component> components = new ArrayList<>();
+    public Value right;
+    public RestrictionType rtt;
+    public HashMap<String, HashSet<Integer>> groups = new HashMap<>();
 
 
-    public Restriction(Value[] leftSide, Value right, RestrictionType rtt, String id) {
-        this.leftSide = leftSide;
+    public Restriction(Value[] leftSide, Value right, RestrictionType rtt, String group) {
         this.right = right;
         this.rtt = rtt;
-        this.id = id;
+        for(int i = 0; i < leftSide.length;i++){
+            Component component = new Component(group,i,leftSide[i]);
+            addComponent(component);
+        }
+
+    }
+    public Restriction (Restriction rt){
+        this.right = new Value(rt.right);
+        this.rtt = rt.rtt;
+        for(Component comp : rt.components){
+            addComponent(comp);
+        }
     }
 
-    public Value[] getLeftSide() {
-        return leftSide;
+    public void mult(Value v){
+        for(Component component : components){
+            component.setMultiplier(component.getMultiplier().mult(v));
+        }
+        right.assign(right.mult(v));
     }
 
-    public Value getRight() {
-        return right;
+    public void addComponent(Component cp) {
+        this.components.add(new Component(cp));
+        addVariable(cp);
+    }
+    public boolean addVariable(Variable var) {
+        boolean changed = false;
+        if(!groups.containsKey(var.getGroup())){
+            groups.put(var.getGroup(),new HashSet<>());
+            changed = true;
+        }
+        if(! groups.get(var.getGroup()).contains(var.getIndex())){
+            groups.get(var.getGroup()).add(var.getIndex());
+            changed = true;
+        }
+        return changed;
+    }
+    public void removeComponent(Component cp) {
+        this.components.add(new Component(cp));
+        removeVariable(cp);
+    }
+    public void removeVariable(Variable var) {
+        groups.get(var.getGroup()).remove(var.getIndex());
+    }
+    public boolean hasVariable(Variable var) {
+        boolean has = false;
+        if(!groups.containsKey(var.getGroup())) return false;
+        return groups.get(var.getGroup()).contains(var.getIndex());
     }
 
-    public RestrictionType getRtt() {
-        return rtt;
-    }
 
 
     @Override
     public String toString() {
+       return toString(false);
+    }
+
+    public String toString(boolean full) {
+        if (components.isEmpty()) return "Empty!";
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < leftSide.length; i++){
-            String sign = "+";
-            if(leftSide[i].isNegative() && i!=0){
-                sign = "-";
-            }
-            if(i > 0){
-                stringBuilder.append(sign);
-            }
-            stringBuilder.append(ColorPrint.cyan("("));
-            if(leftSide[i].isNegative() && i!=0){
-                stringBuilder.append(ColorPrint.blue(leftSide[i].toString().replace("-","")));
-            }
-            else {
-                stringBuilder.append(ColorPrint.blue(leftSide[i].toString()));
-            }
-            stringBuilder.append(ColorPrint.cyan(")")).append(ColorPrint.red(id + i + " "));
+        for(Component component : components){
+            stringBuilder.append(component.toString());
         }
-        stringBuilder.append(" ").append(ColorPrint.purple(rtt.toString())).append(" ").append(ColorPrint.blue(right.toString()));
+        stringBuilder.append(" ")
+                .append(ColorPrint.purple(rtt.toString()))
+                .append(" ")
+                .append(ColorPrint.blue(right.toString()));
+        if(full){
+            stringBuilder.append("       ")
+                    .append(ColorPrint.green(groups.toString()));
+        }
         return stringBuilder.toString();
     }
+
 }

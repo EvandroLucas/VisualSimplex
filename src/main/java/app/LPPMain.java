@@ -1,6 +1,8 @@
 package app;
 
 import logging.Logger;
+import lpp.CanonicalLPP;
+import lpp.LPP;
 import lpp.LPPReader;
 
 import java.io.File;
@@ -22,15 +24,10 @@ public class LPPMain {
             inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName)).getFile());
 
             LPPReader lppReader = new LPPReader();
-            lppReader.readFromFile(inputFile);
-
-            for(int i = 0; i < 25; i++){
-                for(int j = 0; j < 3; j++){
-                    System.out.printf("combinations[%d][%d] = -3; ",i,j);
-                }
-                System.out.println("\n");
-
-            }
+            LPP lpp = lppReader.readFromFile(inputFile);
+            System.out.println(lpp);
+            LPP lpp2 = new CanonicalLPP(lpp);
+            System.out.println(lpp2);
 
 
         } catch (Exception e) {
