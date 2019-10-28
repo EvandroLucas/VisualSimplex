@@ -38,7 +38,7 @@ public class LPPReader {
                 .toLowerCase()
                 + "\n ";
 
-        //System.out.println("================================================\n" + all + "\n================================================");
+        System.out.println("================================================\n" + all + "\n================================================");
         Scanner scanner = new Scanner(all).useLocale(Locale.US);
         String line = scanner.nextLine();
 
@@ -96,43 +96,52 @@ public class LPPReader {
         }
 
         ArrayList<VariableRestriction> vrts = new ArrayList<>();
+        System.out.println("Line:" + line + ", scannehas + " + scanner.hasNextLine() + ", done = " + done);
+        // Find variable-specific restrictions
+        done = false;
+        while(!done && scanner.hasNextLine()){
+            Pattern patternInterval = Pattern.compile("^([^=<>:]*)([=<>]*)(.*)$");
+            Matcher matcherInterval = patternInterval.matcher(line);
+            if (matcherInterval.find()) {
+                // Finding restriction type:
+                RestrictionType rtt;
+                Value right = new Value(0);
+                if(!matcherInterval.group(2).isEmpty()){
+                    rtt = RestrictionType.fromString(matcherInterval.group(2));
+                    // The right side is a value in this case
+                    right = new Value(Double.parseDouble(matcherInterval.group(3)));
+                }
+                else {
+                    rtt = RestrictionType.fromString(matcherInterval.group(3));
+                }
 
-        // Find variable-specific restrictions on intervals
-        done = false;
-        while(!done && scanner.hasNextLine()){
-            patternStr = "^("+solution+"[^=<>:]*)([=<>]+)([0-9.]+)";
-            pattern = Pattern.compile(patternStr);
-            matcher = pattern.matcher(line);
-            if (matcher.find()) {
-                strValues = matcher.group(1).split(",");
-                for(String str : strValues){
-                    RestrictionType rtt = RestrictionType.fromString(matcher.group(2));
-                    Value rightSide = new Value(Double.parseDouble(matcher.group(3)));
-                    VariableRestriction vrt = new VariableRestriction(str,rightSide,rtt);
+                // For each component separated by commas:
+                strValues = matcherInterval.group(1).split(",");
+                for(String left : strValues){
+                    // Pattern matching for a component : optional multiplier , group, and index
+                    Pattern componentPattern = Pattern.compile("^([0-9]*)([^0-9\\n\\r]+)([0-9]*)");
+                    Matcher componentMatcher;
+                    // For the left side of the equation:
+                    System.out.println("Left: " + left);
+                    componentMatcher = componentPattern.matcher(left);
+                    componentMatcher.find();
+                    String group = componentMatcher.group(2);
+                    VariableRestriction vrt;
+                    vrt = new VariableRestriction(group,right,rtt);
+                    // Adding a multiplier (if it exists)
+                    if(!componentMatcher.group(1).isEmpty()) {
+                        vrt.setMultiplier(new Value(componentMatcher.group(1)));
+                    }
+                    // Adding an index (if it exists)
+                    if(!componentMatcher.group(3).isEmpty()) {
+                        Integer index = Integer.parseInt(componentMatcher.group(3));
+                        vrt.setIndex(index);
+                    }
                     vrts.add(vrt);
                 }
                 line = scanner.nextLine();
             }
-            else{
-                done = true;
-            }
-        }
-        // Find variable-specific restrictions on domains
-        done = false;
-        while(!done && scanner.hasNextLine()){
-            patternStr = "^("+solution+"[^=<>:]*)([:]+[a-z]+)";
-            pattern = Pattern.compile(patternStr);
-            matcher = pattern.matcher(line);
-            if (matcher.find()) {
-                strValues = matcher.group(1).split(",");
-                for(String str : strValues){
-                    RestrictionType rtt = RestrictionType.fromString(matcher.group(2));
-                    VariableRestriction vrt = new VariableRestriction(str,new Value(0),rtt);
-                    vrts.add(vrt);
-                }
-                line = scanner.nextLine();
-            }
-            else{
+            else {
                 done = true;
             }
         }

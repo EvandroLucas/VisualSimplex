@@ -1,24 +1,21 @@
 package lpp;
 
-public class Variable {
+public class Variable implements Comparable{
 
-    private String name;
     private String group;
-    private Integer index;
+    private Integer index = 0;
 
     public Variable(String group, Integer index){
         this.group = group;
-        this.index = index;
-        this.name = group + index;
+        this.index += index;
     }
     public Variable(Variable var){
-        this.name = var.name;
         this.group = var.group;
-        this.index = var.index;
+        this.index += var.index;
     }
 
     public String getName() {
-        return name;
+        return group + index;
     }
 
     public String getGroup() {
@@ -27,7 +24,6 @@ public class Variable {
 
     public void setGroup(String group) {
         this.group = group;
-        this.name = group + index;
     }
 
     public Integer getIndex() {
@@ -36,11 +32,24 @@ public class Variable {
 
     public void setIndex(Integer index) {
         this.index = index;
-        this.name = group + index;
     }
 
     @Override
     public String toString() {
-        return this.name;
+        return this.getName();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof Variable){
+            Variable v = (Variable) o;
+            if(this.getIndex() > ((Variable) o).getIndex()){
+                return 1;
+            }
+            else if(this.getIndex() < ((Variable) o).getIndex()){
+                return -1;
+            }
+        }
+        return 0;
     }
 }

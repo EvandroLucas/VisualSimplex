@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class LPP {
 
-
+    public String mainGroup = "x";
     public boolean solved = true;
     public Value[] solution = new Value[0];
     public Result result = Result.UNKNOWN;
@@ -25,7 +25,6 @@ public class LPP {
     public ArrayList<Restriction> restrictions = new ArrayList<>();
     public ArrayList<VariableRestriction> varRestrictions = new ArrayList<>();
     public ArrayList<Component> objFunction = new ArrayList<>();
-    public String objVar;
     public Integer numVar = 0;
 
     public LPP(LPP lpp){
@@ -45,7 +44,7 @@ public class LPP {
         for(Component cp: lpp.objFunction){
             this.objFunction.add(new Component(cp));
         }
-        this.objVar = lpp.objVar;
+        this.mainGroup = lpp.mainGroup;
         this.numVar += lpp.objFunction.size();
         this.solved = lpp.solved;
         this.solution = lpp.solution.clone();
@@ -53,12 +52,12 @@ public class LPP {
     }
 
 
-    public LPP (ProblemType problemType, ArrayList<Restriction> restrictions, ArrayList<VariableRestriction> varRestrictions, ArrayList<Component> objFunction, String objVar){
+    public LPP (ProblemType problemType, ArrayList<Restriction> restrictions, ArrayList<VariableRestriction> varRestrictions, ArrayList<Component> objFunction, String mainGroup){
         this.problemType = problemType;
         this.restrictions = restrictions;
         this.varRestrictions = varRestrictions;
         this.objFunction = objFunction;
-        this.objVar = objVar;
+        this.mainGroup = mainGroup;
         this.numVar = objFunction.size();
     }
 

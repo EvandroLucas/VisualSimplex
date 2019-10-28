@@ -4,8 +4,8 @@ s.t
     (2.1,  2.2 , 2.3 , 2.4)y  >= 3
     (3.1, -3.2 , 3.3 , 3.4, 5)y  <= 4
     (4.1,  4.2 , 4.3 , 4.4)y  <  5
-    y >= 0 # comments are ignored
+    y <= 0 # comments are ignored
     y1 < 1
-    y2 = 4
+    7y2 = 4
     y3, y2 : Integer
     y4 : Binary

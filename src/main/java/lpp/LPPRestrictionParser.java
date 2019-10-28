@@ -76,7 +76,7 @@ public class LPPRestrictionParser {
         boolean canCompare = false;
         // First we check if it even make sense to compare those two.
         //If they are the same, of course we can compare them, e.g : e.g : x1 < 0 and x1 < 1
-        if(rt1.getLeftSide().equals(rt2.getLeftSide())){
+        if(rt1.getName().equals(rt2.getName())){
             canCompare = true;
         }
         // If one belongs to another, evidently we can compare'em. e.g : x < 0 and x1 < 1

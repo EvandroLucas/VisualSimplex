@@ -3,14 +3,11 @@ package lpp;
 import numbers.Value;
 import print.ColorPrint;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class Restriction {
 
-    public ArrayList<Component> components = new ArrayList<>();
+    public TreeSet<Component> components = new TreeSet<>();
     public Value right;
     public RestrictionType rtt;
     public HashMap<String, HashSet<Integer>> groups = new HashMap<>();
@@ -23,8 +20,16 @@ public class Restriction {
             Component component = new Component(group,i,leftSide[i]);
             addComponent(component);
         }
-
     }
+
+    public Restriction (LinkedHashSet<Component> components, Value right, RestrictionType rtt) {
+        this.right = right;
+        this.rtt = rtt;
+        for(Component component : components){
+            addComponent(component);
+        }
+    }
+
     public Restriction (Restriction rt){
         this.right = new Value(rt.right);
         this.rtt = rt.rtt;

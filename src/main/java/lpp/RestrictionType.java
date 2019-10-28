@@ -41,12 +41,19 @@ public enum RestrictionType {
             return RestrictionType.MustBeBinary;
         }
         else {
-            System.out.println("Unknown restriction type: " + str);
+            System.out.println("Unknown restriction type: '" + str + "'");
             System.exit(1);
             return RestrictionType.EqualTo;
         }
 
     }
+
+    public boolean isDomain(){
+        if(rtt.equals(": int")) return true;
+        return rtt.equals(": bin");
+    }
+
+
     public String toString() {
         return this.rtt;
     }

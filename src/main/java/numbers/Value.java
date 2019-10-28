@@ -12,6 +12,9 @@ public class Value{
     public Value(Double value){
         this.value = value;
     }
+    public Value(String value){
+        this(Double.parseDouble(value));
+    }
     public Value(Value value){
         this.value = value.doubleValue();
     }
