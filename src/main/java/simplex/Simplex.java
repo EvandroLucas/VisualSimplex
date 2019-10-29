@@ -76,8 +76,8 @@ public abstract class Simplex {
 
         Logger.println("info","Pivoting!");
 
-        Value pivot = new Value(0); //guarda o pivot
-        Value mult = new Value(0);  //multiplicador
+        Value pivot = new Value(); //guarda o pivot
+        Value mult = new Value();  //multiplicador
 
 
         //updating basis

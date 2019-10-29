@@ -12,6 +12,7 @@ package lpp;
 
 import logging.Logger;
 import numbers.Value;
+import simplex.Tableau;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -100,6 +101,38 @@ public class CanonicalLPP extends LPP{
             restrictions.add(rt);
             return true;
         }
+    }
+
+    public Tableau getTableau(){
+
+        int constraintNum = numberOfRestrictions();
+        int variableNum = numberOfVariables();
+
+        Value[][] A = new Value[constraintNum + 1][variableNum + 1];
+        for(int i =0; i < A.length; i++){
+            for(int j =0; j < A[i].length; j++){
+                A[i][j] = new Value();
+            }
+        }
+
+        // We let the objective value as zero
+        // The objective function will be placed at the first row
+        for(int i = 0; i < objFunction.size(); i++){
+            A[0][i] = objFunction.get(i).getMultiplier();
+        }
+        // The remaining lines are all restrictions
+
+        for (int i = 1; i < restrictions.size(); i++) {
+            Restriction rt = restrictions.get(i);
+            int j = 0;
+            for(Component component : rt.components){
+                A[i][j] = component.getMultiplier();
+                j++;
+            }
+            A[i][j] = rt.right;
+        }
+
+        return new Tableau(A,true);
     }
 
 

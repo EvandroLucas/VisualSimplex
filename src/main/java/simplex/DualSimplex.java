@@ -3,19 +3,33 @@ package simplex;
 import logging.Logger;
 import numbers.Fraction;
 import numbers.Value;
-import print.ColorPrint;
+
 
 public class DualSimplex extends Simplex{
 
+    public DualSimplex(Tableau tableauInput) {
+        this(tableauInput,true);
+    }
+
+    public DualSimplex(Tableau tableauInput, boolean invertC) {
+        super(tableauInput);
+        //Inverting the signs for c vector
+        if(invertC) {
+            for (Value value : tableau.c) {
+                value.assign(value.mult(-1));
+            }
+        }
+        printer.setDesc("Dual simplex to solve");
+        printThisTableau();
+    }
 
     public DualSimplex(Value[][] tableauInput) {
-
         super(tableauInput);
+        //Inverting the signs for c vector
         for (Value value : tableau.c) {
             value.assign(value.mult(-1));
         }
     }
-
 
     @Override
     public void run(){

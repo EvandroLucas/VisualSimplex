@@ -18,7 +18,7 @@ public class AuxOptTest {
 
         LPPSolver lPPSolver = new LPPSolver();
         lPPSolver.readFromFile(file);
-        lPPSolver.runSimplex();
+        lPPSolver.solve();
 
     }
 

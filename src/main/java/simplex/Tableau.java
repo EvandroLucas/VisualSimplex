@@ -22,8 +22,8 @@ public class Tableau {
     public int pivotColumnIndex;
     public int problematicColumnIndex;
 
-
-    public Tableau(int numVar, int numCons){
+    // Empty Tableau
+    private Tableau(int numVar, int numCons){
 
         this.numVar = numVar;
         this.numCons = numCons;
@@ -38,22 +38,22 @@ public class Tableau {
         solution = new Value[numVar];
 
         for(int i =0; i < numVar; i++){
-            c[i] = new Value(0);
-            solution[i] = new Value(0);
+            c[i] = new Value();
+            solution[i] = new Value();
         }
         for(int i =0; i < numCons; i++){
-            b[i] = new Value(0);
-            certOpt[i] = new Value(0);
-            certInf[i]  = new Value(0);
+            b[i] = new Value();
+            certOpt[i] = new Value();
+            certInf[i]  = new Value();
         }
         for(int i =0; i < numVar; i++){
-            certUnb[i] = new Value(0);
+            certUnb[i] = new Value();
         }
         //Received matrix
         A  = new Value[numCons][numVar];
         for(int i =0; i < A.length; i++){
             for(int j =0; j < A[i].length; j++){
-                A[i][j] = new Value(0);
+                A[i][j] = new Value();
             }
         }
         //Identity matrix to concatenate into new one
@@ -61,13 +61,13 @@ public class Tableau {
         relax  = new Value[A.length][A.length];
         Value[] zeroArray = new Value[relax.length];
         for(int i =0; i < relax.length; i++){
-            zeroArray[i] = new Value(0);
+            zeroArray[i] = new Value();
             for(int j =0; j < relax[i].length; j++){
                 if(i==j) relax[i][j] = new Value(1);
-                else relax[i][j] = new Value(0);
+                else relax[i][j] = new Value();
             }
         }
-        z = new Value(0);
+        z = new Value();
 
         basis = new boolean[A[0].length];
         for (int i = 0; i < basis.length; i++) {
@@ -98,9 +98,9 @@ public class Tableau {
         if(generateBasis) {
             Value[] zeroArray = new Value[relax.length];
             for(int i =0; i < relax.length; i++) {
-                zeroArray[i] = new Value(0);
+                zeroArray[i] = new Value();
             }
-            A = concatenateTwoMatrixesSideBySide(A, relax);
+            A = concatenateTwoMatricesSideBySide(A, relax);
             c = concatenateTwoArraysSideBySide(c, zeroArray);
             //Simple basis checking, would be different if relax had different format
             basis = new boolean[A[0].length];
@@ -149,6 +149,8 @@ public class Tableau {
         }
     }
 
+
+    // The aux flag tell us if it's about an auxiliary tableau or not
     public Tableau (Tableau tableauInput, boolean generateBasis, boolean aux){
 
         this( tableauInput.A[0].length, tableauInput.A.length);
@@ -168,14 +170,14 @@ public class Tableau {
         if(generateBasis) {
             Value[] zeroArray = new Value[relax.length];
             for(int i =0; i < relax.length; i++) {
-                zeroArray[i] = new Value(0);
+                zeroArray[i] = new Value();
             }
             //Simple basis checking, would be different if relax had different format
             basis = new boolean[A[0].length + relax.length];
             for (int i = 0; i < basis.length; i++) {
                 basis[i] = i >= A[0].length;
             }
-            A = concatenateTwoMatrixesSideBySide(A, relax);
+            A = concatenateTwoMatricesSideBySide(A, relax);
             c = concatenateTwoArraysSideBySide(c, zeroArray);
         }
 
@@ -196,11 +198,11 @@ public class Tableau {
 
     }
 
-    private Value[][] concatenateTwoMatrixesSideBySide(Value[][] A,Value[][] B){
+    private Value[][] concatenateTwoMatricesSideBySide(Value[][] A, Value[][] B){
         Value[][] C = new Value[A.length][A[0].length+B[0].length];
         for(int i=0;i<C.length;i++){
             for (int j = 0; j < C[0].length;j++){
-                C[i][j] = new Value(0);
+                C[i][j] = new Value();
             }
         }
         for(int i=0;i<C.length;i++){
@@ -216,7 +218,7 @@ public class Tableau {
     private Value[] concatenateTwoArraysSideBySide(Value[] a,Value[] b){
         Value[] c = new Value[a.length+b.length];
         for (int i = 0; i < c.length;i++){
-            c[i] = new Value(0);
+            c[i] = new Value();
         }
         for (int j = 0; j < a.length;j++){
             c[j] = new Value(a[j]) ;
@@ -249,7 +251,6 @@ public class Tableau {
         }
         z.round();
     }
-
 
 
 

@@ -99,6 +99,7 @@ public class LPP {
         }
         return changed;
     }
+
     public void removeVariable(Variable var) {
         groups.get(var.getGroup()).remove(var.getIndex());
     }
@@ -128,7 +129,7 @@ public class LPP {
                 for (Map.Entry<String, HashSet<Integer>> entry : groups.entrySet()) {
                     String group = entry.getKey();
                     for (Integer index : groups.get(group)) {
-                        Component cp = new Component(group, index, new Value(0));
+                        Component cp = new Component(group, index, new Value());
                         if (!rt.hasVariable(cp)) {
                             rt.addComponent(cp);
                         }
@@ -136,6 +137,17 @@ public class LPP {
                 }
             }
         }
+    }
+
+    public Integer numberOfVariables(){
+        int count = 0;
+        for (Map.Entry<String,HashSet<Integer>> entry : groups.entrySet()){
+            count += entry.getValue().size();
+        }
+        return count;
+    }
+    public Integer numberOfRestrictions(){
+        return restrictions.size();
     }
 
 

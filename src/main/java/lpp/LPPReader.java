@@ -105,7 +105,7 @@ public class LPPReader {
             if (matcherInterval.find()) {
                 // Finding restriction type:
                 RestrictionType rtt;
-                Value right = new Value(0);
+                Value right = new Value();
                 if(!matcherInterval.group(2).isEmpty()){
                     rtt = RestrictionType.fromString(matcherInterval.group(2));
                     // The right side is a value in this case

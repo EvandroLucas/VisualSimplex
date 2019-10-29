@@ -18,7 +18,7 @@ public class PrimalOptTest {
 
         LPPSolver lPPSolver = new LPPSolver();
         lPPSolver.readFromFile(file);
-        lPPSolver.runSimplex();
+        lPPSolver.solve();
 
         System.out.println("O resultado esperado é 14");
 

@@ -2,10 +2,7 @@ package app;
 
 import logging.Logger;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Paths;
 
 public class Main {
@@ -21,7 +18,6 @@ public class Main {
 
             if(args.length == 0 ) {
                 inputFileName = "input/input.txt";
-                //inputFileName = "input/dual/inputDualOtima.txt";
                 Logger.println("info", "Loading file : " + inputFileName);
                 ClassLoader classLoader = ClassLoader.getSystemClassLoader();
                 inputFile = new File(classLoader.getResource(inputFileName).getFile());
@@ -37,14 +33,12 @@ public class Main {
 
             LPPSolver lPPSolver = new LPPSolver();
             lPPSolver.readFromFile(inputFile);
-            lPPSolver.runSimplex();
+            lPPSolver.solve();
 
             lPPSolver.writeToFile(outputFile);
 
             System.out.println("Resultados: ");
             System.out.println("Otimo: " + lPPSolver.simplex.tableau.z.doubleValue());
-
-
 
         } catch (Exception e) {
             e.printStackTrace();

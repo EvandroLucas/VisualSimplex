@@ -16,6 +16,13 @@ public class AuxSimplex extends Simplex{
         }
     }
 
+    public AuxSimplex(Tableau tableauInput) {
+        super(tableauInput);
+        for (Value value : tableau.c) {
+            value.assign(value.mult(-1));
+        }
+    }
+
 
     @Override
     public void run() {

@@ -18,6 +18,9 @@ public class Value{
     public Value(Value value){
         this.value = value.doubleValue();
     }
+    public Value(){
+        this(0);
+    }
 
     public void assign (Integer value){
         assign(new Value(value));

@@ -2,19 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b503985-273d-4336-912c-000f944e2656" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/LPPMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LPPMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lpp/LPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/LPP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lpp/LPPReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/LPPReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/Restriction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/Restriction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/RestrictionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/RestrictionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/Variable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/numbers/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/numbers/Value.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lppInput/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lppInput/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/simplex.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/dual/DualOptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/dual/DualOptTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1869">
-              <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="324">
+              <caret line="120" column="8" selection-start-line="117" selection-end-line="132" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,13 +45,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="78" column="48" lean-forward="true" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+            <state relative-caret-position="315">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="initializer##0;class#LPPRestrictionParser#0" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#408#409#0" expanded="true" />
+                <element signature="e#430#431#0" expanded="true" />
+                <element signature="method#assign#2;class#Value#0" />
+                <element signature="method#round#0;class#Value#0" />
               </folding>
             </state>
           </provider>
@@ -56,24 +64,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="115" column="17" lean-forward="true" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+            <state relative-caret-position="1575">
+              <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/RestrictionType.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-              <folding>
-                <element signature="e#322#323#0" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="method#fromString#0;class#RestrictionType#0" />
-                <element signature="e#1276#1277#0" expanded="true" />
-                <element signature="e#1307#1308#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="78">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -81,79 +82,76 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Restriction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="215">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/lang/Double.class">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/lppInput/input.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Component.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            <state relative-caret-position="447">
+              <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#writeToFile#0;class#LPPSolver#0" />
+                <element signature="method#canRunDual#0;class#LPPSolver#0" />
+                <element signature="method#canRunPrimal#0;class#LPPSolver#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="493">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
-                <element signature="e#1473#1474#0" expanded="true" />
-                <element signature="e#1501#1502#0" expanded="true" />
-                <element signature="e#1568#1569#0" expanded="true" />
-                <element signature="e#1602#1603#0" expanded="true" />
-                <element signature="e#1610#1611#0" expanded="true" />
-                <element signature="e#1638#1639#0" expanded="true" />
-                <element signature="e#1983#1984#0" expanded="true" />
-                <element signature="e#2016#2017#0" expanded="true" />
-                <element signature="e#2081#2082#0" expanded="true" />
-                <element signature="e#2113#2114#0" expanded="true" />
-                <element signature="e#1573#1574#0" expanded="true" />
-                <element signature="e#1609#1610#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Variable.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="567">
+              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="42" />
               <folding>
-                <element signature="e#429#430#0" expanded="true" />
-                <element signature="e#465#466#0" expanded="true" />
-                <element signature="e#567#568#0" expanded="true" />
-                <element signature="e#601#602#0" expanded="true" />
-                <element signature="e#705#706#0" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-                <element signature="e#846#847#0" expanded="true" />
-                <element signature="e#878#879#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#183#184#0" expanded="true" />
+                <element signature="e#222#223#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+                <element signature="e#599#600#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-147">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#pivot#0;class#Simplex#0" />
               </folding>
             </state>
           </provider>
@@ -170,7 +168,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>foundPositive</find>
       <find>blue</find>
       <find>[</find>
       <find>,</find>
@@ -200,6 +197,7 @@
       <find>solu</find>
       <find>solution</find>
       <find>print</find>
+      <find>new Value(0)</find>
     </findStrings>
     <replaceStrings>
       <replace>pivotRowIndex</replace>
@@ -222,6 +220,7 @@
       <replace>RestrictionMatch.ADDITION</replace>
       <replace>Term</replace>
       <replace>objVar</replace>
+      <replace>new Value()</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java/Test</dir>
@@ -249,40 +248,39 @@
         <option value="$PROJECT_DIR$/src/main/java/test/dual/DualUnfTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnfTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/print/CustomPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" />
         <option value="$PROJECT_DIR$/src/main/java/logging/Logger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/input/input.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" />
         <option value="$PROJECT_DIR$/src/main/java/print/ColorPrint.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/StandardFormLPP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/LPPMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/LPP.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java" />
         <option value="$PROJECT_DIR$/src/main/resources/lppInput/input.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/numbers/Value.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/LPPReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/RestrictionType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/Restriction.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/Component.java" />
         <option value="$PROJECT_DIR$/src/main/java/lpp/Variable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lpp/LPP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/numbers/Value.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/LPPMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" />
+        <option value="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" />
+        <option value="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" />
+        <option value="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
-    <option name="y" value="-4" />
+    <option name="x" value="346" />
     <option name="width" value="1368" />
-    <option name="height" value="720" />
+    <option name="height" value="709" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -293,6 +291,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -410,13 +409,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572222229435" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572307170568" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -531,17 +529,19 @@
       <workItem from="1571699885833" duration="30000" />
       <workItem from="1572002500311" duration="24859000" />
       <workItem from="1572192466725" duration="3515000" />
-      <workItem from="1572212348167" duration="9878000" />
+      <workItem from="1572212348167" duration="10032000" />
+      <workItem from="1572292188384" duration="10380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95089000" />
+    <option name="totallyTimeSpent" value="105623000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1922" height="1043" extended-state="6" />
+    <frame x="-1" y="0" width="1922" height="1032" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6379585" visible="true" weight="0.19070514" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6379585" visible="true" weight="0.1383547" />
       <window_info id="Structure" order="1" sideWeight="0.36204147" side_tool="true" weight="0.19070514" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -550,7 +550,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.11158799" side_tool="true" weight="0.2374541" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.6116723" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989011" visible="true" weight="0.28619528" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989011" visible="true" weight="0.116722785" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -655,22 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/print/CustomPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2373">
-          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#printTableau#1;class#CustomPrinter#0" />
-            <element signature="method#printElem#2;class#CustomPrinter#0" />
-            <element signature="method#printBasisElem#0;class#CustomPrinter#0" />
-            <element signature="method#printArray#1;class#CustomPrinter#0" />
-            <element signature="method#printBasisArray#0;class#CustomPrinter#0" />
-            <element signature="method#printHorizontalLine#0;class#CustomPrinter#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -729,63 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2058">
-          <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#pivot#0;class#Simplex#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Tableau.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="192" column="13" selection-start-line="192" selection-start-column="13" selection-end-line="192" selection-end-column="13" />
-          <folding>
-            <element signature="method#Tableau#0;class#Tableau#0" />
-            <element signature="method#Tableau#1;class#Tableau#0" />
-            <element signature="method#concatenateTwoMatrixesSideBySide#0;class#Tableau#0" />
-            <element signature="method#concatenateTwoArraysSideBySide#0;class#Tableau#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/input/aux/inputAuxOpt.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -807,33 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#readFromFile#0;class#LPPSolver#0" />
-            <element signature="method#writeToFile#0;class#LPPSolver#0" />
-            <element signature="method#canRunPrimal#0;class#LPPSolver#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -889,64 +789,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPP.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="28" selection-start-line="28" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="882">
+          <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
           <folding>
-            <element signature="e#261#262#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="method#assign#2;class#Value#0" />
-            <element signature="method#round#0;class#Value#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/lang/Double.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="115" column="17" lean-forward="true" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <element signature="e#1473#1474#0" expanded="true" />
-            <element signature="e#1501#1502#0" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
-            <element signature="e#1983#1984#0" expanded="true" />
-            <element signature="e#2016#2017#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2113#2114#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="initializer##0;class#LPPRestrictionParser#0" />
           </folding>
         </state>
       </provider>
@@ -954,59 +803,19 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/lpp/RestrictionType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="e#322#323#0" expanded="true" />
             <element signature="e#345#346#0" expanded="true" />
             <element signature="method#fromString#0;class#RestrictionType#0" />
-            <element signature="e#1276#1277#0" expanded="true" />
-            <element signature="e#1307#1308#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Restriction.java">
+    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/lang/Double.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-          <folding>
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#465#466#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#705#706#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#846#847#0" expanded="true" />
-            <element signature="e#878#879#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="78" column="48" lean-forward="true" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#LPPRestrictionParser#0" />
-          </folding>
+        <state relative-caret-position="1218">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>
@@ -1017,12 +826,187 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Component.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1869">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="84">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="150" column="5" lean-forward="true" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+          <folding>
+            <element signature="e#3579#3580#0" expanded="true" />
+            <element signature="e#3644#3645#0" expanded="true" />
+            <element signature="e#5033#5034#0" expanded="true" />
+            <element signature="e#5074#5075#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/print/CustomPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2058">
+          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#printTableau#1;class#CustomPrinter#0" />
+            <element signature="method#printElem#2;class#CustomPrinter#0" />
+            <element signature="method#printBasisElem#0;class#CustomPrinter#0" />
+            <element signature="method#printArray#1;class#CustomPrinter#0" />
+            <element signature="method#printBasisArray#0;class#CustomPrinter#0" />
+            <element signature="method#printHorizontalLine#0;class#CustomPrinter#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Restriction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Tableau.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="254" column="4" selection-start-line="254" selection-start-column="4" selection-end-line="254" selection-end-column="4" />
+          <folding>
+            <element signature="method#Tableau#0;class#Tableau#0" />
+            <element signature="method#Tableau#2;class#Tableau#0" />
+            <element signature="method#concatenateTwoMatricesSideBySide#0;class#Tableau#0" />
+            <element signature="method#concatenateTwoArraysSideBySide#0;class#Tableau#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-147">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#pivot#0;class#Simplex#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="120" column="8" selection-start-line="117" selection-end-line="132" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="method#assign#2;class#Value#0" />
+            <element signature="method#round#0;class#Value#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#222#223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#writeToFile#0;class#LPPSolver#0" />
+            <element signature="method#canRunDual#0;class#LPPSolver#0" />
+            <element signature="method#canRunPrimal#0;class#LPPSolver#0" />
           </folding>
         </state>
       </provider>

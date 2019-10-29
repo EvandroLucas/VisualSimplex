@@ -1,13 +1,15 @@
 package app;
 
 import logging.Logger;
+import lpp.CanonicalLPP;
+import lpp.Component;
+import lpp.Restriction;
 import numbers.Value;
 import simplex.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,6 +18,9 @@ public class LPPSolver {
     private int constraintNum = 0;
     private int variableNum = 0;
     private Value[][] tableau;
+
+    // TODO: remover estas variáveis aqui
+
     private Value[] c;
     private Value[] b;
     boolean toRunAsDual = false;
@@ -23,7 +28,7 @@ public class LPPSolver {
     public Simplex simplex;
 
 
-    public void readFromFile(File file) {
+    public Value[][] readFromFile(File file) {
         Logger.println("info","Reading data from file...");
         try {
             Scanner scanner = new Scanner(file).useLocale(Locale.US);;
@@ -32,16 +37,16 @@ public class LPPSolver {
             tableau = new Value[constraintNum + 1][variableNum + 1];
                 for(int i =0; i < tableau.length; i++){
                     for(int j =0; j < tableau[i].length; j++){
-                        tableau[i][j] = new Value(0);
+                        tableau[i][j] = new Value();
                     }
                 }
             c = new Value[variableNum];
                 for(int i =0; i < c.length; i++){
-                    c[i] = new Value(0);
+                    c[i] = new Value();
                 }
             b = new Value[constraintNum];
                 for(int i =0; i < b.length; i++){
-                    b[i] = new Value(0);
+                    b[i] = new Value();
                 }
 
             for (int i = 0; i < tableau.length; i++) {
@@ -71,6 +76,7 @@ public class LPPSolver {
             System.exit(1);
         }
         c = tableau[0].clone();
+        return tableau;
     }
 
     public void writeToFile(File file){
@@ -127,18 +133,18 @@ public class LPPSolver {
 
     }
 
-    public void runSimplex(){
+    public Simplex solve(){
 
         Logger.println("info","Checking simplex type");
-        if (canRunDual()){
+        if (canRunDual(c,b)){
             Logger.println("info","Will run the dual simplex method");
              simplex = new DualSimplex(tableau);
         }
-        else if (canRunPrimal()){
+        else if (canRunPrimal(c,b)){
             Logger.println("info","Will run the primal simplex method");
             simplex = new PrimalSimplex(tableau);
         }
-        else if (canRunAux()){
+        else if (canRunAux(c,b)){
             Logger.println("info","Will run the auxiliar simplex method");
             simplex = new AuxSimplex(tableau);
         }
@@ -149,9 +155,39 @@ public class LPPSolver {
         }
         Logger.println("info","Ready to run");
         simplex.run();
+        return simplex;
     }
 
-    private boolean canRunDual(){
+    public Simplex solve(CanonicalLPP lpp){
+
+        Value[] b = new Value[lpp.restrictions.size()];
+        Value[] c = new Value[lpp.objFunction.size()];
+
+        Simplex simplex;
+        Logger.println("info","Checking simplex type");
+        if (canRunDual(c,b)){
+            Logger.println("info","Will run the dual simplex method");
+            simplex = new DualSimplex(lpp.getTableau());
+        }
+        else if (canRunPrimal(c,b)){
+            Logger.println("info","Will run the primal simplex method");
+            simplex = new PrimalSimplex(lpp.getTableau());
+        }
+        else if (canRunAux(c,b)){
+            Logger.println("info","Will run the auxiliar simplex method");
+            simplex = new AuxSimplex(lpp.getTableau());
+        }
+        else {
+            Logger.println("severe","Simplex denied");
+            simplex = null;
+            System.exit(1);
+        }
+        Logger.println("info","Ready to run");
+        simplex.run();
+        return simplex;
+    }
+
+    private boolean canRunDual(Value[] c, Value[] b ){
         for(int i=0; i< c.length; i++){
             if(c[i].isPositive()){
                 // Não pode dual, tem negativo em -c
@@ -175,7 +211,7 @@ public class LPPSolver {
         return false;
     }
 
-    private boolean canRunPrimal(){
+    private boolean canRunPrimal(Value[] c, Value[] b ){
 
         boolean hasPositive = false;
 
@@ -206,8 +242,8 @@ public class LPPSolver {
         return true;
     }
 
-    private boolean canRunAux(){
-        //sempre podemos fazer se recebermos uma PL na forma padrão
+    private boolean canRunAux(Value[] c, Value[] b ){
+        // Always doable if LPP is in canonical form
         return true;
     }
 

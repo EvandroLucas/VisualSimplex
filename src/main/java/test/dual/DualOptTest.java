@@ -15,7 +15,7 @@ public class DualOptTest {
 
         LPPSolver lPPSolver = new LPPSolver();
         lPPSolver.readFromFile(file);
-        lPPSolver.runSimplex();
+        lPPSolver.solve();
 
         Logger.println("info", "Resultado esperado: -20");
 
