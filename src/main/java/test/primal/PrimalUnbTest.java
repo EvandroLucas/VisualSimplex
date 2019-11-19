@@ -5,11 +5,12 @@ import logging.Logger;
 
 import java.io.File;
 
+@Deprecated
 public class PrimalUnbTest {
 
     public static void main(String[] args) {
 
-        String fileName = "input/primal/unb/input3.txt";
+        /*String fileName = "input/primal/unb/input3.txt";
 
         Logger.println("info","Loading file : " + fileName);
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
@@ -18,7 +19,7 @@ public class PrimalUnbTest {
         LPPSolver lPPSolver = new LPPSolver();
         lPPSolver.readFromFile(file);
         lPPSolver.solve();
-
+        */
     }
 
 }

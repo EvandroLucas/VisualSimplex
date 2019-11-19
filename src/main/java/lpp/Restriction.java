@@ -5,6 +5,22 @@ import print.ColorPrint;
 
 import java.util.*;
 
+/*
+ * This class encapsulates the symbolic representation of a Restriction
+ * For example, if we have:
+ *      +(1.1)y0 +(1.2)y1 +(1.3)y2 +(1.4)y3 +(0)y4 +(0)y5  + (1)s1<= 1
+ *
+ * We'll have a list of components:
+ *  [+(1.1)y0, +(1.2)y1, ..., +(1)s1]
+ *
+ *  A list of groups:
+ *  [y,s]
+ *
+ * Our values would be:
+ *   right = 1
+ *   rtt = RestrictionType.LessOrEqualThan
+ * */
+
 public class Restriction {
 
     public TreeSet<Component> components = new TreeSet<>();

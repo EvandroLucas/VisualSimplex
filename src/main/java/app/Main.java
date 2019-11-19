@@ -5,11 +5,12 @@ import logging.Logger;
 import java.io.File;
 import java.nio.file.Paths;
 
+@Deprecated
 public class Main {
 
     public static void main(String[] args) {
 
-        try {
+        /*try {
             String inputFileName;
             String outputFileName;
 
@@ -43,7 +44,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        */
     }
 
 

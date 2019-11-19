@@ -5,12 +5,12 @@ import logging.Logger;
 
 import java.io.File;
 
+@Deprecated
 public class AuxOptTest {
 
     public static void main(String[] args) {
 
-
-        String fileName = "input/input4.txt";
+        /*String fileName = "input/input4.txt";
 
         Logger.println("info","Loading file : " + fileName);
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
@@ -19,7 +19,7 @@ public class AuxOptTest {
         LPPSolver lPPSolver = new LPPSolver();
         lPPSolver.readFromFile(file);
         lPPSolver.solve();
-
+        */
     }
 
 }

@@ -103,6 +103,7 @@ public class CanonicalLPP extends LPP{
         }
     }
 
+    // Generates a Tableau instance for this CanonicalLPP
     public Tableau getTableau(){
 
         int constraintNum = numberOfRestrictions();
@@ -122,8 +123,9 @@ public class CanonicalLPP extends LPP{
         }
         // The remaining lines are all restrictions
 
-        for (int i = 1; i < restrictions.size(); i++) {
-            Restriction rt = restrictions.get(i);
+        for (int i = 1; i <= restrictions.size(); i++) {
+            Restriction rt = restrictions.get(i-1);
+            System.out.println("Looking at: " + rt);
             int j = 0;
             for(Component component : rt.components){
                 A[i][j] = component.getMultiplier();

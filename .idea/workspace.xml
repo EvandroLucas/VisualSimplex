@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b503985-273d-4336-912c-000f944e2656" name="Default Changelist" comment="">
+    <list default="true" id="4aa60225-f201-43f5-b16c-25c81edd5498" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/branchAndBound/BBNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/branchAndBound/BBResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/branchAndBound/BBSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/branchAndBound/BBStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simplex.iml" beforeDir="false" afterPath="$PROJECT_DIR$/simplex.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/LPPMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LPPMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/LPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/LPP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/LPPParser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lpp/LPPReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/LPPReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/numbers/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/numbers/Value.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lpp/Restriction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lpp/Restriction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/dual/DualOptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/dual/DualOptTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/dual/DualUnbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/dual/DualUnbTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/dual/DualUnfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/dual/DualUnfTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/appassembler/bin/app.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/LPPMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/LPPMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/LPPSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/LPPSolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lpp/CanonicalLPP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lpp/CanonicalLPP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lpp/LPPParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lpp/LPPReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lpp/LPPReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lpp/Restriction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lpp/Restriction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/simplex/AuxSimplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simplex/AuxSimplex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/simplex/DualSimplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simplex/DualSimplex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/simplex/PrimalSimplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/simplex/PrimalSimplex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/aux/AuxOptTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/aux/AuxOptTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/dual/DualOptTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/dual/DualOptTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/dual/DualUnbTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/dual/DualUnbTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/dual/DualUnfTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/dual/DualUnfTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/primal/PrimalOptTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/primal/PrimalOptTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/primal/PrimalUnbTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/primal/PrimalUnbTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/input1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/out/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/simplex-1.0-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,16 +55,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="simplex" />
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="120" column="8" selection-start-line="117" selection-end-line="132" selection-end-column="9" />
+            <state relative-caret-position="252">
+              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/branchAndBound/BBNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,113 +79,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/branchAndBound/BBSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state>
+              <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
               <folding>
-                <element signature="e#262#263#0" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
-                <element signature="e#408#409#0" expanded="true" />
-                <element signature="e#430#431#0" expanded="true" />
-                <element signature="method#assign#2;class#Value#0" />
-                <element signature="method#round#0;class#Value#0" />
+                <element signature="e#249#250#0" expanded="true" />
+                <element signature="e#275#276#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1575">
-              <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Restriction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/branchAndBound/BBStats.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#writeToFile#0;class#LPPSolver#0" />
+                <element signature="method#solve#0;class#LPPSolver#0" />
                 <element signature="method#canRunDual#0;class#LPPSolver#0" />
                 <element signature="method#canRunPrimal#0;class#LPPSolver#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#222#223#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#560#561#0" expanded="true" />
-                <element signature="e#599#600#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-147">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#pivot#0;class#Simplex#0" />
+                <element signature="method#canRunAux#0;class#LPPSolver#0" />
+                <element signature="method#canSolve#0;class#LPPSolver#0" />
               </folding>
             </state>
           </provider>
@@ -163,67 +122,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Singleton" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
-    <findStrings>
-      <find>blue</find>
-      <find>[</find>
-      <find>,</find>
-      <find>unlimited</find>
-      <find>int</find>
-      <find>printer</find>
-      <find>setdesc</find>
-      <find>printRed</find>
-      <find>set</find>
-      <find>setd</find>
-      <find>zero</find>
-      <find>pivotColumnIndex</find>
-      <find>pivotRowIndex</find>
-      <find>pivot(</find>
-      <find>Logger.print(</find>
-      <find>minCols</find>
-      <find>getZ</find>
-      <find>Solved a</find>
-      <find>Mult is</find>
-      <find>Before an</find>
-      <find>System.out.</find>
-      <find>-3</find>
-      <find>XXX</find>
-      <find>RED</find>
-      <find>ADD</find>
-      <find>Factor</find>
-      <find>solu</find>
-      <find>solution</find>
-      <find>print</find>
-      <find>new Value(0)</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>pivotRowIndex</replace>
-      <replace>pivotColumnIndex</replace>
-      <replace>founfPositive</replace>
-      <replace>foundPositive</replace>
-      <replace>first</replace>
-      <replace>ratio</replace>
-      <replace>c[</replace>
-      <replace>foundNegative</replace>
-      <replace />
-      <replace>double</replace>
-      <replace>tableau.pivotColumnIndex</replace>
-      <replace>Logger.println(</replace>
-      <replace>tableau.pivotRowIndex</replace>
-      <replace>return</replace>
-      <replace>XXX</replace>
-      <replace>ERROR</replace>
-      <replace>RestrictionMatch.REDUNDANCY</replace>
-      <replace>RestrictionMatch.ADDITION</replace>
-      <replace>Term</replace>
-      <replace>objVar</replace>
-      <replace>new Value()</replace>
-    </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/src/main/java/Test</dir>
+      <dir>$PROJECT_DIR$/src/main/java/branchAndBound</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -232,66 +137,27 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/numbers/Fraction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/BlankSimplex.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/input/input1.txt" />
-        <option value="$PROJECT_DIR$/src/main/resources/input/dual/inputDualOtima2.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/LPPSolver.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/input/dual/inputDualOtima.txt" />
-        <option value="$PROJECT_DIR$/src/main/resources/input/aux/inputAuxOpt.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/test/AuxOptTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/input/primal/opt/in1.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/test/dual/DualOptTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/dual/DualUnbTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/dual/DualUnfTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnfTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/print/CustomPrinter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/Simplex.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/logging/Logger.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/input/input.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/print/ColorPrint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/StandardFormLPP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/lppInput/input.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/LPPReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/RestrictionType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/Restriction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/Component.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/Variable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/LPP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/numbers/Value.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/LPPMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/Tableau.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java" />
-        <option value="$PROJECT_DIR$/src/main/java/app/LPPSolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/branchAndBound/BBLinearSolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/branchAndBound/BBNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/branchAndBound/BBSolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/branchAndBound/BBStats.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="346" />
+    <option name="x" value="303" />
+    <option name="y" value="3" />
     <option name="width" value="1368" />
-    <option name="height" value="709" />
+    <option name="height" value="698" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,79 +197,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="logging" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lpp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="numbers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="print" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="simplex" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="aux" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lppInput" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simplex" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VisualSimplex" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
+              <item name="branchAndBound" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -414,26 +208,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572307170568" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574122256212" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/input/primal/opt" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/input" />
-      <recent name="$PROJECT_DIR$/src/main/resources/input/primal/unb" />
-      <recent name="$PROJECT_DIR$/src/main/resources/input/primal/opt" />
-      <recent name="$PROJECT_DIR$/src/main/resources/input/primal" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -447,53 +225,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LPPMain">
-    <configuration name="AuxOptTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.aux.AuxOptTest" />
-      <module name="simplex" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.aux.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DualOptTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.dual.DualOptTest" />
-      <module name="simplex" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.dual.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="LPPMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.LPPMain" />
       <module name="simplex" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.Main" />
-      <module name="simplex" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PrimalOptTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.primal.PrimalOptTest" />
-      <module name="simplex" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.primal.*" />
+          <option name="PATTERN" value="app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -504,10 +242,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.LPPMain" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.AuxOptTest" />
-        <item itemvalue="Application.DualOptTest" />
-        <item itemvalue="Application.PrimalOptTest" />
       </list>
     </recent_temporary>
   </component>
@@ -516,579 +250,119 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8b503985-273d-4336-912c-000f944e2656" name="Default Changelist" comment="" />
-      <created>1557157546200</created>
+      <changelist id="4aa60225-f201-43f5-b16c-25c81edd5498" name="Default Changelist" comment="" />
+      <created>1574116863988</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1557157546200</updated>
-      <workItem from="1557157551323" duration="20760000" />
-      <workItem from="1557186725414" duration="9184000" />
-      <workItem from="1557508220385" duration="7711000" />
-      <workItem from="1557515991381" duration="11352000" />
-      <workItem from="1571265561070" duration="7800000" />
-      <workItem from="1571699885833" duration="30000" />
-      <workItem from="1572002500311" duration="24859000" />
-      <workItem from="1572192466725" duration="3515000" />
-      <workItem from="1572212348167" duration="10032000" />
-      <workItem from="1572292188384" duration="10380000" />
+      <updated>1574116863988</updated>
+      <workItem from="1574116866982" duration="4364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105623000" />
+    <option name="totallyTimeSpent" value="4364000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1032" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6379585" visible="true" weight="0.1383547" />
-      <window_info id="Structure" order="1" sideWeight="0.36204147" side_tool="true" weight="0.19070514" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.11158799" side_tool="true" weight="0.2374541" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.6116723" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989011" visible="true" weight="0.116722785" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32996634" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32954547" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50109893" side_tool="true" weight="0.6120092" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.33782268" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="right" id="Maven" order="0" />
-      <window_info anchor="right" id="PlantUML" order="1" />
-      <window_info anchor="right" id="Palette" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" visible="true" weight="0.071603425" />
-      <window_info anchor="right" id="Ant Build" order="9" weight="0.020807834" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/primal/opt/input2.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/primal/unb/input3.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/primal/opt/input5.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input6.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input1.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        <state relative-caret-position="252">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input7.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/primal/opt/in1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/RunnableSimplex.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/dual/DualUnbTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/dual/DualUnfTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalUnfTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/dual/DualOptTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalUnbTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/primal/PrimalOptTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logging/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##1;class#Logger#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output1.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/output/output4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/aux/inputAuxOpt.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/aux/AuxOptTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/input/input.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/print/ColorPrint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1701">
-          <caret line="135" column="4" selection-start-line="135" selection-start-column="4" selection-end-line="135" selection-end-column="4" />
-          <folding>
-            <element signature="e#3974#3975#0" expanded="true" />
-            <element signature="e#4002#4003#0" expanded="true" />
-            <element signature="e#4044#4045#0" expanded="true" />
-            <element signature="e#4096#4097#0" expanded="true" />
-            <element signature="e#4141#4142#0" expanded="true" />
-            <element signature="e#4196#4197#0" expanded="true" />
-            <element signature="e#4240#4241#0" expanded="true" />
-            <element signature="e#4294#4295#0" expanded="true" />
-            <element signature="e#4337#4338#0" expanded="true" />
-            <element signature="e#4390#4391#0" expanded="true" />
-            <element signature="e#4433#4434#0" expanded="true" />
-            <element signature="e#4486#4487#0" expanded="true" />
-            <element signature="e#4531#4532#0" expanded="true" />
-            <element signature="e#4586#4587#0" expanded="true" />
-            <element signature="e#4633#4634#0" expanded="true" />
-            <element signature="e#4696#4697#0" expanded="true" />
-            <element signature="e#4745#4746#0" expanded="true" />
-            <element signature="e#4811#4812#0" expanded="true" />
-            <element signature="e#4859#4860#0" expanded="true" />
-            <element signature="e#4924#4925#0" expanded="true" />
-            <element signature="e#4971#4972#0" expanded="true" />
-            <element signature="e#5035#5036#0" expanded="true" />
-            <element signature="e#5082#5083#0" expanded="true" />
-            <element signature="e#5146#5147#0" expanded="true" />
-            <element signature="e#5195#5196#0" expanded="true" />
-            <element signature="e#5261#5262#0" expanded="true" />
-            <element signature="e#5309#5310#0" expanded="true" />
-            <element signature="e#5387#5388#0" expanded="true" />
-            <element signature="e#5435#5436#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/RestrictionMatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/ArrayList.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="1265" selection-start-line="1265" selection-end-line="1265" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPRestrictionParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#LPPRestrictionParser#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/RestrictionType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="method#fromString#0;class#RestrictionType#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/lang/Double.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/lppInput/input.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/VariableRestriction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="150" column="5" lean-forward="true" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-          <folding>
-            <element signature="e#3579#3580#0" expanded="true" />
-            <element signature="e#3644#3645#0" expanded="true" />
-            <element signature="e#5033#5034#0" expanded="true" />
-            <element signature="e#5074#5075#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/branchAndBound/BBResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/print/CustomPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2058">
-          <caret line="141" column="12" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#printTableau#1;class#CustomPrinter#0" />
-            <element signature="method#printElem#2;class#CustomPrinter#0" />
-            <element signature="method#printBasisElem#0;class#CustomPrinter#0" />
-            <element signature="method#printArray#1;class#CustomPrinter#0" />
-            <element signature="method#printBasisArray#0;class#CustomPrinter#0" />
-            <element signature="method#printHorizontalLine#0;class#CustomPrinter#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/Restriction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/LPPReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Tableau.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="254" column="4" selection-start-line="254" selection-start-column="4" selection-end-line="254" selection-end-column="4" />
-          <folding>
-            <element signature="method#Tableau#0;class#Tableau#0" />
-            <element signature="method#Tableau#2;class#Tableau#0" />
-            <element signature="method#concatenateTwoMatricesSideBySide#0;class#Tableau#0" />
-            <element signature="method#concatenateTwoArraysSideBySide#0;class#Tableau#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/Simplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#pivot#0;class#Simplex#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lpp/CanonicalLPP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="120" column="8" selection-start-line="117" selection-end-line="132" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/numbers/Value.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#408#409#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="method#assign#2;class#Value#0" />
-            <element signature="method#round#0;class#Value#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/DualSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/PrimalSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/simplex/AuxSimplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#fixReceivedTableauSigns#0;class#AuxSimplex#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/app/LPPSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#writeToFile#0;class#LPPSolver#0" />
+            <element signature="method#solve#0;class#LPPSolver#0" />
             <element signature="method#canRunDual#0;class#LPPSolver#0" />
             <element signature="method#canRunPrimal#0;class#LPPSolver#0" />
+            <element signature="method#canRunAux#0;class#LPPSolver#0" />
+            <element signature="method#canSolve#0;class#LPPSolver#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/branchAndBound/BBNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/branchAndBound/BBSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding>
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#275#276#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/branchAndBound/BBStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="20" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>barcode4j-fop-ext-complete</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>10</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>simplex</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

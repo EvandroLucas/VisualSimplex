@@ -76,7 +76,7 @@ public class LPPReader {
         // Find restriction on A matrix
         ArrayList<Restriction> rts = new ArrayList<>();
         while(!done && scanner.hasNextLine()){
-            pattern = Pattern.compile("^\\(([^=<>]*)\\)y([=<>]*)([0-9.]*)");
+            pattern = Pattern.compile("^\\(([^=<>]*)\\)"+solution+"([=<>]*)([0-9.]*)");
             matcher = pattern.matcher(line);
             if (matcher.find()) {
                 strValues = matcher.group(1).split(",");
@@ -96,7 +96,8 @@ public class LPPReader {
         }
 
         ArrayList<VariableRestriction> vrts = new ArrayList<>();
-        System.out.println("Line:" + line + ", scannehas + " + scanner.hasNextLine() + ", done = " + done);
+        System.out.println("Line:" + line + ", scannehas : " + scanner.hasNextLine() + ", done = " + done);
+
         // Find variable-specific restrictions
         done = false;
         while(!done && scanner.hasNextLine()){
