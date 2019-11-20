@@ -36,11 +36,11 @@ public class LPPMain {
             LPPSolver lppSolver = new LPPSolver();
             if(lppSolver.canSolve(lpp2)) {
                 Logger.println("Info","Solving normal LPP");
-                lppSolver.solve(lpp2);
             }
             else {
                 Logger.println("Info","Solving Integer LPP");
             }
+            lppSolver.solve(lpp2);
 
         } catch (Exception e) {
             e.printStackTrace();
