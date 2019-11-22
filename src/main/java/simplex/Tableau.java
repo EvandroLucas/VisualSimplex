@@ -22,6 +22,8 @@ public class Tableau {
     public int pivotColumnIndex;
     public int problematicColumnIndex;
 
+    // TODO: refactor this code. I know it's low level but it's to big to be good
+
     // Empty Tableau
     private Tableau(int numVar, int numCons){
 

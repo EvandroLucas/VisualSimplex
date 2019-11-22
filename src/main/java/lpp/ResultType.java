@@ -1,6 +1,6 @@
 package lpp;
 
-public enum Result {
+public enum ResultType {
 
     INFEASIBLE,
     UNBOUNDED,

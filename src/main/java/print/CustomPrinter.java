@@ -4,6 +4,10 @@ import logging.Logger;
 import numbers.Value;
 import simplex.Tableau;
 
+
+// TODO: refactor this code.
+// The idea is to separate each class to each object it prints
+
 public class CustomPrinter {
 
     private String desc = "";
