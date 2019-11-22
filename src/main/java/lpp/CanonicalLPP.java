@@ -45,6 +45,10 @@ public class CanonicalLPP extends LPP{
         updateRestrictions();
     }
 
+    public CanonicalLPP(CanonicalLPP lpp){
+        super(lpp);
+    }
+
     private void parseRestriction(Restriction rt){
         if(!rt.rtt.equals(RestrictionType.LessOrEqualThan)) { // No need to check when we already have a <= restriction
             if (rt.rtt.equals(RestrictionType.EqualTo)) { // Reverting restriction

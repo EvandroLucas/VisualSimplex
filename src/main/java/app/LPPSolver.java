@@ -3,14 +3,16 @@ package app;
 import logging.Logger;
 import lpp.CanonicalLPP;
 import lpp.RestrictionType;
+import lpp.Solver;
 import lpp.VariableRestriction;
 import numbers.Value;
 import simplex.*;
+import simplex.result.Result;
 
 
-public class LPPSolver {
+public class LPPSolver implements Solver {
 
-    public Simplex solve(CanonicalLPP lpp){
+    public Result solve(CanonicalLPP lpp){
 
         Value[] b = new Value[lpp.restrictions.size()];
         Value[] c = new Value[lpp.objFunction.size()];
@@ -43,13 +45,8 @@ public class LPPSolver {
         }
         Logger.println("info","Ready to run");
         simplex.run();
-        return simplex;
+        return new Result(simplex);
     }
-
-    //public Simples addAndSolveWithRestriction(){
-        // TODO : implementar
-        // Devemos fazer análise de sensibilidade
-    //}
 
     private boolean canRunDual(Value[] c, Value[] b ){
         for (Value value1 : c) {

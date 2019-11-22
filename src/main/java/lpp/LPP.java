@@ -10,15 +10,13 @@ import numbers.Value;
 import print.ColorPrint;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LPP {
 
     public String mainGroup = "x";
     public boolean solved = true;
     public Value[] solution = new Value[0];
-    public Result result = Result.UNKNOWN;
+    public ResultType result = ResultType.UNKNOWN;
 
     public ProblemType problemType;
     public HashMap<String, HashSet<Integer>> groups = new HashMap<>();
