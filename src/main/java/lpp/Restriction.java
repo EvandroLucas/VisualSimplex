@@ -38,7 +38,7 @@ public class Restriction {
         }
     }
 
-    public Restriction (LinkedHashSet<Component> components, Value right, RestrictionType rtt) {
+    public Restriction (Set<Component> components, Value right, RestrictionType rtt) {
         this.right = right;
         this.rtt = rtt;
         for(Component component : components){
@@ -51,6 +51,12 @@ public class Restriction {
         this.rtt = rt.rtt;
         for(Component comp : rt.components){
             addComponent(comp);
+        }
+        for(Map.Entry<String,HashSet<Integer>> entry : rt.groups.entrySet()){
+            this.groups.put(entry.getKey(),new HashSet<>());
+            for(Integer i : rt.groups.get(entry.getKey())){
+                this.groups.get(entry.getKey()).add(i);
+            }
         }
     }
 

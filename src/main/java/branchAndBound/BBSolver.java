@@ -1,24 +1,25 @@
 package branchAndBound;
-
 import app.LPPSolver;
 import lpp.CanonicalLPP;
-import numbers.Value;
-
+import lpp.Solver;
+import simplex.result.Result;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 
-public class BBSolver {
+public class BBSolver implements Solver {
 
-    private Integer bestResult = 0;
+    private Queue<BBNode> queue = new PriorityBlockingQueue<>();
 
-    public BBSolver(CanonicalLPP lpp){
-        queue.add(lpp);
-    }
-
-    public void solve(){
-        CanonicalLPP lpp = queue.remove();
+    public Result solve(CanonicalLPP originalLPP){
+        queue.add(originalLPP);
         LPPSolver lppSolver = new LPPSolver();
-        lppSolver.solve(lpp);
+        while( ! queue.isEmpty()) {
+            BBNode node = queue.remove();
+            Result result = lppSolver.solve(node.lpp);
+            if(){
+                
+            }
+        }
     }
 
 }

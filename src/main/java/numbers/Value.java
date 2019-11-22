@@ -129,6 +129,13 @@ public class Value{
         return this.value;
     }
 
+    public Integer ceil() {
+        return (int) Math.round(Math.ceil(this.value));
+    }
+
+    public Integer floor() {
+        return (int) Math.round(Math.floor(this.value));
+    }
 
     public boolean isZero(){
         return (this.value == 0);
@@ -140,6 +147,13 @@ public class Value{
 
     public boolean isNegative(){
         return (this.value < 0);
+    }
+
+    public boolean isInteger(){
+        Value v = new Value(this);
+        v.round();
+        Double d = v.doubleValue();
+        return (d == Math.floor(d)) && !Double.isInfinite(d);
     }
 
     public boolean isSmallerThan(Value v){
@@ -166,6 +180,7 @@ public class Value{
     public boolean isNotEqualTo(Double v){
         return isNotEqualTo(new Value(v));
     }
+
 
     @Override
     public String toString(){

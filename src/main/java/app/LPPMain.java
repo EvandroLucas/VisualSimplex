@@ -1,5 +1,6 @@
 package app;
 
+import branchAndBound.BBSolver;
 import logging.Logger;
 import lpp.CanonicalLPP;
 import lpp.LPP;
@@ -36,11 +37,13 @@ public class LPPMain {
             LPPSolver lppSolver = new LPPSolver();
             if(lppSolver.canSolve(lpp2)) {
                 Logger.println("Info","Solving normal LPP");
+                lppSolver.solve(lpp2);
             }
             else {
                 Logger.println("Info","Solving Integer LPP");
+                BBSolver bbSolver = new BBSolver();
+                bbSolver.solve(lpp2);
             }
-            lppSolver.solve(lpp2);
 
         } catch (Exception e) {
             e.printStackTrace();
