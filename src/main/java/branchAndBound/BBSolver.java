@@ -11,7 +11,11 @@ public class BBSolver implements Solver {
     private Queue<BBNode> queue = new PriorityBlockingQueue<>();
 
     public Result solve(CanonicalLPP originalLPP){
-        queue.add(originalLPP);
+
+        Result resultFirstNode = new LPPSolver().solve(originalLPP);
+        BBNode firstNode = new BBNode(originalLPP, resultFirstNode);
+
+        queue.add(firstNode);
         LPPSolver lppSolver = new LPPSolver();
         while( ! queue.isEmpty()) {
             BBNode node = queue.remove();
