@@ -30,6 +30,9 @@ public class Result {
     public Result(Simplex simplex){
         objValue = simplex.tableau.z;
         solution = simplex.tableau.solution;
+        certOpt = simplex.tableau.certOpt;
+        certInf = simplex.tableau.certInf;
+        certUnb = simplex.tableau.certUnb;
     }
     public Result(Result result){
         this.objValue = new Value(result.objValue);

@@ -163,8 +163,12 @@ public class Value{
     public boolean isSmallerThan(Value v){
         return (this.doubleValue() < v.doubleValue());
     }
+    public boolean isSmallerEqualsThan(Value v){ return (this.doubleValue() <= v.doubleValue()); }
     public boolean isGreaterThan(Value v){
         return (this.doubleValue() > v.doubleValue());
+    }
+    public boolean isGreaterEqualsThan(Value v){
+        return (this.doubleValue() >= v.doubleValue());
     }
     public boolean isEqualTo(Value v){
         return (this.doubleValue().equals(v.doubleValue()));

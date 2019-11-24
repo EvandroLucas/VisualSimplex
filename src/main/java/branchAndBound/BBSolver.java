@@ -8,6 +8,7 @@ import lpp.Solver;
 import numbers.Value;
 import simplex.result.Result;
 
+import java.util.Arrays;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -17,8 +18,9 @@ public class BBSolver implements Solver {
 
     public Result solve(CanonicalLPP originalLPP) {
 
-        LPPSolver lppSolver = new LPPSolver();
+      ;
 
+        LPPSolver lppSolver = new LPPSolver();
 
         Result originalResult = lppSolver.solve(originalLPP);
 
@@ -54,12 +56,41 @@ public class BBSolver implements Solver {
             }
         }
 
+        Value currentObjValue = new Value(0);
+        Result result = null;
 
         while( ! queue.isEmpty()) {
             BBNode node = queue.remove();
-            Result result = lppSolver.solve(node.lpp);
+            Result partialResult = lppSolver.solve(node.lpp);
+
+            boolean isSolutionEqual = false;
+
+            for(int i = 0; i < originalResult.getSolution().length; i++) {
+                if(originalResult.getSolution()[i].isEqualTo(partialResult.getSolution()[i])){
+                    isSolutionEqual = true;
+                    break;
+                }
+            }
+
+
+            if(!isSolutionEqual){
+
+                if(node.lpp.problemType.name() == "MAX") {
+                    if(partialResult.getObjValue().isSmallerEqualsThan(originalResult.getObjValue()) &&
+                        partialResult.getObjValue().isGreaterEqualsThan(currentObjValue)) {
+
+                        currentObjValue = new Value(partialResult.getObjValue());
+                        result = new Result(partialResult);
+
+                    }
+                }
+                // TODO Implemente MIN case
+
+            }
+
         }
-        return null;
+
+        return result;
     }
 
 }
