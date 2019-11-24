@@ -74,7 +74,7 @@ public class BBSolver implements Solver {
             }
 
 
-            if(!isSolutionEqual){
+            if(!isSolutionEqual) {
 
                 if(node.lpp.problemType.name() == "MAX") {
                     if(partialResult.getObjValue().isSmallerEqualsThan(originalResult.getObjValue()) &&

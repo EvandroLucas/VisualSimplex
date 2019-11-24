@@ -24,7 +24,7 @@ public class BBMain {
 
 
             if(args.length == 0 ) {
-                inputFileName = "lppInput/lectureNotesSample.txt";
+                inputFileName = "lppInput/simpleInput.txt";
                 Logger.println("info", "Loading file : " + inputFileName);
                 outputFile = new File(Paths.get("target/out", "results.txt").toUri());
             }
