@@ -18,7 +18,7 @@ public class BBMain {
             // Find the file
             String inputFileName;
             File inputFile;
-            inputFileName = "lppInput/simpleInput.txt";
+            inputFileName = "lppInput/lectureNotesSample.txt";
             Logger.println("info", "Loading file : " + inputFileName);
             ClassLoader classLoader = ClassLoader.getSystemClassLoader();
             inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName)).getFile());

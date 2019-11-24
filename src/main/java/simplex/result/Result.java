@@ -23,6 +23,10 @@ public class Result {
     private Value[] certInf;  // Certificate of Infeasibility
     private ResultType resultType;       // We use it to avoid any instanceof command on child classes
 
+    public Result(){
+
+    }
+
     public Result(Simplex simplex){
         objValue = simplex.tableau.z;
         solution = simplex.tableau.solution;

@@ -20,41 +20,44 @@ public class BBSolver implements Solver {
 
         LPPSolver lppSolver = new LPPSolver();
 
-        Result resultFirstNode = lppSolver.solve(originalLPP);
+        Result originalResult = lppSolver.solve(originalLPP);
 
-        for(int solutionIndex = 0; solutionIndex < resultFirstNode.getSolution().length; solutionIndex++) {
+        for(int solutionIndex = 0; solutionIndex < originalResult.getSolution().length; solutionIndex++) {
 
-            Value value = resultFirstNode.getSolution()[solutionIndex];
+            Value value = originalResult.getSolution()[solutionIndex];
 
             if(!value.isInteger()) {
                 Value newValueGraterEquals = value.roundUp();
-                Value [] leftSide =  new Value[resultFirstNode.getSolution().length];
-                Arrays.fill(leftSide, 0);
-                Value v = new Value();
-                v.assign(1);
-                leftSide[solutionIndex] = v;
+
+                Value [] leftSide =  new Value[originalResult.getSolution().length];
+
+                for(int i = 0; i < leftSide.length; i++) {
+                    if(i == solutionIndex)
+                        leftSide[i] = new Value(1);
+                    else
+                        leftSide[i] = new Value(0);
+                }
+
                 CanonicalLPP lppCopy = originalLPP;
                 RestrictionType rtt = RestrictionType.GreaterOrEqualThan;
                 lppCopy.restrictions.add(new Restriction(leftSide, newValueGraterEquals, rtt, "x"));
-
+                BBNode firstNode = new BBNode(lppCopy);
+                queue.add(firstNode);
 
                 Value newValueLessEquals = newValueGraterEquals.sub(1.0);
                 CanonicalLPP lppCopy2 = originalLPP;
+                lppCopy2.restrictions.add(new Restriction(leftSide, newValueLessEquals, rtt, "x"));
+                BBNode secondNode = new BBNode(lppCopy2);
+                queue.add(secondNode);
 
             }
         }
 
-//        BBNode firstNode = new BBNode(originalLPP, resultFirstNode);
-//
-//        queue.add(firstNode);
-//        LPPSolver lppSolver = new LPPSolver();
-//        while( ! queue.isEmpty()) {
-//            BBNode node = queue.remove();
-//            Result result = lppSolver.solve(node.lpp);
-//            if(){
-//
-//            }
-//        }
+
+        while( ! queue.isEmpty()) {
+            BBNode node = queue.remove();
+            Result result = lppSolver.solve(node.lpp);
+        }
         return null;
     }
 
