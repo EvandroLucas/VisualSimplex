@@ -8,7 +8,6 @@ import lpp.Solver;
 import numbers.Value;
 import simplex.result.Result;
 
-import java.util.Arrays;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -19,6 +18,7 @@ public class BBSolver implements Solver {
     public Result solve(CanonicalLPP originalLPP) {
 
         LPPSolver lppSolver = new LPPSolver();
+
 
         Result originalResult = lppSolver.solve(originalLPP);
 
@@ -38,14 +38,15 @@ public class BBSolver implements Solver {
                         leftSide[i] = new Value(0);
                 }
 
-                CanonicalLPP lppCopy = originalLPP;
+                CanonicalLPP lppCopy = new CanonicalLPP(originalLPP);
                 RestrictionType rtt = RestrictionType.GreaterOrEqualThan;
                 lppCopy.restrictions.add(new Restriction(leftSide, newValueGraterEquals, rtt, "x"));
                 BBNode firstNode = new BBNode(lppCopy);
                 queue.add(firstNode);
 
+                CanonicalLPP lppCopy2 = new CanonicalLPP(originalLPP);
+                rtt = RestrictionType.LessOrEqualThan;
                 Value newValueLessEquals = newValueGraterEquals.sub(1.0);
-                CanonicalLPP lppCopy2 = originalLPP;
                 lppCopy2.restrictions.add(new Restriction(leftSide, newValueLessEquals, rtt, "x"));
                 BBNode secondNode = new BBNode(lppCopy2);
                 queue.add(secondNode);

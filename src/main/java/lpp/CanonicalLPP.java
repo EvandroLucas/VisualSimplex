@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
-public class CanonicalLPP extends LPP{
+public class CanonicalLPP extends LPP implements Cloneable{
 
 
     // This constructor must do the conversion
@@ -140,6 +140,5 @@ public class CanonicalLPP extends LPP{
 
         return new Tableau(A,true);
     }
-
 
 }
