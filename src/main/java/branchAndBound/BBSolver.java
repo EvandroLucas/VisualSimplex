@@ -38,17 +38,17 @@ public class BBSolver implements Solver {
                 }
 
                 CanonicalLPP lppCopy = new CanonicalLPP(originalLPP);
-                lppCopy = new CanonicalLPP(lppCopy);
                 RestrictionType rtt = RestrictionType.GreaterOrEqualThan;
                 lppCopy.restrictions.add(new Restriction(leftSide, newValueGraterEquals, rtt, "x"));
+                lppCopy = new CanonicalLPP(lppCopy);
                 BBNode firstNode = new BBNode(lppCopy);
                 queue.add(firstNode);
 
                 CanonicalLPP lppCopy2 = new CanonicalLPP(originalLPP);
-                lppCopy2 = new CanonicalLPP(lppCopy2);
                 rtt = RestrictionType.LessOrEqualThan;
                 Value newValueLessEquals = newValueGraterEquals.sub(1.0);
                 lppCopy2.restrictions.add(new Restriction(leftSide, newValueLessEquals, rtt, "x"));
+                lppCopy2 = new CanonicalLPP(lppCopy2);
                 BBNode secondNode = new BBNode(lppCopy2);
                 queue.add(secondNode);
 
@@ -107,6 +107,7 @@ public class BBSolver implements Solver {
                                     CanonicalLPP lppCopy = new CanonicalLPP(node.lpp);
                                     RestrictionType rtt = RestrictionType.GreaterOrEqualThan;
                                     lppCopy.restrictions.add(new Restriction(leftSide, newValueGraterEquals, rtt, "x"));
+                                    lppCopy = new CanonicalLPP(lppCopy);
                                     BBNode firstNode = new BBNode(lppCopy);
                                     queue.add(firstNode);
 
@@ -114,6 +115,7 @@ public class BBSolver implements Solver {
                                     rtt = RestrictionType.LessOrEqualThan;
                                     Value newValueLessEquals = newValueGraterEquals.sub(1.0);
                                     lppCopy2.restrictions.add(new Restriction(leftSide, newValueLessEquals, rtt, "x"));
+                                    lppCopy2 = new CanonicalLPP(lppCopy2);
                                     BBNode secondNode = new BBNode(lppCopy2);
                                     queue.add(secondNode);
 

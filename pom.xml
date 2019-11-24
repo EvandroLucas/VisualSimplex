@@ -28,7 +28,7 @@
                     <archive>
                         <manifest>
                             <!-- Jar file entry point -->
-                            <mainClass>app.LPPMain</mainClass>
+                            <mainClass>app.BBMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
