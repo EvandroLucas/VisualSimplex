@@ -9,6 +9,7 @@ import print.CustomPrinter;
 import simplex.Tableau;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 public class BBMain {
@@ -17,8 +18,22 @@ public class BBMain {
         try {
             // Find the file
             String inputFileName;
+            String outputFileName;
             File inputFile;
-            inputFileName = "lppInput/simpleInput.txt";
+            File outputFile;
+
+
+            if(args.length == 0 ) {
+                inputFileName = "lppInput/lectureNotesSample.txt";
+                Logger.println("info", "Loading file : " + inputFileName);
+                outputFile = new File(Paths.get("target/out", "results.txt").toUri());
+            }
+            else{
+                inputFileName = args[0];
+                outputFileName = args[1];
+                outputFile = new File(outputFileName);
+            }
+
             Logger.println("info", "Loading file : " + inputFileName);
             ClassLoader classLoader = ClassLoader.getSystemClassLoader();
             inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName)).getFile());
