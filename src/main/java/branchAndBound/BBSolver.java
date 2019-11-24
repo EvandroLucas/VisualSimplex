@@ -3,6 +3,7 @@ package branchAndBound;
 import app.LPPSolver;
 import lpp.CanonicalLPP;
 import lpp.Solver;
+import numbers.Value;
 import simplex.result.Result;
 
 import java.util.Queue;
@@ -19,9 +20,17 @@ public class BBSolver implements Solver {
         CanonicalLPP originalLPPCopy = originalLPP;
 
         Result resultFirstNode = lppSolver.solve(originalLPP);
-        BBNode firstNode = new BBNode(originalLPP, resultFirstNode);
 
-        queue.add(firstNode);
+        for(Value value : resultFirstNode.getSolution()) {
+            if(!value.isInteger()) {
+                Value newValueGraterEquals = value.roundUp();
+                Value newValueLessEquals = newValueGraterEquals.sub(1.0);
+            }
+        }
+
+//        BBNode firstNode = new BBNode(originalLPP, resultFirstNode);
+//
+//        queue.add(firstNode);
 //        LPPSolver lppSolver = new LPPSolver();
 //        while( ! queue.isEmpty()) {
 //            BBNode node = queue.remove();

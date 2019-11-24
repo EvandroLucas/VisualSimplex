@@ -25,6 +25,7 @@ public class Result {
 
     public Result(Simplex simplex){
         objValue = simplex.tableau.z;
+        solution = simplex.tableau.solution;
     }
     public Result(Result result){
         this.objValue = new Value(result.objValue);
@@ -46,4 +47,11 @@ public class Result {
         return true;
     }
 
+    public Value getObjValue() {
+        return objValue;
+    }
+
+    public Value[] getSolution() {
+        return solution;
+    }
 }

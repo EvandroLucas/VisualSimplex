@@ -65,6 +65,10 @@ public class Value{
 
     }
 
+    public Value roundUp() {
+        return(new Value(Math.ceil(this.value)));
+    }
+
     public Value add(Integer value) {
         return add(new Value(value));
     }
