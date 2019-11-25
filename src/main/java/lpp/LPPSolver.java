@@ -1,4 +1,4 @@
-package app;
+package lpp;
 
 import logging.Logger;
 import logging.LoggerProvider;

@@ -1,12 +1,12 @@
 package app;
 
 import branchAndBound.BBSolver;
-import branchAndBound.BBSolverV2;
 import logging.Logger;
 import logging.LoggerProvider;
 import lpp.CanonicalLPP;
 import lpp.LPP;
 import lpp.LPPReader;
+import lpp.LPPSolver;
 import print.CustomPrinter;
 import simplex.Tableau;
 import simplex.result.Result;
@@ -35,16 +35,16 @@ public class BBMain {
                 //inputFileName = "input/aux/input4.txt";
                 logger.println("info", "Loading file : " + inputFileName);
                 outputFile = new File(Paths.get("target/out", "results.txt").toUri());
+                ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+                inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName)).getFile());
             }
             else{
                 inputFileName = args[0];
                 outputFileName = args[1];
+                inputFile = new File(inputFileName);
                 outputFile = new File(outputFileName);
             }
 
-            logger.println("info", "Loading file : " + inputFileName);
-            ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-            inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName)).getFile());
             // Read and parse the file content
             LPPReader lppReader = new LPPReader();
             LPP lpp = lppReader.readFromFile(inputFile);
@@ -66,7 +66,7 @@ public class BBMain {
                 logger.println("Info","Solving Integer LPP");
                 LoggerProvider.getInstance().disable("Simplex");
                 LoggerProvider.getInstance().disable("LPPSolver");
-                BBSolverV2 bbSolver = new BBSolverV2();
+                BBSolver bbSolver = new BBSolver();
                 bbSolver.hideOutput();
                 Result result = bbSolver.solve(lpp2);
                 logger.println("info","Final Result: " + result);
