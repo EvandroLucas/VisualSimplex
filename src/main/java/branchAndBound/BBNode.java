@@ -6,11 +6,11 @@ import simplex.result.Result;
 public class BBNode implements Comparable<BBNode>{
 
     public CanonicalLPP lpp;
-    public Result result;
+    public String name = "";
 
-    public BBNode(CanonicalLPP lpp) {
+    public BBNode(String name, CanonicalLPP lpp) {
         this.lpp = new CanonicalLPP(lpp);
-//        this.result = new Result(result);
+        this.name = name;
     }
 
     @Override

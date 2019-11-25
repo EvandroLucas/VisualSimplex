@@ -12,7 +12,7 @@ public class AuxOptTest {
 
         /*String fileName = "input/input4.txt";
 
-        Logger.println("info","Loading file : " + fileName);
+        logger.println("info","Loading file : " + fileName);
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
 

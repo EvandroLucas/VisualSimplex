@@ -1,6 +1,7 @@
 package app;
 
 import logging.Logger;
+import logging.LoggerProvider;
 import lpp.CanonicalLPP;
 import lpp.RestrictionType;
 import lpp.Solver;
@@ -11,6 +12,9 @@ import simplex.result.Result;
 
 
 public class LPPSolver implements Solver {
+
+    private boolean hide = false;
+    private Logger logger = LoggerProvider.getInstance().provide("LPPSolver");
 
     public Result solve(CanonicalLPP lpp){
 
@@ -25,27 +29,35 @@ public class LPPSolver implements Solver {
         }
 
         Simplex simplex;
-        Logger.println("info","Checking simplex type");
+        logger.println("info","Checking simplex type");
         if (canRunDual(c,b)){
-            Logger.println("info","Will run the dual simplex method");
+            logger.println("info","Will run the dual simplex method");
             simplex = new DualSimplex(lpp.getTableau());
         }
         else if (canRunPrimal(c,b)){
-            Logger.println("info","Will run the primal simplex method");
+            logger.println("info","Will run the primal simplex method");
             simplex = new PrimalSimplex(lpp.getTableau());
         }
         else if (canRunAux()){
-            Logger.println("info","Will run the auxiliar simplex method");
+            logger.println("info","Will run the auxiliar simplex method");
             simplex = new AuxSimplex(lpp.getTableau());
         }
         else {
-            Logger.println("severe","Simplex denied");
+            logger.println("severe","Simplex denied");
             simplex = null;
             System.exit(1);
         }
-        Logger.println("info","Ready to run");
+        logger.println("info","Ready to run");
+        if(hide) {
+            simplex.hideOutput();
+        }
         simplex.run();
         return new Result(simplex);
+    }
+
+    @Override
+    public void hideOutput() {
+        hide = true;
     }
 
     private boolean canRunDual(Value[] c, Value[] b ){

@@ -19,7 +19,7 @@ public class Main {
 
             if(args.length == 0 ) {
                 inputFileName = "input/input.txt";
-                Logger.println("info", "Loading file : " + inputFileName);
+                logger.println("info", "Loading file : " + inputFileName);
                 ClassLoader classLoader = ClassLoader.getSystemClassLoader();
                 inputFile = new File(classLoader.getResource(inputFileName).getFile());
                 outputFile = new File(Paths.get("target/out", "results.txt").toUri());

@@ -19,8 +19,6 @@ public class PrimalSimplex extends Simplex{
                 value.assign(value.mult(-1));
             }
         }
-        printer.setDesc("Primal simplex to solve");
-        printThisTableau();
     }
 
     public PrimalSimplex(Value[][] tableauInput) {
@@ -29,21 +27,21 @@ public class PrimalSimplex extends Simplex{
         for (Value value : tableau.c) {
             value.assign(value.mult(-1));
         }
-        printer.setDesc("Primal simplex to solve");
-        printThisTableau();
     }
 
 
     @Override
     public void run() {
-        Logger.println("info", "Running primal simplex");
+        logger.println("info", "Running primal simplex");
+        printer.setDesc("Primal simplex to solve");
+        printThisTableau();
 
 
         while (!done) {
             updatePivotColumn();
             if (done) {
                 //nesse caso, o simplex  eh  viavel e limitado
-                Logger.println("info", "Simplex done");
+                logger.println("info", "Simplex done");
                 isOptimal = true;
                 tableau.round();
                 printOptStatus(tableau);
@@ -53,7 +51,7 @@ public class PrimalSimplex extends Simplex{
             if (done) {
                 //um valor negativo retornado indica que nao foi encontrada
                 //nesse caso, o simplex  eh  ilimitado
-                Logger.println("warning", "Simplex Unbounded: no positive ratio found");
+                logger.println("warning", "Simplex Unbounded: no positive ratio found");
                 done = true;
                 isUnbounded = true;
                 tableau.round();
@@ -71,7 +69,7 @@ public class PrimalSimplex extends Simplex{
 
     @Override
     protected void updatePivotRow(){
-        Logger.println("debug","Updating pivot row");
+        logger.println("debug","Updating pivot row");
         tableau.pivotRowIndex = 0;
         boolean first = false;
         boolean foundPositive = false;
@@ -81,20 +79,20 @@ public class PrimalSimplex extends Simplex{
         for(int i=0;i<tableau.A.length;i++){
             ratio.num.assign(tableau.b[i]);
             ratio.den.assign(tableau.A[i][tableau.pivotColumnIndex]);
-            Logger.println("debug","Lendo num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
+            logger.println("debug","Lendo num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
 
             if((ratio.num.isZero()) && (ratio.den.isPositive())){ //regra de bland
-                Logger.println("debug","   - Achou por regra de bland");
+                logger.println("debug","   - Achou por regra de bland");
                 tableau.pivotRowIndex = i;
             }
             if( (ratio.den.isPositive()) && (ratio.num.isPositive()) ){ //se o denominador e o numerador forem positivos, testamos
                 ratio.val = ratio.num.div(ratio.den);
                 ratio.val.round();
-                Logger.println("debug" , ", valor = " + ratio.val.doubleValue() );
+                logger.println("debug" , ", valor = " + ratio.val.doubleValue() );
                 //como convencao, a primeira ratio valida sera a minima
                 //para o resto, a menor ratio positiva eh o que queremos
                 if((ratio.val.isSmallerThan(ratioMin.val)) || (!first)){
-                    Logger.println("debug" , "- Achou minima ratio positiva: " +
+                    logger.println("debug" , "- Achou minima ratio positiva: " +
                             "num = "+ratio.num.doubleValue() +
                             ", den= "+ ratio.den.doubleValue() +
                             ", valor = "+ ratio.val.doubleValue());
@@ -112,12 +110,12 @@ public class PrimalSimplex extends Simplex{
             tableau.problematicColumnIndex = tableau.pivotColumnIndex;
             done = true;
         }
-        Logger.println("debug","Pivot row updated to: " + tableau.pivotRowIndex);
+        logger.println("debug","Pivot row updated to: " + tableau.pivotRowIndex);
         printer.setPivotalRow(tableau.pivotRowIndex);
     }
     @Override
     protected void updatePivotColumn(){
-        Logger.println("debug","Updating pivot column");
+        logger.println("debug","Updating pivot column");
         tableau.pivotColumnIndex = 0;
         for(int i=0;i<tableau.c.length;i++)
             if(tableau.c[i].isSmallerThan(tableau.c[tableau.pivotColumnIndex]))
@@ -129,7 +127,7 @@ public class PrimalSimplex extends Simplex{
             this.done = true;
         }
         else {
-            Logger.println("debug", "Pivot column updated to: " + tableau.pivotColumnIndex + " with c[pc] = " + tableau.c[tableau.pivotColumnIndex]);
+            logger.println("debug", "Pivot column updated to: " + tableau.pivotColumnIndex + " with c[pc] = " + tableau.c[tableau.pivotColumnIndex]);
             printer.setPivotalColumn(tableau.pivotColumnIndex);
         }
     }

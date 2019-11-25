@@ -7,13 +7,14 @@ package lpp;
 
 
 import logging.Logger;
+import logging.LoggerProvider;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class LPPRestrictionParser {
 
-
+    private Logger logger = LoggerProvider.getInstance().provide("LPPRestrictionParser");
     private static final RestrictionMatch[][] combinations = new RestrictionMatch[25][3];
     static {
 
@@ -72,7 +73,7 @@ public class LPPRestrictionParser {
 
 
     public RestrictionMatch check (VariableRestriction rt1, VariableRestriction rt2){
-        Logger.println("debug","Checking restrictions " + rt1 + " and " + rt2);
+        logger.println("debug","Checking restrictions " + rt1 + " and " + rt2);
         boolean canCompare = false;
         // First we check if it even make sense to compare those two.
         //If they are the same, of course we can compare them, e.g : e.g : x1 < 0 and x1 < 1
@@ -98,10 +99,10 @@ public class LPPRestrictionParser {
             else if(rt1.getRight().isGreaterThan(rt2.getRight())){
                 column = 2;
             }
-            Logger.println("debug","Returning " + combinations[row][column]);
+            logger.println("debug","Returning " + combinations[row][column]);
             return combinations[row][column];
         }
-        Logger.println("debug","Returning " + RestrictionMatch.IRRELEVANT);
+        logger.println("debug","Returning " + RestrictionMatch.IRRELEVANT);
         return RestrictionMatch.IRRELEVANT;
     }
 

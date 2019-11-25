@@ -2,6 +2,7 @@ package simplex.result;
 
 import lpp.ResultType;
 import numbers.Value;
+import print.ArrayPrinter;
 import simplex.Simplex;
 
 /*
@@ -24,7 +25,12 @@ public class Result {
     private ResultType resultType;       // We use it to avoid any instanceof command on child classes
 
     public Result(){
-
+        objValue = new Value(0);
+        resultType = ResultType.UNKNOWN;
+        this.solution = new Value[0];
+        this.certOpt =  new Value[0];
+        this.certUnb =  new Value[0];
+        this.certInf =  new Value[0];
     }
 
     public Result(Simplex simplex){
@@ -33,6 +39,9 @@ public class Result {
         certOpt = simplex.tableau.certOpt;
         certInf = simplex.tableau.certInf;
         certUnb = simplex.tableau.certUnb;
+        if(simplex.isInfeasible) resultType = ResultType.INFEASIBLE;
+        if(simplex.isUnbounded) resultType = ResultType.UNBOUNDED;
+        if(simplex.isOptimal) resultType = ResultType.OPTIMAL;
     }
     public Result(Result result){
         this.objValue = new Value(result.objValue);
@@ -60,5 +69,17 @@ public class Result {
 
     public Value[] getSolution() {
         return solution;
+    }
+
+    public ResultType getResultType(){
+        return resultType;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Result: (" + resultType + ")" +
+                "\n ----ObjValue: " + objValue
+                + "\n ----Solution: " + ArrayPrinter.getPrint(solution);
     }
 }

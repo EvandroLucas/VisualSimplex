@@ -1,8 +1,11 @@
 package numbers;
 
 import logging.Logger;
+import logging.LoggerProvider;
 
 public class Value{
+
+    private Logger logger = LoggerProvider.getInstance().provide("Value");
 
     private Double value;
 
@@ -58,15 +61,11 @@ public class Value{
                 this.value = Math.floor(this.value);
             }
         }
-        if((this.value < 0.0009) && (this.value > -0.000009)){
+        if((this.value < 0.000009) && (this.value > -0.000009)){
             this.value = 0.0000;
         }
         this.value = this.value + 0.0;
 
-    }
-
-    public Value roundUp() {
-        return(new Value(Math.ceil(this.value)));
     }
 
     public Value add(Integer value) {
@@ -117,7 +116,7 @@ public class Value{
 
     public Value div(Value value) {
         if(value.isZero()){
-            Logger.println("error","Division by zero!!!!");
+            logger.println("error","Division by zero!!!!");
             System.exit(1);
         }
         return new Value(this.value/value.doubleValue());
@@ -159,17 +158,21 @@ public class Value{
         Double d = v.doubleValue();
         return (d == Math.floor(d)) && !Double.isInfinite(d);
     }
+    public boolean isNotInteger(){
+        return ! isInteger();
+    }
 
     public boolean isSmallerThan(Value v){
         return (this.doubleValue() < v.doubleValue());
     }
-    public boolean isSmallerEqualsThan(Value v){ return (this.doubleValue() <= v.doubleValue()); }
+    public boolean isSmallerOrEqualsThan(Value v){ return (this.doubleValue() <= v.doubleValue()); }
     public boolean isGreaterThan(Value v){
         return (this.doubleValue() > v.doubleValue());
     }
-    public boolean isGreaterEqualsThan(Value v){
+    public boolean isGreaterOrEqualsThan(Value v){
         return (this.doubleValue() >= v.doubleValue());
     }
+
     public boolean isEqualTo(Value v){
         return (this.doubleValue().equals(v.doubleValue()));
     }

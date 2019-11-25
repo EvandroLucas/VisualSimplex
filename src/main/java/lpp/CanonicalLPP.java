@@ -11,6 +11,7 @@ package lpp;
 * */
 
 import logging.Logger;
+import logging.LoggerProvider;
 import numbers.Value;
 import simplex.Tableau;
 
@@ -20,13 +21,29 @@ import java.util.LinkedHashSet;
 
 public class CanonicalLPP extends LPP implements Cloneable{
 
-
     // This constructor must do the conversion
     public CanonicalLPP(LPP lpp){
         super(lpp);
         if (lpp.problemType.equals(ProblemType.MIN)) {
             this.objFunction = new ArrayList<>();
             for (Component cp : lpp.objFunction) {
+                Component cp2 = new Component(cp);
+                cp2.setMultiplier(cp2.getMultiplier().mult(-1));
+                this.objFunction.add(cp2);
+            }
+            problemType = ProblemType.MAX;
+        }
+        update();
+    }
+
+    public CanonicalLPP(CanonicalLPP lpp){
+        super(lpp);
+    }
+
+
+    private void update(){
+        if (problemType.equals(ProblemType.MIN)) {
+            for (Component cp : this.objFunction) {
                 Component cp2 = new Component(cp);
                 cp2.setMultiplier(cp2.getMultiplier().mult(-1));
                 this.objFunction.add(cp2);
@@ -45,8 +62,13 @@ public class CanonicalLPP extends LPP implements Cloneable{
         updateRestrictions();
     }
 
-    public CanonicalLPP(CanonicalLPP lpp){
-        super(lpp);
+    public void addRestriction(Restriction rt){
+        parseRestriction(rt);
+        updateRestrictions();
+    }
+    public void addRestriction(VariableRestriction vrt){
+        parseRestriction(vrt);
+        updateRestrictions();
     }
 
     private void parseRestriction(Restriction rt){
@@ -79,12 +101,15 @@ public class CanonicalLPP extends LPP implements Cloneable{
     // Returns true if restriction can be deleted
     private boolean parseRestriction(VariableRestriction vrt){
 
-        // The only exception for the canonical would be the x <= 0 restriction
+        // The only exception for the canonical would be the x >= 0 restriction
         // For now, let's assume  that every broad restriction follows this rules
         //TODO: let it be whatever it wants
         if(vrt.isBroad()){
+            if((vrt.getRight().isEqualTo(0) && vrt.getRtt().equals(RestrictionType.GreaterOrEqualThan))){
+                return true;
+            }
             if (!(vrt.getRight().isEqualTo(0) && vrt.getGroup().equals(mainGroup) && vrt.getRtt().equals(RestrictionType.LessOrEqualThan))){
-                Logger.println("error","Forbidden restriction: " + vrt);
+                logger.println("error","Forbidden restriction: " + vrt);
                 System.exit(1);
             }
             return false;
@@ -98,10 +123,11 @@ public class CanonicalLPP extends LPP implements Cloneable{
             // We first generate an equivalent component and conflict it with the right side
             // This component will be the only element of an component-arraylist, which will be populated lately
             LinkedHashSet<Component> components = new LinkedHashSet<>();
-            System.out.println("Adding: " + new Component(vrt.getGroup(),vrt.getIndex(),vrt.getMultiplier()));
+            logger.println("info","Adding vrt : " + vrt);
             components.add( new Component(vrt.getGroup(),vrt.getIndex(),vrt.getMultiplier()));
             Restriction rt = new Restriction(components,vrt.getRight(),vrt.getRtt());
-            System.out.println("New restriction: " + rt);
+            parseRestriction(rt);
+            logger.println("info","New restriction: " + rt);
             restrictions.add(rt);
             return true;
         }
@@ -129,7 +155,6 @@ public class CanonicalLPP extends LPP implements Cloneable{
 
         for (int i = 1; i <= restrictions.size(); i++) {
             Restriction rt = restrictions.get(i-1);
-            System.out.println("Looking at: " + rt);
             int j = 0;
             for(Component component : rt.components){
                 A[i][j] = component.getMultiplier();

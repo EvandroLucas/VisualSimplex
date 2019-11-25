@@ -10,7 +10,7 @@ public class DualOptTest {
 
     public static void main(String args[]) {
        /* String fileName = "input/dual/inputDualOtima.txt";
-        Logger.println("info", "Loading file : " + fileName);
+        logger.println("info", "Loading file : " + fileName);
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         File file = new File(classLoader.getResource(fileName).getFile());
 
@@ -18,7 +18,7 @@ public class DualOptTest {
         lPPSolver.readFromFile(file);
         lPPSolver.solve();
 
-        Logger.println("info", "Resultado esperado: -20");
+        logger.println("info", "Resultado esperado: -20");
         */
     }
 

@@ -19,8 +19,6 @@ public class DualSimplex extends Simplex{
                 value.assign(value.mult(-1));
             }
         }
-        printer.setDesc("Dual simplex to solve");
-        printThisTableau();
     }
 
     public DualSimplex(Value[][] tableauInput) {
@@ -33,7 +31,9 @@ public class DualSimplex extends Simplex{
 
     @Override
     public void run(){
-        Logger.println("info","Running dual simplex");
+        logger.println("info","Running dual simplex");
+        printer.setDesc("Dual simplex to solve");
+        printThisTableau();
 
         printer.setDesc("Before anything, we invert the signs on C");
         printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
@@ -42,7 +42,7 @@ public class DualSimplex extends Simplex{
             updatePivotRow();
             if(done){
                 //nesse caso, o simplex  eh  viavel e limitado
-                Logger.println("info","Simplex ready");
+                logger.println("info","Simplex ready");
                 isOptimal = true;
                 tableau.round();
                 printOptStatus(tableau);
@@ -50,7 +50,7 @@ public class DualSimplex extends Simplex{
             }
             updatePivotColumn();
             if(done){
-                Logger.println("warning","Simplex Unbounded: no negative ratio was found");
+                logger.println("warning","Simplex Unbounded: no negative ratio was found");
                 isUnbounded = true;
                 tableau.round();
                 printUnbStatus(tableau);
@@ -68,7 +68,7 @@ public class DualSimplex extends Simplex{
 
     @Override
     protected void updatePivotColumn() {
-        Logger.println("debug","Updating pivot collumn");
+        logger.println("debug","Updating pivot collumn");
         tableau.pivotColumnIndex = 0;
         boolean first = false;
         boolean foundNegative = false;
@@ -78,20 +78,20 @@ public class DualSimplex extends Simplex{
         for(int i=0;i<tableau.A[0].length;i++){
             ratio.num.assign(tableau.c[i]);
             ratio.den.assign(tableau.A[tableau.pivotRowIndex][i]);
-            Logger.println("debug","Reading num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
+            logger.println("debug","Reading num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
 
             if((ratio.num.isZero()) && (ratio.den.isNegative())){ //regra de bland
-                Logger.println("debug","   - Decided by Bland's rule");
+                logger.println("debug","   - Decided by Bland's rule");
                 tableau.pivotColumnIndex = i;
             }
             if( (ratio.den.isNegative()) && (ratio.num.isPositive()) ){ //se o denominador e o numerador forem positivos, testamos
                 ratio.val = ratio.num.div(ratio.den);
                 ratio.val.round();
-                Logger.println("debug" , ", value = " + ratio.val.doubleValue() );
+                logger.println("debug" , ", value = " + ratio.val.doubleValue() );
                 //como convencao, a primeira ratio valida sera a minima
                 //para o resto, a maior ratio negativa eh o que queremos
                 if((ratio.val.isGreaterThan(ratioMin.val)) || (!first)){
-                    Logger.println("debug" , "- Found the greatest negative ratio on column ("+i+"): " +
+                    logger.println("debug" , "- Found the greatest negative ratio on column ("+i+"): " +
                             "num = "+ratio.num.doubleValue() +
                             ", den= "+ ratio.den.doubleValue() +
                             ", valor = "+ ratio.val.doubleValue());
@@ -106,18 +106,18 @@ public class DualSimplex extends Simplex{
             }
         }
         if(!foundNegative){
-            Logger.println("warning" , "Is unbounded");
+            logger.println("warning" , "Is unbounded");
             done = true;
         }
         else {
             printer.setPivotalColumn(tableau.pivotColumnIndex);
-            Logger.println("debug", "Pivot column updated to: " + tableau.pivotColumnIndex + " with c[pc] = " + tableau.c[tableau.pivotRowIndex]);
+            logger.println("debug", "Pivot column updated to: " + tableau.pivotColumnIndex + " with c[pc] = " + tableau.c[tableau.pivotRowIndex]);
         }
     }
 
     @Override
     protected void updatePivotRow(){
-        Logger.println("debug","Updating pivot row");
+        logger.println("debug","Updating pivot row");
         tableau.pivotRowIndex = 0;
         for(int i=0;i<tableau.b.length;i++)
             if(tableau.b[i].isSmallerThan(tableau.b[tableau.pivotRowIndex]))
@@ -128,7 +128,7 @@ public class DualSimplex extends Simplex{
             tableau.pivotRowIndex = -2;
         }
         else {
-            Logger.println("debug", "Pivot row updated to: " + tableau.pivotRowIndex + " with b[pr] = " + tableau.b[tableau.pivotRowIndex]);
+            logger.println("debug", "Pivot row updated to: " + tableau.pivotRowIndex + " with b[pr] = " + tableau.b[tableau.pivotRowIndex]);
             printer.setPivotalRow(tableau.pivotRowIndex);
         }
     }

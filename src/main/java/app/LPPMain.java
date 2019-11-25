@@ -1,12 +1,15 @@
 package app;
 
-import branchAndBound.BBSolver;
+
+import branchAndBound.BBSolverV2;
 import logging.Logger;
+import logging.LoggerProvider;
 import lpp.CanonicalLPP;
 import lpp.LPP;
 import lpp.LPPReader;
 import print.CustomPrinter;
 import simplex.Tableau;
+import simplex.result.Result;
 
 import java.io.File;
 import java.util.Objects;
@@ -15,11 +18,12 @@ public class LPPMain {
 
     public static void main(String[] args) {
         try {
+             Logger logger = LoggerProvider.getInstance().provide("Main");
             // Find the file
             String inputFileName;
             File inputFile;
             inputFileName = "lppInput/simpleInput.txt";
-            Logger.println("info", "Loading file : " + inputFileName);
+            logger.println("info", "Loading file : " + inputFileName);
             ClassLoader classLoader = ClassLoader.getSystemClassLoader();
             inputFile = new File(Objects.requireNonNull(classLoader.getResource(inputFileName)).getFile());
             // Read and parse the file content
@@ -33,16 +37,18 @@ public class LPPMain {
             Tableau tableau = lpp2.getTableau();
             CustomPrinter printer = new CustomPrinter();
             printer.printTableau(tableau);
-            // Solve, just to see...
+            // Solve
             LPPSolver lppSolver = new LPPSolver();
             if(lppSolver.canSolve(lpp2)) {
-                Logger.println("Info","Solving normal LPP");
+                logger.println("Info","Solving normal LPP");
                 lppSolver.solve(lpp2);
             }
             else {
-                Logger.println("Info","Solving Integer LPP");
-                BBSolver bbSolver = new BBSolver();
-                bbSolver.solve(lpp2);
+                logger.println("Info","Solving Integer LPP");
+                BBSolverV2 bbSolver = new BBSolverV2();
+                bbSolver.hideOutput();
+                Result result = bbSolver.solve(lpp2);
+                System.out.println("Result: " + result);
             }
 
         } catch (Exception e) {

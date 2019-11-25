@@ -1,6 +1,7 @@
 package print;
 
 import logging.Logger;
+import logging.LoggerProvider;
 import numbers.Value;
 import simplex.Tableau;
 
@@ -8,20 +9,10 @@ import simplex.Tableau;
 // TODO: refactor this code.
 // The idea is to separate each class to each object it prints
 
-public class CustomPrinter {
+public class CustomPrinter extends Printer{
 
-    private String desc = "";
-    private String state = "";
+    private Logger logger = LoggerProvider.getInstance().provide("CustomPrinter");
 
-    private int[] minCols;
-
-    private int numDecimals = 1;
-    private int numSeparators = 0;
-
-    private int pivotalColumn = -2;
-    private int pivotalLine = -2;
-    private int currentLine = 0;
-    private int currentCol = 0;
 
     //adding a self-destructed description
     public void setDesc(String desc){
@@ -48,7 +39,7 @@ public class CustomPrinter {
     // Simplesmente copiamos e passamos para inteiros
     public void printTableau(Value[][] A, Value[] c, Value[] b, Value z, boolean[] basis){
 
-        if(Logger.printLevel > 3) return;
+        if(logger.getLevel() > 3) return;
 
         double[][] newA = new double[A.length][A[0].length];
         double[] newc = new double[c.length];
@@ -71,7 +62,7 @@ public class CustomPrinter {
     }
 
     public void printTableau(double[][] A, double[] c, double[] b, double z, boolean[] basis){
-        if(Logger.printLevel > 3) return;
+        if(logger.getLevel() > 3) return;
         System.out.println("===========================================================================");
 
         if(!desc.equals("")) System.out.println("Desc: " + getDesc());
@@ -119,7 +110,7 @@ public class CustomPrinter {
     }
 
     public void printCert(Value[] cert){
-        if(Logger.printLevel > 3) return;
+        if(logger.getLevel() > 3) return;
         double[] toPrint = new double[cert.length];
         for(int i = 0; i < cert.length;i++){
             toPrint[i] = cert[i].doubleValue();
@@ -130,7 +121,7 @@ public class CustomPrinter {
     public void printCert(double[] cert){
         pivotalColumn = -2;
         pivotalLine = -2;
-        if(Logger.printLevel > 3) return;
+        if(logger.getLevel() > 3) return;
         System.out.println("===========================================================================");
         if(!desc.equals("")) System.out.println("Desc: " + getDesc());
         if(!state.equals("")) System.out.println("State: " + getState());
@@ -138,8 +129,8 @@ public class CustomPrinter {
         System.out.println("\n===========================================================================");
     }
 
-
-    private int smallestSpacing(double[] array){
+    @Override
+    protected int smallestSpacing(double[] array){
         int minSpacing = 2;
         boolean hasNegative = false;
         for(int i = 0; i < array.length;i++){
@@ -153,10 +144,10 @@ public class CustomPrinter {
         return minSpacing;
     }
 
-    private int spacing(int num){
+    protected int spacing(int num){
         return spacing((double) num);
     }
-    private int spacing(double num){
+    protected int spacing(double num){
         double i = Double.parseDouble((String.format("%.4f", num).replaceAll(",",".")));
         if (i == 0)
             return 1;
@@ -168,22 +159,22 @@ public class CustomPrinter {
         return (int) Math.log10(i) + 1;
     }
 
-    private void printSpacesColumn(double elem,int col){
+    protected void printSpacesColumn(double elem,int col){
         for(int i =0; i< minCols[col] - spacing(elem);i++){
             System.out.print(" ");
             //ColorPrint.printBlueBack(" ");
         }
     }
 
-    private void printElem(double elem, int line, int col){
+    protected void printElem(double elem, int line, int col){
         currentLine = line;
         currentCol = col;
         printElem(elem,this.numDecimals);
     }
-    private void printElem(double elem){
+    protected void printElem(double elem){
         printElem(elem,this.numDecimals);
     }
-    private void printElem(double elem,int precision){
+    protected void printElem(double elem,int precision){
         printSpacesColumn(elem,currentCol);
         String format;
         String toPrint;
@@ -218,7 +209,7 @@ public class CustomPrinter {
 
     }
 
-    private void printBasisElem(boolean basis){
+    protected void printBasisElem(boolean basis){
         printSpacesColumn(0.0,currentCol);
         String format = " %."+ this.numDecimals +"f";
         String sizeStr;
@@ -236,24 +227,24 @@ public class CustomPrinter {
         ColorPrint.printBlue(toPrint);
     }
 
-    private void printArray(double [] array){
+    protected void printArray(double [] array){
         printArray(array,-1);
     }
-    private void printArray(double [] array, int line){
+    protected void printArray(double [] array, int line){
         currentLine = line;
         for(int j = 0; j < array.length;j++){
             currentCol = j;
             printElem(array[j]);
         }
     }
-    private void printBasisArray(boolean [] array){
+    protected void printBasisArray(boolean [] array){
         for(int j = 0; j < array.length;j++){
             currentCol = j;
             printBasisElem(array[j]);
         }
         System.out.println();
     }
-    private void printHorizontalLine(int[] minCols){
+    protected void printHorizontalLine(int[] minCols){
         System.out.print("\n");
         for(int i = 0; i < numSeparators; i++){
             System.out.print("——");
@@ -275,11 +266,11 @@ public class CustomPrinter {
         }
         System.out.println();
     }
-    private void printSeparator(){
+    protected void printSeparator(){
         System.out.print(" │");
     }
 
-    private void setNumDecimals(int i){
+    protected void setNumDecimals(int i){
         numDecimals = i;
     }
 

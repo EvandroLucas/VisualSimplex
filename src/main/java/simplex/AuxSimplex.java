@@ -5,9 +5,11 @@ import numbers.Fraction;
 import numbers.Value;
 import print.ColorPrint;
 
+import java.util.ArrayList;
+
 public class AuxSimplex extends Simplex{
 
-    Tableau tableauAux;
+    private Tableau tableauAux;
 
     public AuxSimplex(Value[][] tableauInput) {
         super(tableauInput);
@@ -27,15 +29,31 @@ public class AuxSimplex extends Simplex{
     @Override
     public void run() {
 
-        Logger.println("info","Running aux simplex");
+        logger.println("info","Running aux simplex");
 
-        Logger.println("debug","Fixing negatives in b");
-        fixReceivedTableauSigns(tableau);
-        printer.setDesc("All positive b entries (lines multiplied by -1)");
+        logger.println("debug","Fixing negatives in b");
+        //fixReceivedTableauSigns(tableau);
+        // Found here:
+        /*https://www.math.ucla.edu/~tom/LP.pdf  (page 24)
+        * and here:
+        *
+        * https://math.stackexchange.com/questions/1137363/simplex-method-with-negative-r-h-s
+        *
+        * */
+        isInfeasible = ! pivotOnNegative(tableau);
+        if(isInfeasible){
+            logger.println("severe","Simplex is infeasible");
+            tableauAux = createAuxTableau(this.tableau);
+            printInfStatus(tableauAux);
+            tableau.certInf = tableauAux.certInf;
+            return;
+        }
+
+        printer.setDesc("Aux simplex to solve");
         printThisTableau(tableau);
 
 
-        Logger.println("debug","Creating auxiliar tableau");
+        logger.println("debug","Creating auxiliar tableau");
         //cria um tableau auxiliar e o pivoteia
         tableauAux = createAuxTableau(this.tableau);
 
@@ -43,9 +61,11 @@ public class AuxSimplex extends Simplex{
         //System.out.println("And stopping");
         //System.exit(1);
 
-        Logger.println("debug","Solving the aux using the primal");
+        logger.println("debug","Solving the aux using the primal");
         //passa-se o tableau pivoteado para o simplex
         PrimalSimplex auxPrimal = new PrimalSimplex(tableauAux,false);
+        if(hide)
+            auxPrimal.hideOutput();
         auxPrimal.run();
         auxPrimal.printer.setDesc("Solved Aux");
         auxPrimal.printThisTableau();
@@ -53,24 +73,37 @@ public class AuxSimplex extends Simplex{
         //se o tableau auxiliar tiver um valor objetivo negativo,
         //a PL original eh inviavel
         if(tableauAux.z.isNegative()){
-            Logger.println("severe","Simplex is infeasible");
             isInfeasible = true;
+        }
+        //se o tableau auxiliar tiver uma variável não-basica na base, já era
+        //a PL original eh inviavel
+        for(int i =tableauAux.numVar; i < tableauAux.c.length;i++){
+            if(tableauAux.basis[i]) {
+                //isInfeasible = true;
+                break;
+            }
+        }
+
+        if(isInfeasible){
+            logger.println("severe","Simplex is infeasible");
             printInfStatus(tableauAux);
             tableau.certInf = tableauAux.certInf;
             return;
         }
 
-        Logger.println("debug","Pivoting found basis");
+        logger.println("debug","Pivoting found basis");
         pivotAuxBasis();
 
         printer.setDesc("Original lpp with aux-pivoted-basis");
         printThisTableau(tableau);
 
-        Logger.println("debug","Running primal simplex after founding valid basis");
+        logger.println("debug","Running primal simplex after founding valid basis");
 
         tableau.pivotColumnIndex = -2;
         tableau.pivotRowIndex = -2;
         PrimalSimplex finalPrimal = new PrimalSimplex(tableau,false);
+        if(hide)
+            finalPrimal.hideOutput();
         finalPrimal.run();
 
         tableau.round();
@@ -107,6 +140,85 @@ public class AuxSimplex extends Simplex{
             }
         }
     }
+    private boolean pivotOnNegative(Tableau tableau){
+        boolean foundNegativeB = true;
+        while (foundNegativeB){
+            foundNegativeB = false;
+            for(int i = 0; i < tableau.b.length; i++) {
+                if (tableau.b[i].isNegative()) {
+                    ArrayList<Integer> marked = new ArrayList<>();
+                    foundNegativeB = true;
+                    logger.println("info","Found negative b entry on b["+i+"] : "  + tableau.b[i]);
+                    boolean foundNegativeOnRow = false;
+                    for (int j = 0; j < tableau.A[i].length; j++) {
+                        if (tableau.A[i][j].isNegative()) {
+                            marked.add(j);
+                            foundNegativeOnRow = true;
+                        }
+                    }
+                    for (Integer mark : marked){
+                        int pivotColumn = mark;
+                        int pivotRow = findPivotRow(pivotColumn,tableau);
+                        tableau.pivotColumnIndex = pivotColumn;
+                        tableau.pivotRowIndex = pivotRow;
+                        pivot(tableau,true);
+                    }
+                    if (!foundNegativeOnRow) {
+                        logger.println("info","Infeasible: no negative found on row with negative b ");
+                        return false;
+                    }
+                    break;
+                }
+                else {
+                    logger.println("info","Found positive b entry on b["+i+"] : "  + tableau.b[i]);
+                }
+            }
+        }
+        return true;
+    }
+
+    protected int findPivotRow(int problematicColumnIndex, Tableau tableau){
+        logger.println("debug","Finding pivot row");
+        int pivotRowIndex = 0;
+        boolean first = false;
+        boolean foundPositive = false;
+        Fraction ratio = new Fraction(0,1,0);
+        Fraction ratioMin = new Fraction(0,1,0);;
+
+        for(int i=0;i<tableau.A.length;i++){
+            ratio.num.assign(tableau.b[i]);
+            ratio.den.assign(tableau.A[i][problematicColumnIndex]);
+            logger.println("debug","Lendo num = " + ratio.num.doubleValue() + ", den = " + ratio.den.doubleValue());
+
+            if((ratio.num.isZero()) && (ratio.den.isPositive())){ //regra de bland
+                logger.println("debug","   - Achou por regra de bland");
+                pivotRowIndex = i;
+            }
+            if( ((ratio.den.isPositive()) && (ratio.num.isPositive())) || ((ratio.den.isNegative()) && (ratio.num.isNegative()))){ //se o denominador e o numerador forem positivos, testamos
+                ratio.val = ratio.num.div(ratio.den);
+                ratio.val.round();
+                logger.println("debug" , ", valor = " + ratio.val.doubleValue() );
+                //como convencao, a primeira ratio valida sera a minima
+                //para o resto, a menor ratio positiva eh o que queremos
+                if((ratio.val.isSmallerThan(ratioMin.val)) || (!first)){
+                    logger.println("debug" , "- Achou minima ratio positiva: " +
+                            "num = "+ratio.num.doubleValue() +
+                            ", den= "+ ratio.den.doubleValue() +
+                            ", valor = "+ ratio.val.doubleValue());
+                    pivotRowIndex = i;
+                    ratioMin.val.assign(ratio.val);
+                    ratioMin.val.round();
+                    ratioMin.num.assign(ratio.num);
+                    ratioMin.den .assign(ratio.den);
+                    if(!first) first = true;
+                }
+            }
+        }
+        logger.println("debug","Pivot row found : " + pivotRowIndex);
+        printer.setPivotalRow(pivotRowIndex);
+        return pivotRowIndex;
+    }
+
 
     private Tableau createAuxTableau(Tableau tableau){
 
@@ -121,7 +233,7 @@ public class AuxSimplex extends Simplex{
         tableauAux.pivotColumnIndex = -2;
         printThisTableau(tableauAux);
 
-        Logger.println("info", "Pivoting aux tableau");
+        logger.println("info", "Pivoting aux tableau");
 
         int pr = 0;
         for(int j=0;j<tableauAux.A[0].length;j++){
@@ -143,7 +255,7 @@ public class AuxSimplex extends Simplex{
 
     private void pivotAuxBasis(){
 
-        Logger.println("debug","Pivoting aux basis");
+        logger.println("debug","Pivoting aux basis");
 
         System.arraycopy(tableauAux.basis, 0, tableau.basis, 0, tableau.basis.length);
 

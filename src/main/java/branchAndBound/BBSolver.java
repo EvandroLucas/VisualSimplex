@@ -11,8 +11,9 @@ import simplex.result.Result;
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 
-public class BBSolver implements Solver {
-
+@Deprecated
+public class BBSolver{
+    /*
     private Queue<BBNode> queue = new PriorityBlockingQueue<>();
 
     public Result solve(CanonicalLPP originalLPP) {
@@ -137,5 +138,6 @@ public class BBSolver implements Solver {
 
         return result;
     }
+    */
 
 }

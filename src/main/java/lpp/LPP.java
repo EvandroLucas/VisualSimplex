@@ -6,12 +6,16 @@ package lpp;
 *
 * */
 
+import logging.Logger;
+import logging.LoggerProvider;
 import numbers.Value;
 import print.ColorPrint;
 
 import java.util.*;
 
 public class LPP {
+
+    protected Logger logger = LoggerProvider.getInstance().provide("LPP");
 
     public String mainGroup = "x";
     public boolean solved = true;
@@ -104,7 +108,7 @@ public class LPP {
 
 
     public void updateRestrictions(){
-
+        logger.println("debug","Checking for updates...");
         // Checking changes on restrictions
         boolean hasChanged = false;
         for(Restriction rt : restrictions){
@@ -120,9 +124,10 @@ public class LPP {
         for(Component component : objFunction){
             addVariable(component);
         }
+        hasChanged = true;
         // Updating
         if(hasChanged) {
-            System.out.println("Changes detected!");
+            logger.println("debug","Changes detected! Updating restrictions...");
             for (Restriction rt : restrictions) {
                 for (Map.Entry<String, HashSet<Integer>> entry : groups.entrySet()) {
                     String group = entry.getKey();

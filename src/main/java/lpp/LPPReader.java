@@ -1,6 +1,7 @@
 package lpp;
 
 import logging.Logger;
+import logging.LoggerProvider;
 import numbers.Value;
 import print.ColorPrint;
 
@@ -14,9 +15,9 @@ import java.util.regex.Pattern;
 
 public class LPPReader {
 
-
+    private Logger logger = LoggerProvider.getInstance().provide("LPPReader");
     public LPP readFromFile(File file) {
-        Logger.println("info","Reading data from file...");
+        logger.println("info","Reading data from file...");
 
         byte[] data = new byte[0];
         try {
@@ -76,7 +77,7 @@ public class LPPReader {
         // Find restriction on A matrix
         ArrayList<Restriction> rts = new ArrayList<>();
         while(!done && scanner.hasNextLine()){
-            pattern = Pattern.compile("^\\(([^=<>]*)\\)"+solution+"([=<>]*)([0-9.]*)");
+            pattern = Pattern.compile("^\\(([^=<>]*)\\)"+solution+"([=<>]*)([-]*[0-9.]*)");
             matcher = pattern.matcher(line);
             if (matcher.find()) {
                 strValues = matcher.group(1).split(",");
@@ -120,7 +121,7 @@ public class LPPReader {
                 strValues = matcherInterval.group(1).split(",");
                 for(String left : strValues){
                     // Pattern matching for a component : optional multiplier , group, and index
-                    Pattern componentPattern = Pattern.compile("^([0-9]*)([^0-9\\n\\r]+)([0-9]*)");
+                    Pattern componentPattern = Pattern.compile("^([-]*[0-9]*)([-]*[^0-9\\n\\r]+)([-]*[0-9]*)");
                     Matcher componentMatcher;
                     // For the left side of the equation:
                     System.out.println("Left: " + left);

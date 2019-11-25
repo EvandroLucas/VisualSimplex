@@ -2,14 +2,18 @@ package simplex;
 
 
 import logging.Logger;
+import logging.LoggerProvider;
 import numbers.Value;
 import print.CustomPrinter;
+import print.Printer;
+import print.VoidPrinter;
 
 
 public abstract class Simplex {
 
     public Tableau tableau;
 
+    public boolean hide = false;
     public boolean isOptimal = false;
     public boolean isUnbounded = false;
     public boolean isInfeasible = false;
@@ -19,26 +23,26 @@ public abstract class Simplex {
 
     protected boolean done = false;
 
-    protected CustomPrinter printer = new CustomPrinter();
+    protected Printer printer = new CustomPrinter();
+
+    protected Logger logger = LoggerProvider.getInstance().provide("Simplex");
+
+    public void hideOutput(){
+        hide = true;
+        printer = new VoidPrinter();
+    }
 
     protected Simplex (Value[][] tableauInput){
-
+        printer = new CustomPrinter();
         constraintNum = tableauInput.length-1;
         variableNum = tableauInput[0].length-1;
         tableau = new Tableau(tableauInput,true);
-        printer.setState("Setup");
-        printer.setDesc("Received simplex to solve");
-        printer.printTableau(tableau.A,tableau.c,tableau.b,tableau.z,tableau.basis);
-
     }
 
     protected Simplex (Tableau tableau){
         constraintNum = tableau.A.length;
         variableNum = tableau.A[0].length;
         this.tableau = tableau;
-        printer.setState("Setup");
-        printer.setDesc("Received simplex to solve");
-        printer.printTableau(this.tableau .A,this.tableau .c,this.tableau .b,this.tableau .z,this.tableau .basis);
     }
 
     public abstract void run();
@@ -74,7 +78,7 @@ public abstract class Simplex {
         }
 
 
-        Logger.println("info","Pivoting!");
+        logger.println("info","Pivoting!");
 
         Value pivot = new Value(); //guarda o pivot
         Value mult = new Value();  //multiplicador
@@ -96,13 +100,13 @@ public abstract class Simplex {
         }
         tableau.b[pivotRowIndex].assign(tableau.b[pivotRowIndex].div(pivot));
         if(A[pivotRowIndex][pivotColumnIndex].isNotEqualTo(1) ){ //erro!
-            Logger.println("severe","Erro no pivoteamento!");
+            logger.println("severe","Erro no pivoteamento!");
             System.exit(1);
         }
         //No for the rest
         for (int i = 0; i < tableau.A.length; i++){ // fazemos a conta com todos os elementos da matriz
             mult.assign(tableau.A[i][pivotColumnIndex]);
-            System.out.println("Mult is " + mult);
+            //System.out.println("Mult is " + mult);
             if (i != pivotRowIndex){ //ignoramos a linha pivotal, ela ja foi
                 //Para a matriz A e concatenada
                 for (int j = 0; j < tableau.A[i].length; j++){
@@ -130,8 +134,8 @@ public abstract class Simplex {
         printer.printTableau(tableau);
 
 
-        Logger.println("info","Done pivoting!");
-        //Logger.println("severe","Erro no pivoteamento!");
+        logger.println("info","Done pivoting!");
+        //logger.println("severe","Erro no pivoteamento!");
         //System.exit(1);
 
     }
