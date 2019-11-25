@@ -1,10 +1,5 @@
 package test.primal;
 
-import logging.Logger;
-
-import java.io.File;
-import app.LPPSolver;
-
 @Deprecated
 public class PrimalOptTest {
 

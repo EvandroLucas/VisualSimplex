@@ -1,10 +1,5 @@
 package test.aux;
 
-import app.LPPSolver;
-import logging.Logger;
-
-import java.io.File;
-
 @Deprecated
 public class AuxOptTest {
 
